@@ -1,7 +1,6 @@
 # Sarah Dionne
 
-## Physiothérapie pédiatrique  
-Acupuncture · Reiki
+## Physiothérapie pédiatrique <br> Acupuncture · Reiki
 
 - [info@dionne.ch](mailto:infodionne.ch)
 - [+41 78 232 99 36](tel:+41782329936)
