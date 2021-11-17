@@ -1,3 +1,5 @@
+## Présentation
+
 De nationalité Canadienne et Suisse, j’ai reçu mon diplôme de l’Université Laval au Québec (Canada), en 2010. J’ai travaillé principalement en Suisse, au CHUV, depuis l’obtention de mon diplôme. D’abord une année en neuro-réhabilitation adulte, puis cinq ans aux soins intensifs de pédiatrie/néonatalogie et finalement six ans comme physiothérapeute cadre au sein du Département femme-mère-enfant. 
 
 J’ai pu durant ces années, voir toutes les facettes de la physiothérapie pédiatrique et bien comprendre le parcours et le cheminement des familles qui traversent des épreuves de tous genres.
