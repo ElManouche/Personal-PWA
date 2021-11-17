@@ -12,33 +12,54 @@
     <![endif]-->
     {% include head-custom.html %}
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+  <body class="is-preload">
 
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
-
+    <!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<span class="image avatar">
+            {% if site.logo %}
+              <img src="{{site.logo | relative_url}}" alt="Logo" />
+            {% endif %}
+          </span>
+					<h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+          <h2>{{ site.subtitle }}</h2>
+				</div>
         <div>
-          <h2 id="physiothérapie-pédiatrique--acupuncture--reiki">Physiothérapie pédiatrique <br /> Acupuncture · Reiki</h2>
           <ul>
             <li><a href="mailto:infodionne.ch">info@dionne.ch</a></li>
             <li><a href="tel:+41782329936">+41 78 232 99 36</a></li>
             <li><a href="https://ch.linkedin.com/in/sarah-dionne-16628812b">Linkedin</a></li>
           </ul>
         </div>
-      </header>
-      <section>
-
-      {{ content }}
-
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages</a></small></p>
-      </footer>
+			</header>
+  <!-- Main -->
+			<div id="main">
+					<section id="one">{{ content }}<section>
+      </div>
+      <!-- Footer -->
+  <footer id="footer">
+    <div class="inner">
+      <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; Sarah Dionne</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>Hosted on GitHub Pages</li>
+      </ul>
     </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </footer>
+
+<!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.poptrox.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
   </body>
 </html>
