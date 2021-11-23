@@ -1462,7 +1462,7 @@ nav li {
   text-align: center;
 }
 #banner .inner:before {
-  content: "";
+  content: none;
   display: block;
   width: 100%;
   height: 300px;
