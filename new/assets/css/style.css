@@ -1428,10 +1428,10 @@ section#banner {
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: #645862;
-  background-image: url("https://sarah.dionne.ch/assets/img/logo.png"), url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
+  background-image: url("https://sarah.dionne.ch/assets/img/logo_white_02.svg"), url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
+  background-size: 90% 90%, cover;
 }
 section#banner .inner {
   color: #fff;
