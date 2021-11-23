@@ -31,13 +31,31 @@ $eq-xxl: '[min-width~="#{$screen-xxl-min}"]';
 // 5. Grid
 //----------------------------------------------------------
 $breakpoints: (
-  "xs" $mq-xs $eq-xs,
-  "s" $mq-s $eq-s,
-  "m" $mq-m $eq-m,
-  "l" $mq-l $eq-l,
-  "xl" $mq-xl $eq-xl,
-  "xxl" $mq-xxl $eq-xxl
+  "xs" $mq-xs,
+  "s" $mq-s,
+  "m" $mq-m,
+  "l" $mq-l,
+  "xl" $mq-xl,
+  "xxl" $mq-xxl
 );
+
+$breakpoints-mq: (
+  'xs': ( min-width: $screen-xs-min ),
+  's': ( min-width: $screen-s-min ),
+  'm': ( min-width: $screen-m-min ),
+  'l': ( min-width: $screen-l-min ),
+  'xl': ( min-width: $screen-xl-min ),
+  'xxl': ( min-width: $screen-xxl-min )
+);
+
+@mixin mq($breakpoint) {
+  @if map-has-key($breakpoints-mq, $breakpoint) {
+    @media #{inspect(map-get($breakpoints-mq, $breakpoint))} {
+      @content;
+    }
+  }
+}
+
 
 // New breakpoints added
 $breakpoint-has-widths: ("xs", "s", "m", "l", "xl", "xxl");
@@ -1042,34 +1060,28 @@ input#toggler {
     width: 100%;
 
     section {
-      padding: 24px 24px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 56px 24px 48px 24px;
+      @include mq(s) {
+        padding: 56px 48px;
+      }
+      @include mq(m) {
+        padding: 56px 48px;
+        margin-left: 24px;
+        margin-right: 24px;
+      }
+      @include mq(l) {
+        max-width: calc(960px - 96px);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @include mq(xl) {
+        max-width: 1024px;
+      }
+      @include mq(xxl) {
+        max-width: 1200px;
+      }
       &:nth-child(odd) {
         background-color: white;
-      }
-      &.find-me, &.join-me {
-        h2 {
-          //position: relative;
-        }
-        h2:before {
-          left: 0;
-        }
-        h2:after {
-          right: 0;
-        }
-
-        h2:before,
-        h2:after {
-          border-bottom: solid 1.5px;
-          border-top: solid 1.5px;
-          content: none;
-          height: 7px;
-          opacity: 0.1;
-          position: absolute;
-          top: 12px;
-          width: 38%;
-        }
       }
       &.join-me {
         a {
@@ -1090,7 +1102,7 @@ input#toggler {
           width: 80%;
           height: 250px;
         }
-        
+
       }
       &#banner {
         width: 100%;
@@ -1183,7 +1195,7 @@ input#toggler {
                     //height: 48px;
                     //width: 48px;
                   }
-                  @media (min-width: 576px) {
+                  @include mq(m) {
                     padding: 12px 24px;
                     span {
                       //position: absolute;
@@ -1209,26 +1221,6 @@ input#toggler {
             }
           }
         }
-      }
-
-      @media (min-width: 576px) {
-        padding: 24px 48px;
-      }
-      @media (min-width: 768px) {
-        padding: 24px 48px;
-        margin-left: 24px;
-        margin-right: 24px;
-      }
-      @media (min-width: 992px) {
-        max-width: calc(960px - 96px);
-        margin-left: auto;
-        margin-right: auto;
-      }
-      @media (min-width: 1200px) {
-        max-width: 1024px;
-      }
-      @media (min-width: 1400px) {
-        max-width: 1200px;
       }
     }
   }
@@ -1409,7 +1401,7 @@ input#toggler {
 }
 
 //* DESKTOP NAVIGATION */
-@media only screen and (min-width: 768px) {
+@include mq(m) {
   nav {
     z-index: 1;
     position: fixed;

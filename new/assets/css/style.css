@@ -1204,30 +1204,39 @@ input#toggler {
   width: 100%;
 }
 .wrapper .content section {
-  padding: 24px 24px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 56px 24px 48px 24px;
+}
+@media (min-width: 480px) {
+  .wrapper .content section {
+    padding: 56px 48px;
+  }
+}
+@media (min-width: 768px) {
+  .wrapper .content section {
+    padding: 56px 48px;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+@media (min-width: 992px) {
+  .wrapper .content section {
+    max-width: calc(960px - 96px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper .content section {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1400px) {
+  .wrapper .content section {
+    max-width: 1200px;
+  }
 }
 .wrapper .content section:nth-child(odd) {
   background-color: white;
-}
-.wrapper .content section.find-me h2:before, .wrapper .content section.join-me h2:before {
-  left: 0;
-}
-.wrapper .content section.find-me h2:after, .wrapper .content section.join-me h2:after {
-  right: 0;
-}
-.wrapper .content section.find-me h2:before,
-.wrapper .content section.find-me h2:after, .wrapper .content section.join-me h2:before,
-.wrapper .content section.join-me h2:after {
-  border-bottom: solid 1.5px;
-  border-top: solid 1.5px;
-  content: none;
-  height: 7px;
-  opacity: 0.1;
-  position: absolute;
-  top: 12px;
-  width: 38%;
 }
 .wrapper .content section.join-me a {
   text-decoration: none;
@@ -1328,7 +1337,7 @@ input#toggler {
   border-radius: 50%;
   font-size: 36px;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .wrapper .content section#banner .inner footer ul li a {
     padding: 12px 24px;
   }
@@ -1342,35 +1351,6 @@ input#toggler {
   .wrapper .content section#banner .inner footer ul li a:hover span {
     background-color: rgba(255, 255, 255, 0.125);
     outline: 1px solid white;
-  }
-}
-@media (min-width: 576px) {
-  .wrapper .content section {
-    padding: 24px 48px;
-  }
-}
-@media (min-width: 768px) {
-  .wrapper .content section {
-    padding: 24px 48px;
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-}
-@media (min-width: 992px) {
-  .wrapper .content section {
-    max-width: calc(960px - 96px);
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (min-width: 1200px) {
-  .wrapper .content section {
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1400px) {
-  .wrapper .content section {
-    max-width: 1200px;
   }
 }
 
@@ -1533,7 +1513,7 @@ nav li {
     top: -7px;
   }
 }
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   nav {
     z-index: 1;
     position: fixed;
