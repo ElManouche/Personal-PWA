@@ -1,4 +1,4 @@
-function clickHandler(e) {
+function subnavClickHandler(e) {
   const togglerEl = document.getElementById('toggler');
   const submenus = document.querySelectorAll("nav ul li ul");
 
@@ -18,9 +18,9 @@ function clickHandler(e) {
   });
 }
 function linksCloseNav() {
-  document.querySelectorAll("nav ul li a").forEach((anchor) => {
-    anchor.removeEventListener('click', clickHandler);
-    anchor.addEventListener('click', clickHandler);
+  document.querySelectorAll("nav ul li ul li a").forEach((anchor) => {
+    anchor.removeEventListener('click', subnavClickHandler);
+    anchor.addEventListener('click', subnavClickHandler);
   });
 }
 document.addEventListener("DOMContentLoaded", function(event) {

@@ -21,13 +21,6 @@ $mq-l: "(min-width: #{$screen-l-min})";
 $mq-xl: "(min-width: #{$screen-xl-min})";
 $mq-xxl: "(min-width: #{$screen-xxl-min})";
 
-$eq-xs: '[min-width~="#{$screen-xs-min}"]';
-$eq-s: '[min-width~="#{$screen-s-min}"]';
-$eq-m: '[min-width~="#{$screen-m-min}"]';
-$eq-l: '[min-width~="#{$screen-l-min}"]';
-$eq-xl: '[min-width~="#{$screen-xl-min}"]';
-$eq-xxl: '[min-width~="#{$screen-xxl-min}"]';
-
 // 5. Grid
 //----------------------------------------------------------
 $breakpoints: (
@@ -50,13 +43,14 @@ $breakpoints-mq: (
 
 @mixin mq($breakpoint) {
   @if map-has-key($breakpoints-mq, $breakpoint) {
-    @media #{inspect(map-get($breakpoints-mq, $breakpoint))} {
+    @media only screen and #{inspect(map-get($breakpoints-mq, $breakpoint))} {
       @content;
     }
   }
 }
 
-
+// CSS WIZARDRY
+body {
 // New breakpoints added
 $breakpoint-has-widths: ("xs", "s", "m", "l", "xl", "xxl");
 $breakpoint-has-push: ("xs", "s", "m", "l", "xl", "xxl");
@@ -1000,6 +994,9 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
   }
 }
 
+}
+
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 
@@ -1045,6 +1042,7 @@ input#toggler {
   display: none;
 }
 
+/* PAGE LAYOUT */
 .wrapper {
   transition: margin 0.3s ease-out;
   height: 100vh;
@@ -1103,124 +1101,6 @@ input#toggler {
           height: 250px;
         }
 
-      }
-      &#banner {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        text-align: center;
-
-        color: #fff;
-        cursor: default;
-        padding: 6em 0 6em 0;
-        text-align: center;
-
-        background-attachment: scroll, scroll;
-        background-color: #645862;
-        background-image: url("https://sarah.dionne.ch/404/assets/img/logo.png"),
-          url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
-        background-position: -12em 50px, center;
-        background-repeat: no-repeat, no-repeat;
-        background-size: 25em, cover;
-
-        .inner {
-          //background: rgba(52, 27, 43, 0.5);
-          color: #fff;
-          display: inline-block;
-          padding: 3em 3em 0 3em;
-          text-align: center;
-
-          header {
-            display: inline-block;
-            border-bottom: solid 2px;
-            border-top: solid 2px;
-            margin: 0 0 2em 0;
-            padding: 3px 0 3px 0;
-
-            h2 {
-              text-shadow: 0px 0px 10px #000000;
-              border-bottom: solid 2px;
-              border-top: solid 2px;
-              font-size: 2.5em;
-              font-weight: 900;
-              letter-spacing: 0.2em;
-              margin: 0;
-              padding-left: 0.05em;
-              position: relative;
-              text-transform: uppercase;
-              a {
-                text-decoration: none;
-                color: #fff;
-              }
-              span {
-                font-weight: 300;
-              }
-            }
-          }
-          p {
-            text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000000;
-            letter-spacing: 0.1em;
-            margin: 0;
-            text-transform: uppercase;
-          }
-          footer {
-            padding-top: 12px;
-            ul {
-              margin: o;
-              padding: 0;
-              li {
-                list-style-type: none;
-                display: inline-block;
-                &:first-child a {
-                  padding-left: 0;
-                }
-                &:last-child a {
-                  padding-right: 0;
-                }
-                a {
-                  color: rgba(255, 255, 255, 0.8);
-                  padding: 12px 18px;
-                  transition: color 0.3s ease-in-out;
-
-                  &:hover {
-                    color: rgba(255, 255, 255, 1);
-                  }
-
-                  span {
-                    //display: block;
-                    //border: 1px solid white;
-                    border-radius: 50%;
-                    //padding: 16px;
-                    font-size: 36px;
-                    //height: 48px;
-                    //width: 48px;
-                  }
-                  @include mq(m) {
-                    padding: 12px 24px;
-                    span {
-                      //position: absolute;
-                      transition: background-color 0.3s ease-in-out;
-                      border: 1px solid white;
-                      border-radius: 50%;
-                      padding: 16px;
-                      font-size: 36px;
-                    }
-                    &:hover {
-                      //transform: scale(2);
-                      //padding: 8px 8px;
-                      span {
-                        background-color: rgba(255, 255, 255, 0.125);
-                        outline: 1px solid white;
-                        //padding: 8px;
-                        //font-size: 48px;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -1295,11 +1175,11 @@ input#toggler {
     ul {
       li {
         font-size: 18px;
-        cursor: pointer;
+        // cursor: pointer;
         &:first-child a {
           border-top-width: 0px;
         }
-        a {
+        a, span {
           text-transform: uppercase;
           color: rgba(255, 255, 255, 0.75);
           border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1307,16 +1187,15 @@ input#toggler {
           text-decoration: none;
           display: block;
           font-weight: 900;
-
-          &:hover {
-            color: rgba(255, 255, 255, 1);
-          }
+        }
+        a:hover {
+          color: rgba(255, 255, 255, 1);
         }
         ul li {
-          &:first-child a {
+          &:first-child a, &:first-child span {
             border-top-width: 1px;
           }
-          a {
+          a, span {
             padding-left: 12px;
             font-weight: 300;
           }
@@ -1496,7 +1375,7 @@ input#toggler {
             display: block;
             opacity: 1;
             transform: scale(1);
-            li a {
+            li a, li span {
               background-color: white;
               color: rgba(0, 0, 0, 0.75);
               &:hover {
@@ -1505,12 +1384,12 @@ input#toggler {
               }
             }
           }
-          a {
+          a, span {
             //color: black;
             background-color: rgba(0, 0, 0, 0.05);
             outline: 1px solid rgba(255, 255, 255, 0.75);
           }
-          &.submenu a:after {
+          &.submenu a:after, &.submenu span:after {
             transform: rotate(225deg);
             margin: 0 0 0px 8px;
             border-color: black;
@@ -1519,7 +1398,7 @@ input#toggler {
         &.current {
           font-weight: 900;
         }
-        a {
+        a, span {
           text-transform: uppercase;
           display: inline-block;
           padding: 10px 16px;
@@ -1540,7 +1419,7 @@ input#toggler {
           }
         }
         &.submenu {
-          a:after {
+          a:after, span:after {
             content: "";
             border: solid $font-color;
             border-width: 0 2px 2px 0;
@@ -1564,6 +1443,119 @@ input#toggler {
     */
     .mobile-navbar {
       display: none;
+    }
+  }
+}
+
+/* HOME BANNER */
+section#banner {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+
+  color: #fff;
+  cursor: default;
+  padding: 6em 0 6em 0;
+  text-align: center;
+
+  background-attachment: scroll, scroll;
+  background-color: #645862;
+  background-image: url("https://sarah.dionne.ch/assets/img/logo.png"),
+    url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+
+  .inner {
+    //background: rgba(52, 27, 43, 0.5);
+    color: #fff;
+    display: inline-block;
+    padding: 3em 3em 0 3em;
+    text-align: center;
+
+    header {
+      display: inline-block;
+      border-bottom: solid 2px;
+      border-top: solid 2px;
+      margin: 0 0 2em 0;
+      padding: 3px 0 3px 0;
+
+      h2 {
+        text-shadow: 0px 0px 10px #000000;
+        border-bottom: solid 2px;
+        border-top: solid 2px;
+        font-size: 2.5em;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        margin: 0;
+        padding-left: 0.05em;
+        position: relative;
+        text-transform: uppercase;
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+        span {
+          font-weight: 300;
+        }
+      }
+    }
+    p {
+      text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000000;
+      letter-spacing: 0.1em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    footer {
+      padding-top: 12px;
+      ul {
+        margin: o;
+        padding: 0;
+        li {
+          list-style-type: none;
+          display: inline-block;
+
+          a {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 18px;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+              color: rgba(255, 255, 255, 1);
+            }
+
+            span {
+              border-radius: 50%;
+              font-size: 36px;
+            }
+
+            @include mq(m) {
+              padding: 12px 24px;
+              span {
+                transition: background-color 0.3s ease-in-out;
+                border: 1px solid white;
+                border-radius: 50%;
+                padding: 16px;
+                font-size: 36px;
+              }
+              &:hover {
+                span {
+                  background-color: rgba(255, 255, 255, 0.125);
+                  outline: 1px solid white;
+                }
+              }
+            }
+          }
+
+          &:first-child a {
+            padding-left: 0;
+          }
+          &:last-child a {
+            padding-right: 0;
+          }
+        }
+      }
     }
   }
 }
