@@ -1005,6 +1005,7 @@ h6 {
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
+  margin: 24px 0;
 }
 h1 span,
 h2 span,
@@ -1048,6 +1049,7 @@ input#toggler {
   width: 100%;
 }
 .wrapper .content section {
+  margin-top: 0px;
   padding: 56px 24px 48px 24px;
 }
 @media only screen and (min-width: 480px) {
@@ -1057,9 +1059,12 @@ input#toggler {
 }
 @media only screen and (min-width: 768px) {
   .wrapper .content section {
-    padding: 56px 48px;
+    padding: 56px 48px 48px 48px;
     margin-left: 24px;
     margin-right: 24px;
+  }
+  .wrapper .content section:first-of-type {
+    margin-top: 24px;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1067,6 +1072,12 @@ input#toggler {
     max-width: calc(960px - 96px);
     margin-left: auto;
     margin-right: auto;
+  }
+  .wrapper .content section h1, .wrapper .content section h2, .wrapper .content section h3 {
+    margin: 36px 0;
+  }
+  .wrapper .content section h3 {
+    margin: 48px 0 36px 0;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -1081,6 +1092,15 @@ input#toggler {
 }
 .wrapper .content section:nth-child(odd) {
   background-color: white;
+}
+.wrapper .content section.about .grid__item p:first-child {
+  margin-top: 0;
+}
+.wrapper .content section.about img {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 36px;
 }
 .wrapper .content section.join-me a {
   text-decoration: none;
@@ -1167,6 +1187,7 @@ nav li {
   }
   nav ul li a, nav ul li span {
     text-transform: uppercase;
+    user-select: none;
     color: rgba(255, 255, 255, 0.75);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 12px 0;
@@ -1361,6 +1382,7 @@ nav li {
     color: white;
   }
   nav ul li:hover a, nav ul li:hover span {
+    user-select: none;
     background-color: rgba(0, 0, 0, 0.05);
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
@@ -1417,7 +1439,7 @@ nav li {
   }
 }
 /* HOME BANNER */
-section#banner {
+#banner {
   width: 100%;
   max-width: 100%;
   margin: 0;
@@ -1428,25 +1450,36 @@ section#banner {
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: #645862;
-  background-image: url("https://sarah.dionne.ch/assets/img/logo_white_02.svg"), url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 90% 90%, cover;
+  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-section#banner .inner {
+#banner .inner {
   color: #fff;
   display: inline-block;
   padding: 3em 3em 0 3em;
   text-align: center;
 }
-section#banner .inner header {
+#banner .inner:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 24px;
+  background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#banner .inner header {
   display: inline-block;
   border-bottom: solid 2px;
   border-top: solid 2px;
   margin: 0 0 2em 0;
   padding: 3px 0 3px 0;
 }
-section#banner .inner header h2 {
+#banner .inner header h2 {
   text-shadow: 0px 0px 10px #000000;
   border-bottom: solid 2px;
   border-top: solid 2px;
@@ -1458,61 +1491,61 @@ section#banner .inner header h2 {
   position: relative;
   text-transform: uppercase;
 }
-section#banner .inner header h2 a {
+#banner .inner header h2 a {
   text-decoration: none;
   color: #fff;
 }
-section#banner .inner header h2 span {
+#banner .inner header h2 span {
   font-weight: 300;
 }
-section#banner .inner p {
+#banner .inner p {
   text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000000;
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
 }
-section#banner .inner footer {
+#banner .inner footer {
   padding-top: 12px;
 }
-section#banner .inner footer ul {
+#banner .inner footer ul {
   margin: o;
   padding: 0;
 }
-section#banner .inner footer ul li {
+#banner .inner footer ul li {
   list-style-type: none;
   display: inline-block;
 }
-section#banner .inner footer ul li a {
+#banner .inner footer ul li a {
   color: rgba(255, 255, 255, 0.8);
   padding: 12px 18px;
   transition: color 0.3s ease-in-out;
 }
-section#banner .inner footer ul li a:hover {
+#banner .inner footer ul li a:hover {
   color: white;
 }
-section#banner .inner footer ul li a span {
+#banner .inner footer ul li a span {
   border-radius: 50%;
   font-size: 36px;
 }
 @media only screen and (min-width: 768px) {
-  section#banner .inner footer ul li a {
+  #banner .inner footer ul li a {
     padding: 12px 24px;
   }
-  section#banner .inner footer ul li a span {
+  #banner .inner footer ul li a span {
     transition: background-color 0.3s ease-in-out;
     border: 1px solid white;
     border-radius: 50%;
     padding: 16px;
     font-size: 36px;
   }
-  section#banner .inner footer ul li a:hover span {
+  #banner .inner footer ul li a:hover span {
     background-color: rgba(255, 255, 255, 0.125);
     outline: 1px solid white;
   }
 }
-section#banner .inner footer ul li:first-child a {
+#banner .inner footer ul li:first-child a {
   padding-left: 0;
 }
-section#banner .inner footer ul li:last-child a {
+#banner .inner footer ul li:last-child a {
   padding-right: 0;
 }

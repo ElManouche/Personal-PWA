@@ -7,6 +7,8 @@
   font-size: initial;
 }
 
+$gutter: 24px;
+
 $screen-xs-min: 360px;
 $screen-s-min: 480px;
 $screen-m-min: 768px;
@@ -21,8 +23,6 @@ $mq-l: "(min-width: #{$screen-l-min})";
 $mq-xl: "(min-width: #{$screen-xl-min})";
 $mq-xxl: "(min-width: #{$screen-xxl-min})";
 
-// 5. Grid
-//----------------------------------------------------------
 $breakpoints: (
   "xs" $mq-xs,
   "s" $mq-s,
@@ -1025,6 +1025,7 @@ h6 {
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
+  margin: 24px 0;
   span {
     font-weight: 900;
   }
@@ -1058,12 +1059,16 @@ input#toggler {
     width: 100%;
 
     section {
+      margin-top: 0px;
       padding: 56px 24px 48px 24px;
       @include mq(s) {
         padding: 56px 48px;
       }
       @include mq(m) {
-        padding: 56px 48px;
+        &:first-of-type {
+          margin-top: 24px;
+        }
+        padding: 56px 48px 48px 48px;
         margin-left: 24px;
         margin-right: 24px;
       }
@@ -1071,6 +1076,12 @@ input#toggler {
         max-width: calc(960px - 96px);
         margin-left: auto;
         margin-right: auto;
+        h1,h2,h3 {
+          margin: 36px 0;
+        }
+        h3 {
+          margin: 48px 0 36px 0;
+        }
       }
       @include mq(xl) {
         max-width: 1024px;
@@ -1080,6 +1091,17 @@ input#toggler {
       }
       &:nth-child(odd) {
         background-color: white;
+      }
+      &.about {
+        .grid__item p:first-child {
+          margin-top: 0;
+        }
+        img {
+          max-width: 100%;
+          width: 100%;
+          border-radius: 5px;
+          margin-bottom: 36px;
+        }
       }
       &.join-me {
         a {
@@ -1100,7 +1122,6 @@ input#toggler {
           width: 80%;
           height: 250px;
         }
-
       }
     }
   }
@@ -1181,6 +1202,7 @@ input#toggler {
         }
         a, span {
           text-transform: uppercase;
+          user-select: none;
           color: rgba(255, 255, 255, 0.75);
           border-top: 1px solid rgba(255, 255, 255, 0.05);
           padding: 12px 0;
@@ -1386,6 +1408,7 @@ input#toggler {
           }
           a, span {
             //color: black;
+            user-select: none;
             background-color: rgba(0, 0, 0, 0.05);
             outline: 1px solid rgba(255, 255, 255, 0.75);
           }
@@ -1448,26 +1471,34 @@ input#toggler {
 }
 
 /* HOME BANNER */
-section#banner {
+#banner {
   width: 100%;
   max-width: 100%;
   margin: 0;
   text-align: center;
-
   color: #fff;
   cursor: default;
   padding: 6em 0 6em 0;
   text-align: center;
-
   background-attachment: scroll, scroll;
   background-color: #645862;
-  background-image: url("https://sarah.dionne.ch/assets/img/logo.png"),
-    url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
+  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .inner {
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 300px;
+      margin-bottom: 24px;
+      background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
+      background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+      }
     //background: rgba(52, 27, 43, 0.5);
     color: #fff;
     display: inline-block;
@@ -1475,6 +1506,7 @@ section#banner {
     text-align: center;
 
     header {
+
       display: inline-block;
       border-bottom: solid 2px;
       border-top: solid 2px;

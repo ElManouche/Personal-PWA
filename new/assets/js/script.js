@@ -1,24 +1,26 @@
+// JS TO USE THE MENU AS A SINGLE PAGE WITH SCROLL
 function subnavClickHandler(e) {
-  const togglerEl = document.getElementById('toggler');
-  const submenus = document.querySelectorAll("nav ul li ul");
+  document.getElementById('toggler').checked = false;
 
-  togglerEl.checked = false;
-  submenus.forEach((submenu) => {
-    let copy = submenu.cloneNode(true);
-    let parent;
+  if (e.target.parentNode.parentNode.parentNode) {
+    let ul = e.target.parentNode.parentNode;
+    let copy = ul.cloneNode(true);
+    let parent = ul.parentNode;
 
-    if (submenu.parentNode) {
-      parent = submenu.parentNode;
-      parent.removeChild(submenu);
+    if (parent.nodeName !== 'NAV') {
+      setTimeout(() => {
+        parent.removeChild(ul);
+      }, 100);
+
       setTimeout(() => {
         parent.appendChild(copy);
         linksCloseNav();
       }, 1000);
     }
-  });
+  }
 }
 function linksCloseNav() {
-  document.querySelectorAll("nav ul li ul li a").forEach((anchor) => {
+  document.querySelectorAll("nav ul li a").forEach((anchor) => {
     anchor.removeEventListener('click', subnavClickHandler);
     anchor.addEventListener('click', subnavClickHandler);
   });
