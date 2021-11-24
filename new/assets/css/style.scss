@@ -37,55 +37,31 @@ $use-markup-fix: true;
       }
     }
   }
+}
 
-  @if not $breakpoint-found {
-    @warn "Breakpoint ‘#{$media-query}’ does not exist";
+.col .row {
+  margin-left: (-1 * $gutter / 2);
+  margin-right: (-1 * $gutter / 2);
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
-}
-
-.grid {
-  list-style: none; /* [1] */
-  margin: 0; /* [2] */
-  padding: 0; /* [2] */
-  margin-left: -$gutter; /* [3] */
-  font-size: 0;
-  @if not $use-markup-fix {
-    letter-spacing: -0.31em;
-  }
-}
-
-@if not $use-markup-fix {
-  .grid {
-    word-spacing: -0.43em;
-  }
-}
-
-.grid > * {
-  font-size: medium; /* IE */
-  font-size: initial;
-}
-
-.grid__item {
-  display: inline-block; /* [1] */
-  padding-left: $gutter; /* [2] */
-  vertical-align: top; /* [3] */
-  width: 100%; /* [4] */
-  box-sizing: border-box; /* [5] */
-  @if not $use-markup-fix {
-    letter-spacing: normal;
-    word-spacing: normal;
-  }
-}
-
-.grid--middle {
-  > .grid__item {
-    vertical-align: middle;
-  }
-}
-
-.grid--bottom {
-  > .grid__item {
-    vertical-align: bottom;
+  .col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 $gutter / 2;
+    min-height: 1px;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
   }
 }
 
@@ -93,18 +69,20 @@ $use-markup-fix: true;
   $prefix: unquote(".") + $namespace;
 
   @for $grid-column from 1 through 12 {
-    @for $i from 1 through $grid-column {
-      #{$prefix}u-#{$i}\/#{$grid-column} {
-        width: calc(#{$i} * 100% / #{$grid-column});
+    @if $grid-column != 11 and $grid-column != 9 and $grid-column != 7 {
+      @for $i from 1 through $grid-column {
+        .col#{$prefix}u-#{$i}\/#{$grid-column} {
+          width: calc(#{$i} * 100% / #{$grid-column});
+        }
       }
     }
   }
 }
 
-@include device-type;
-@each $name, $declaration in $breakpoints {
-  @include grid-media-query($name) {
-    @include device-type("#{$name}--");
+@include device-type();
+@each $breakpoint, $declaration in $breakpoints {
+  @include grid-media-query($breakpoint) {
+    @include device-type("#{$breakpoint}--");
   }
 }
 
@@ -204,7 +182,7 @@ input#toggler {
         background-color: white;
       }
       &.about {
-        .grid__item p:first-child {
+        .col p:first-child {
           margin-top: 0;
         }
         img {
@@ -222,6 +200,7 @@ input#toggler {
         span.material-icons {
           font-size: 56px;
           color: rgba($purple, 0.75);
+          margin-top: 16px;
         }
       }
       &.find-me {
