@@ -113,6 +113,12 @@ $breakpoints: (
 }
 
 // Start page styling
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 html,
 body {
   margin: 0;
@@ -619,7 +625,7 @@ input#toggler {
               margin: 0;
               padding: 10px 36px;
               width: 100%;
-              max-width: 130px;
+              max-width: 200px;
               font-size: 14px;
               border-top: 1px solid $background;
               background-color: $white;
@@ -679,12 +685,22 @@ input#toggler {
 #banner {
   width: 100%;
   max-width: 100%;
-  //min-height: 50vh;
+  max-height: 100vh;
+  overflow: hidden;
   margin: 0;
   text-align: center;
   color: $font-color-inverted;
   cursor: default;
-  padding: 6em 0 6em 0;
+  padding: 6em 0;
+  @include mq(l) {
+    padding: 10em 0;
+  }
+  @include mq(xl) {
+    padding: 12em 0;
+  }
+  @include mq(xxl) {
+    padding: 15em 0;
+  }
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: $purple-lighter;
