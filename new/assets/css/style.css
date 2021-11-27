@@ -1465,10 +1465,33 @@ body {
   margin: 0;
   padding: 0;
   font-family: Lato, sans-serif;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.025em;
   scroll-behavior: smooth;
-  color: rgba(28, 32, 33, 0.6);
+  color: rgba(28, 32, 33, 0.75);
+}
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+}
+html.no-scroll body, html.no-scroll ._container,
+body.no-scroll body,
+body.no-scroll ._container {
+  overflow: hidden;
+  position: relative;
+}
+@media only screen and (min-width: 768px) {
+  html.no-scroll,
+body.no-scroll {
+    overflow-y: auto;
+  }
+  html.no-scroll body, html.no-scroll ._container,
+body.no-scroll body,
+body.no-scroll ._container {
+    overflow: auto;
+    position: relative;
+  }
 }
 
 h1,
@@ -1495,12 +1518,24 @@ h2 {
   font-size: 26px;
 }
 
+p {
+  font-size: 17px;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(28, 32, 33, 0.75);
+}
+a:hover {
+  color: rgba(28, 32, 33, 0.85);
+}
+
 .text-center {
   text-align: center;
 }
 
-.vertical-middle {
-  vertical-align: middle;
+.no-scroll {
+  overflow: hidden;
 }
 
 input#toggler {
@@ -1509,18 +1544,13 @@ input#toggler {
 
 /* PAGE LAYOUT */
 .wrapper {
-  transition: margin 0.3s ease-out;
-  height: 100vh;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  background-color: linear-gradient(to bottom, rgba(30, 87, 153, 0.5) 0%, rgba(255, 255, 255, 0) 25%);
+  transition: margin 0.3s ease-in-out;
   width: 100%;
-}
-.wrapper.alt .content {
-  margin-top: 0;
 }
 .wrapper .content {
   margin: 56px auto 0 auto;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(28, 32, 33, 0.05);
   width: 100%;
 }
 .wrapper .content section {
@@ -1577,14 +1607,13 @@ input#toggler {
   border-radius: 5px;
   margin-bottom: 36px;
 }
-.wrapper .content section.join-me a {
-  text-decoration: none;
-  color: rgba(28, 32, 33, 0.6);
-}
-.wrapper .content section.join-me span.material-icons {
+.wrapper .content section.join-me a span.material-icons {
   font-size: 56px;
   color: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
+}
+.wrapper .content section.join-me a:hover span.material-icons {
+  color: #453040;
 }
 .wrapper .content section.find-me {
   background: linear-gradient(180deg, #39a296 0%, #83d3c9 100%);
@@ -1594,9 +1623,20 @@ input#toggler {
   width: 80%;
   height: 250px;
 }
+.wrapper .content {
+  margin-top: 0;
+}
 
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: 767px) {
+  .container.top .wrapper .mobile-navbar, .container.up .wrapper .mobile-navbar {
+    background: none;
+    box-shadow: none;
+  }
+  .container.top .wrapper .mobile-navbar .title, .container.up .wrapper .mobile-navbar .title {
+    display: none;
+  }
+
   input#toggler {
     display: none;
   }
@@ -1611,7 +1651,7 @@ input#toggler {
   }
   input#toggler:checked ~ .wrapper .toggler-wrapper {
     background: white;
-    position: absolute;
+    position: fixed;
     opacity: 0.01;
     width: 100%;
     height: 100vh;
@@ -1631,14 +1671,14 @@ input#toggler {
   }
 
   nav {
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-in-out;
     transform: translateX(-275px);
     position: fixed;
     left: 0;
     overflow-y: auto;
     width: 275px;
     height: 100vh;
-    background-color: #1c2021;
+    background-color: rgba(28, 32, 33, 0.95);
     float: left;
     top: 0;
     color: #fff;
@@ -1682,18 +1722,11 @@ nav li {
     font-weight: 300;
   }
 
-  .wrapper.alt .mobile-navbar {
-    background: none;
-    box-shadow: none;
-  }
-  .wrapper.alt .mobile-navbar .title {
-    display: none;
-  }
   .wrapper .mobile-navbar {
     position: fixed;
     z-index: 1;
     background: white;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
     display: inline-block;
     width: 100%;
     font-size: 18px;
@@ -1711,7 +1744,7 @@ nav li {
     white-space: nowrap;
   }
   .wrapper .mobile-navbar .title a {
-    color: rgba(28, 32, 33, 0.6);
+    color: rgba(28, 32, 33, 0.75);
     text-decoration: none;
   }
   .wrapper .mobile-navbar .title span {
@@ -1728,23 +1761,23 @@ nav li {
     border-radius: 5px;
   }
   .wrapper .mobile-navbar label.toggler .navicon {
-    background: rgba(28, 32, 33, 0.6);
+    background: rgba(28, 32, 33, 0.75);
     display: block;
     height: 3px;
     position: absolute;
     top: 26px;
     left: 12px;
-    transition: background 0.5s ease-out;
+    transition: background 0.5s ease-in-out;
     width: 24px;
   }
   .wrapper .mobile-navbar label.toggler .navicon:before, .wrapper .mobile-navbar label.toggler .navicon:after {
-    background: rgba(28, 32, 33, 0.6);
+    background: rgba(28, 32, 33, 0.75);
     content: "";
     left: 0px;
     display: block;
     height: 100%;
     position: absolute;
-    transition: all 0.5s ease-out;
+    transition: all 0.5s ease-in-out;
     width: 100%;
   }
   .wrapper .mobile-navbar label.toggler .navicon:before {
@@ -1755,13 +1788,65 @@ nav li {
   }
 }
 @media only screen and (min-width: 768px) {
+  .container.top #banner, .container.up #banner {
+    position: relative;
+  }
+  .container.top #banner:after, .container.up #banner:after {
+    position: absolute;
+    pointer-events: none;
+    content: "";
+    height: 200px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(28, 32, 33, 0.75) 0%, rgba(57, 162, 150, 0) 100%);
+  }
+  .container.top nav, .container.up nav {
+    position: absolute;
+    display: block;
+    background: none;
+    box-shadow: none;
+  }
+  .container.top nav .title a, .container.up nav .title a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .container.top nav ul li > a, .container.top nav ul li > span, .container.up nav ul li > a, .container.up nav ul li > span {
+    color: rgba(255, 255, 255, 0.75);
+    outline: 0px solid rgba(255, 255, 255, 0.75);
+  }
+  .container.top nav ul li > a:hover, .container.top nav ul li > span:hover, .container.up nav ul li > a:hover, .container.up nav ul li > span:hover {
+    background-color: transparent;
+    outline: 1px solid rgba(255, 255, 255, 0.75);
+    color: white;
+  }
+  .container.top nav ul li.submenu a:after, .container.top nav ul li.submenu span:after, .container.up nav ul li.submenu a:after, .container.up nav ul li.submenu span:after {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  .container.top nav ul li:hover > a, .container.top nav ul li:hover > span, .container.up nav ul li:hover > a, .container.up nav ul li:hover > span {
+    outline: 1px solid rgba(255, 255, 255, 0.75);
+    color: white;
+  }
+  .container.top nav ul li:hover > a.button.primary, .container.top nav ul li:hover > span.button.primary, .container.up nav ul li:hover > a.button.primary, .container.up nav ul li:hover > span.button.primary {
+    outline: none;
+  }
+  .container.top nav ul li ul li a, .container.up nav ul li ul li a {
+    outline: none;
+    color: rgba(28, 32, 33, 0.75);
+  }
+  .container.top nav ul li ul li a:hover, .container.up nav ul li ul li a:hover {
+    outline: none;
+    color: white;
+    background: #83d3c9;
+  }
+
   nav {
+    display: block;
     z-index: 1;
     position: fixed;
     height: 56px;
     width: 100%;
     background: white;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
   nav .title {
     font-size: 18px;
@@ -1778,7 +1863,7 @@ nav li {
     margin-left: 40px;
   }
   nav .title a {
-    color: rgba(28, 32, 33, 0.6);
+    color: rgba(28, 32, 33, 0.75);
     text-decoration: none;
   }
   nav .title span {
@@ -1797,9 +1882,38 @@ nav li {
   nav ul li {
     display: inline-block;
   }
+  nav ul li a, nav ul li span {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 10px;
+    color: rgba(28, 32, 33, 0.75);
+    text-decoration: none;
+    outline: 0px solid rgba(255, 255, 255, 0.75);
+  }
+  nav ul li a:hover, nav ul li span:hover {
+    user-select: none;
+    background-color: rgba(28, 32, 33, 0.05);
+    outline: 1px solid rgba(255, 255, 255, 0.75);
+  }
+  nav ul li a.button.primary, nav ul li span.button.primary {
+    background-color: #39a296;
+    color: white;
+    font-weight: 900;
+  }
+  nav ul li a.button.primary:hover, nav ul li span.button.primary:hover {
+    background-color: #83d3c9;
+    outline: none;
+  }
+  nav ul li a:hover, nav ul li span:hover {
+    color: black;
+    background-color: rgba(28, 32, 33, 0.05);
+  }
+  nav ul li.current {
+    font-weight: 900;
+  }
   nav ul li ul {
     transition: opacity 0.3s ease-in-out;
-    float: none;
     transform: scale(0);
     display: block;
     opacity: 0;
@@ -1807,10 +1921,10 @@ nav li {
     background-color: white;
     margin: 12px 0 0 0;
     padding: 12px 0;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
   nav ul li ul:before {
-    border-bottom: solid 0.5em #fff;
+    border-bottom: solid 0.5em white;
     border-left: solid 0.5em transparent;
     border-right: solid 0.5em transparent;
     content: "";
@@ -1837,10 +1951,12 @@ nav li {
     width: 100%;
     max-width: 130px;
     font-size: 14px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(28, 32, 33, 0.05);
     background-color: white;
+    outline: none;
   }
   nav ul li ul li a:hover {
+    outline: none;
     background-color: #83d3c9;
     color: white;
   }
@@ -1849,65 +1965,29 @@ nav li {
     opacity: 1;
     transform: scale(1);
   }
-  nav ul li:hover ul li a, nav ul li:hover ul li span {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.75);
-  }
-  nav ul li:hover ul li a:hover, nav ul li:hover ul li span:hover {
-    background-color: #83d3c9;
-    color: white;
-  }
-  nav ul li:hover a, nav ul li:hover span {
-    user-select: none;
-    background-color: rgba(0, 0, 0, 0.05);
-    outline: 1px solid rgba(255, 255, 255, 0.75);
-  }
   nav ul li:hover.submenu a:after, nav ul li:hover.submenu span:after {
     transform: rotate(225deg);
     margin: 0 0 0px 8px;
-    border-color: black;
+    border-color: rgba(28, 32, 33, 0.85);
   }
-  nav ul li.current {
-    font-weight: 900;
+  nav ul li:hover a, nav ul li:hover span {
+    outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  nav ul li a, nav ul li span {
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 10px 16px;
-    margin: 10px;
-    color: rgba(28, 32, 33, 0.6);
-    text-decoration: none;
-  }
-  nav ul li a.button.primary, nav ul li span.button.primary {
-    background-color: #39a296;
-    color: white;
-    font-weight: 900;
-  }
-  nav ul li a.button.primary:hover, nav ul li span.button.primary:hover {
-    background-color: #83d3c9;
-  }
-  nav ul li a:hover, nav ul li span:hover {
-    color: black;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  nav ul li.submenu a:after, nav ul li.submenu span:after {
+  nav ul li.submenu > a:after, nav ul li.submenu > span:after {
     content: "";
-    border: solid rgba(28, 32, 33, 0.6);
+    border: solid rgba(28, 32, 33, 0.75);
     border-width: 0 2px 2px 0;
     display: inline-block;
     margin: 0 0 3px 8px;
     padding: 3px;
     transform: rotate(45deg);
   }
-  nav ul li.submenu ul li a:after {
-    content: none;
-  }
 
   .wrapper {
     /*
     width: calc(100% - 40px);
     padding: 20px;
-    background-color: rgba(0,0,0,.05);
+    background-color: $background;
     */
   }
   .wrapper .mobile-navbar {
@@ -1920,22 +2000,23 @@ nav li {
   max-width: 100%;
   margin: 0;
   text-align: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
   cursor: default;
   padding: 6em 0 6em 0;
   text-align: center;
   background-attachment: scroll, scroll;
-  background-color: #645862;
+  background-color: rgba(69, 48, 64, 0.75);
   background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 #banner .inner {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
   display: inline-block;
   padding: 3em 3em 0 3em;
   text-align: center;
+  vertical-align: middle;
 }
 #banner .inner:before {
   content: none;
@@ -1969,13 +2050,13 @@ nav li {
 }
 #banner .inner header h2 a {
   text-decoration: none;
-  color: #fff;
+  color: white;
 }
 #banner .inner header h2 span {
   font-weight: 300;
 }
 #banner .inner p {
-  text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000000;
+  text-shadow: 0px 0px 10px #1c2021, 0px 0px 10px #1c2021;
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
@@ -1992,7 +2073,7 @@ nav li {
   display: inline-block;
 }
 #banner .inner footer ul li a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   padding: 12px 18px;
   transition: color 0.3s ease-in-out;
 }
@@ -2009,7 +2090,7 @@ nav li {
   }
   #banner .inner footer ul li a span {
     transition: background-color 0.3s ease-in-out;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 50%;
     padding: 16px;
     font-size: 36px;

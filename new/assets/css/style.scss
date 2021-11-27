@@ -1,9 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+// Responsive sizes
 $xs-min: 360px;
 $s-min: 480px;
 $m-min: 768px;
 $l-min: 992px;
 $xl-min: 1200px;
 $xxl-min: 1400px;
+
+// Options
+$gutter: 24px;
+$font-size: 16px;
+
+// Colors
+$dark: rgb(28, 32, 33);
+$light: rgb(255, 255, 255);
+
+$font-color: rgba($dark, .75);
+$font-color-lighter: rgba($dark, .5);
+$font-color-hover: rgba($dark, .85);
+$background: rgba($dark, .05);
+$shadow: rgba($dark, .25);
+
+$font-color-inverted: rgba($light, 0.75);
+$font-color-inverted-hover: rgba($light, 1);
+$borders-inverted: rgba($light, .05);
+$background-inverted: rgba($dark, .95);
+
+$white: $light;
+$purple: rgba(69, 48, 64, 1);
+$purple-lighter: rgba($purple, .75);
+$green: rgba(57, 162, 150, 1);
+$green-lighter: rgba(131, 211, 201, 1);
 
 $breakpoints: (
   'xs': (min-width: $xs-min),
@@ -21,9 +50,6 @@ $breakpoints: (
     }
   }
 }
-
-$gutter: 24px;
-$use-markup-fix: true;
 
 @mixin grid-media-query($media-query) {
   $breakpoint-found: false;
@@ -86,23 +112,35 @@ $use-markup-fix: true;
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
-
-$font-color: rgba(28, 32, 33, 0.6);
-$purple: #453040;
-$green: rgba(57, 162, 150, 1); // Button primary
-$green-lighter: rgba(131, 211, 201, 1);
-
+// Start page styling
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: Lato, sans-serif;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  font-size: $font-size;
+  font-weight: 300;
+  letter-spacing: .025em;
   scroll-behavior: smooth;
   color: $font-color;
+  &.no-scroll {
+    overflow: hidden;
+    body, ._container {
+      //width: 100%;
+      //height: 100vh;
+      overflow: hidden;
+      position: relative;
+
+    }
+    @include mq('m') {
+      overflow-y: auto;
+      body, ._container {
+      overflow: auto;
+      position: relative;
+
+    }
+    }
+  }
 }
 
 h1,
@@ -122,11 +160,24 @@ h6 {
 h2 {
   font-size: 26px;
 }
+p {
+  font-size: 17px;
+}
+a {
+  text-decoration: none;
+  color: $font-color;
+  & {
+    //transition: all .3s ease-in-out;
+  }
+  &:hover {
+    color: $font-color-hover;
+  }
+}
 .text-center {
   text-align: center;
 }
-.vertical-middle {
-  vertical-align: middle;
+.no-scroll {
+  overflow: hidden;
 }
 input#toggler {
   display: none;
@@ -134,17 +185,12 @@ input#toggler {
 
 /* PAGE LAYOUT */
 .wrapper {
-  transition: margin 0.3s ease-out;
-  height: 100vh;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  background-color: linear-gradient(to bottom, rgba(30,87,153,0.5) 0%,rgba(255,255,255,0) 25%);
+  transition: margin .3s ease-in-out;
   width: 100%;
-  &.alt .content {
-    margin-top: 0;
-  }
   .content {
     margin: 56px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: $background;
     width: 100%;
 
     section {
@@ -194,14 +240,18 @@ input#toggler {
       }
       &.join-me {
         a {
-          text-decoration: none;
-          color: $font-color;
+          span.material-icons {
+            font-size: 56px;
+            color: $purple-lighter;
+            margin-top: 16px;
+          }
+          &:hover {
+            span.material-icons {
+              color: $purple;
+            }
+          }
         }
-        span.material-icons {
-          font-size: 56px;
-          color: rgba($purple, 0.75);
-          margin-top: 16px;
-        }
+
       }
       &.find-me {
         // background-color: $green;
@@ -215,10 +265,22 @@ input#toggler {
       }
     }
   }
+  .content {
+    margin-top: 0;
+  }
 }
 
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: 767px) {
+  .container.top, .container.up {
+    .wrapper .mobile-navbar {
+      background: none;
+      box-shadow: none;
+      .title {
+        display: none;
+      }
+    }
+  }
   input#toggler {
     display: none;
 
@@ -229,6 +291,8 @@ input#toggler {
         left: 0px;
       }
       ~ .wrapper {
+        //max-height: 100vh;
+        //max-width: calc(100vw - 275px);
         margin-left: 275px;
         overflow: hidden;
         .title,
@@ -238,7 +302,7 @@ input#toggler {
         }
         .toggler-wrapper {
           background: white;
-          position: absolute;
+          position: fixed;
           opacity: .01;
           width: 100%;
           height: 100vh;
@@ -260,14 +324,14 @@ input#toggler {
     }
   }
   nav {
-    transition: transform 0.3s ease-out;
+    transition: transform .3s ease-in-out;
     transform: translateX(-275px);
     position: fixed;
     left: 0;
     overflow-y: auto;
     width: 275px;
     height: 100vh;
-    background-color: rgb(28, 32, 33);
+    background-color: $background-inverted;
     float: left;
     top: 0;
     color: #fff;
@@ -293,15 +357,15 @@ input#toggler {
         a, span {
           text-transform: uppercase;
           user-select: none;
-          color: rgba(255, 255, 255, 0.75);
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          color: $font-color-inverted;
+          border-top: 1px solid $borders-inverted;
           padding: 12px 0;
           text-decoration: none;
           display: block;
           font-weight: 900;
         }
         a:hover {
-          color: rgba(255, 255, 255, 1);
+          color: $font-color-inverted-hover;
         }
         ul li {
           &:first-child a, &:first-child span {
@@ -316,18 +380,11 @@ input#toggler {
     }
   }
   .wrapper {
-    &.alt .mobile-navbar {
-      background: none;
-      box-shadow: none;
-      .title {
-        display: none;
-      }
-    }
     .mobile-navbar {
       position: fixed;
       z-index: 1;
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+      background: $light;
+      box-shadow: 0 1px 2px 0 $shadow;
       display: inline-block;
       width: 100%;
       font-size: 18px;
@@ -357,7 +414,7 @@ input#toggler {
         width: 36px;
         height: 34px;
         margin: 11px 6px;
-        background: rgba(255, 255, 255, 0.75);
+        background: $font-color-inverted;
         border-radius: 5px;
         .navicon {
           background: $font-color;
@@ -366,7 +423,7 @@ input#toggler {
           position: absolute;
           top: 26px;
           left: 12px;
-          transition: background 0.5s ease-out;
+          transition: background .5s ease-in-out;
           width: 24px;
           &:before,
           &:after {
@@ -376,7 +433,7 @@ input#toggler {
             display: block;
             height: 100%;
             position: absolute;
-            transition: all 0.5s ease-out;
+            transition: all 0.5s ease-in-out;
             width: 100%;
           }
           &:before {
@@ -393,13 +450,73 @@ input#toggler {
 
 //* DESKTOP NAVIGATION */
 @include mq(m) {
+  .container.top, .container.up {
+    #banner {
+      position: relative;
+      &:after {
+        position: absolute;
+        pointer-events: none;
+        content: "";
+        height: 200px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, rgba($dark,.75) 0%,rgba($green,0) 100%);
+      }}
+    nav {
+      position: absolute;
+      display: block;
+      background: none;
+      box-shadow: none;
+      .title a  {
+          color: $font-color-inverted;
+      }
+      ul {
+        li {
+          > a, > span {
+            color: $font-color-inverted;
+            outline: 0px solid $font-color-inverted;
+
+            &:hover {
+              background-color: transparent;
+              outline: 1px solid $font-color-inverted;
+              color: $font-color-inverted-hover;
+            }
+          }
+          &.submenu a:after, &.submenu span:after {
+            border-color: $font-color-inverted;
+          }
+          &:hover{
+            > a, > span {
+              outline: 1px solid $font-color-inverted;
+              color: $font-color-inverted-hover;
+              &.button.primary {
+                outline: none;
+              }
+            }
+          }
+
+          ul li a {
+            outline: none;
+            color: $font-color;
+            &:hover {
+              outline: none;
+              color: $font-color-inverted-hover;
+              background: $green-lighter;
+            }
+          }
+        }
+      }
+    }
+  }
   nav {
+    display: block;
     z-index: 1;
     position: fixed;
     height: 56px;
     width: 100%;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    background: $white;
+    box-shadow: 0 1px 2px 0 $shadow;
     .title {
       font-size: 18px;
       line-height: 56px;
@@ -433,26 +550,57 @@ input#toggler {
       margin-right: 40px;
       li {
         display: inline-block;
-        // submenu
+        a, span {
+          &:hover {
+            user-select: none;
+            background-color: $background;
+            outline: 1px solid $font-color-inverted;
+          }
+          text-transform: uppercase;
+          display: inline-block;
+          padding: 10px 16px;
+          margin: 10px;
+          color: $font-color;
+          text-decoration: none;
+          outline: 0px solid $font-color-inverted;
+          &.button.primary {
+            background-color: $green;
+            color: white;
+            font-weight: 900;
+            &:hover {
+              background-color: $green-lighter;
+              outline: none;
+            }
+          }
+          &:hover {
+            color: black;
+            background-color: $background;
+          }
+        }
+
+        &.current {
+          font-weight: 900;
+        }
+                // submenu
         ul {
-          transition: opacity 0.3s ease-in-out;
-          float: none;
+          transition: opacity .3s ease-in-out;
+          //float: none;
           transform: scale(0);
           display: block; // don't display none to use transition
           opacity: 0;
           position: absolute;
-          background-color: white;
+          background-color: $white;
           margin: 12px 0 0 0;
           padding: 12px 0;
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 2px 0 $shadow;
           &:before {
-            border-bottom: solid 0.5em #fff;
-            border-left: solid 0.5em transparent;
-            border-right: solid 0.5em transparent;
+            border-bottom: solid 0.5em $white;
+            border-left: solid .5em transparent;
+            border-right: solid .5em transparent;
             content: "";
-            left: 0.75em;
+            left: .75em;
             position: absolute;
-            top: -0.45em;
+            top: -.45em;
           }
           &:after {
             content: "";
@@ -473,11 +621,13 @@ input#toggler {
               width: 100%;
               max-width: 130px;
               font-size: 14px;
-              border-top: 1px solid rgba(0, 0, 0, 0.05);
-              background-color: white;
+              border-top: 1px solid $background;
+              background-color: $white;
+              outline: none;
               &:hover {
-                background-color: #83d3c9;
-                color: white;
+                outline: none;
+                background-color: $green-lighter;
+                color: $white;
               }
             }
           }
@@ -487,52 +637,20 @@ input#toggler {
             display: block;
             opacity: 1;
             transform: scale(1);
-            li a, li span {
-              background-color: white;
-              color: rgba(0, 0, 0, 0.75);
-              &:hover {
-                background-color: #83d3c9;
-                color: white;
-              }
-            }
           }
-          a, span {
-            //color: black;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.05);
-            outline: 1px solid rgba(255, 255, 255, 0.75);
-          }
+
           &.submenu a:after, &.submenu span:after {
             transform: rotate(225deg);
             margin: 0 0 0px 8px;
-            border-color: black;
+            border-color: $font-color-hover;
           }
-        }
-        &.current {
-          font-weight: 900;
-        }
-        a, span {
-          text-transform: uppercase;
-          display: inline-block;
-          padding: 10px 16px;
-          margin: 10px;
-          color: $font-color;
-          text-decoration: none;
-          &.button.primary {
-            background-color: $green;
-            color: white;
-            font-weight: 900;
-            &:hover {
-              background-color: $green-lighter;
-            }
-          }
-          &:hover {
-            color: black;
-            background-color: rgba(0, 0, 0, 0.05);
+
+          a, span {
+            outline: 1px solid $font-color-inverted;
           }
         }
         &.submenu {
-          a:after, span:after {
+          > a:after, > span:after {
             content: "";
             border: solid $font-color;
             border-width: 0 2px 2px 0;
@@ -540,9 +658,6 @@ input#toggler {
             margin: 0 0 3px 8px;
             padding: 3px;
             transform: rotate(45deg);
-          }
-          ul li a:after {
-            content: none;
           }
         }
       }
@@ -552,7 +667,7 @@ input#toggler {
     /*
     width: calc(100% - 40px);
     padding: 20px;
-    background-color: rgba(0,0,0,.05);
+    background-color: $background;
     */
     .mobile-navbar {
       display: none;
@@ -564,14 +679,15 @@ input#toggler {
 #banner {
   width: 100%;
   max-width: 100%;
+  //min-height: 50vh;
   margin: 0;
   text-align: center;
-  color: #fff;
+  color: $font-color-inverted;
   cursor: default;
   padding: 6em 0 6em 0;
   text-align: center;
   background-attachment: scroll, scroll;
-  background-color: #645862;
+  background-color: $purple-lighter;
   background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -579,24 +695,23 @@ input#toggler {
 
   .inner {
     &:before {
-        content: none;
-        display: block;
-        width: 100%;
-        height: 300px;
+      content: none;
+      display: block;
+      width: 100%;
+      height: 300px;
       margin-bottom: 24px;
       background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
       background-position: center top;
-  background-repeat: no-repeat;
-  background-size: contain;
+      background-repeat: no-repeat;
+      background-size: contain;
       }
-    //background: rgba(52, 27, 43, 0.5);
-    color: #fff;
+    color: $font-color-inverted;
     display: inline-block;
     padding: 3em 3em 0 3em;
     text-align: center;
+    vertical-align: middle;
 
     header {
-
       display: inline-block;
       border-bottom: solid 2px;
       border-top: solid 2px;
@@ -616,7 +731,7 @@ input#toggler {
         text-transform: uppercase;
         a {
           text-decoration: none;
-          color: #fff;
+          color: $white;
         }
         span {
           font-weight: 300;
@@ -624,7 +739,7 @@ input#toggler {
       }
     }
     p {
-      text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000000;
+      text-shadow: 0px 0px 10px $dark, 0px 0px 10px $dark;
       letter-spacing: 0.1em;
       margin: 0;
       text-transform: uppercase;
@@ -639,12 +754,12 @@ input#toggler {
           display: inline-block;
 
           a {
-            color: rgba(255, 255, 255, 0.8);
+            color: $font-color-inverted;
             padding: 12px 18px;
-            transition: color 0.3s ease-in-out;
+            transition: color .3s ease-in-out;
 
             &:hover {
-              color: rgba(255, 255, 255, 1);
+              color: $font-color-inverted-hover;
             }
 
             span {
@@ -655,8 +770,8 @@ input#toggler {
             @include mq(m) {
               padding: 12px 24px;
               span {
-                transition: background-color 0.3s ease-in-out;
-                border: 1px solid white;
+                transition: background-color .3s ease-in-out;
+                border: 1px solid $font-color-inverted;
                 border-radius: 50%;
                 padding: 16px;
                 font-size: 36px;
@@ -664,7 +779,7 @@ input#toggler {
               &:hover {
                 span {
                   background-color: rgba(255, 255, 255, 0.125);
-                  outline: 1px solid white;
+                  outline: 1px solid $font-color-inverted-hover;
                 }
               }
             }
