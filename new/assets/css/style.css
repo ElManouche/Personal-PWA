@@ -1479,24 +1479,19 @@ body {
   scroll-behavior: smooth;
   color: rgba(28, 32, 33, 0.75);
 }
-html.no-scroll,
-body.no-scroll {
-  overflow: hidden;
+
+html.no-scroll-mobile {
+  overflow-y: hidden;
 }
-html.no-scroll body, html.no-scroll ._container,
-body.no-scroll body,
-body.no-scroll ._container {
+html.no-scroll-mobile body {
   overflow: hidden;
   position: relative;
 }
 @media only screen and (min-width: 768px) {
-  html.no-scroll,
-body.no-scroll {
+  html.no-scroll-mobile {
     overflow-y: auto;
   }
-  html.no-scroll body, html.no-scroll ._container,
-body.no-scroll body,
-body.no-scroll ._container {
+  html.no-scroll-mobile body {
     overflow: auto;
     position: relative;
   }
@@ -1540,10 +1535,6 @@ a:hover {
 
 .text-center {
   text-align: center;
-}
-
-.no-scroll {
-  overflow: hidden;
 }
 
 input#toggler {
@@ -1637,11 +1628,11 @@ input#toggler {
 
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: 767px) {
-  .container.top .wrapper .mobile-navbar, .container.up .wrapper .mobile-navbar {
+  .container.banner-intersecting .wrapper .mobile-navbar {
     background: none;
     box-shadow: none;
   }
-  .container.top .wrapper .mobile-navbar .title, .container.up .wrapper .mobile-navbar .title {
+  .container.banner-intersecting .wrapper .mobile-navbar .title {
     display: none;
   }
 
@@ -1796,10 +1787,10 @@ nav li {
   }
 }
 @media only screen and (min-width: 768px) {
-  .container.top #banner, .container.up #banner {
+  .container.banner-intersecting #banner {
     position: relative;
   }
-  .container.top #banner:after, .container.up #banner:after {
+  .container.banner-intersecting #banner:after {
     position: absolute;
     pointer-events: none;
     content: "";
@@ -1809,39 +1800,42 @@ nav li {
     left: 0;
     background: linear-gradient(to bottom, rgba(28, 32, 33, 0.75) 0%, rgba(57, 162, 150, 0) 100%);
   }
-  .container.top nav, .container.up nav {
+  .container.banner-intersecting nav {
+    top: 0;
     position: absolute;
     display: block;
     background: none;
     box-shadow: none;
   }
-  .container.top nav .title a, .container.up nav .title a {
+  .container.banner-intersecting nav .title a {
     color: rgba(255, 255, 255, 0.75);
   }
-  .container.top nav ul li > a, .container.top nav ul li > span, .container.up nav ul li > a, .container.up nav ul li > span {
+  .container.banner-intersecting nav ul li > a, .container.banner-intersecting nav ul li > span {
     color: rgba(255, 255, 255, 0.75);
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  .container.top nav ul li > a:hover, .container.top nav ul li > span:hover, .container.up nav ul li > a:hover, .container.up nav ul li > span:hover {
+  .container.banner-intersecting nav ul li > a:hover, .container.banner-intersecting nav ul li > span:hover {
     background-color: transparent;
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: white;
   }
-  .container.top nav ul li.submenu a:after, .container.top nav ul li.submenu span:after, .container.up nav ul li.submenu a:after, .container.up nav ul li.submenu span:after {
+  .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after {
     border-color: rgba(255, 255, 255, 0.75);
   }
-  .container.top nav ul li:hover > a, .container.top nav ul li:hover > span, .container.up nav ul li:hover > a, .container.up nav ul li:hover > span {
+  .container.banner-intersecting nav ul li:hover > a, .container.banner-intersecting nav ul li:hover > span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: white;
   }
-  .container.top nav ul li:hover > a.button.primary, .container.top nav ul li:hover > span.button.primary, .container.up nav ul li:hover > a.button.primary, .container.up nav ul li:hover > span.button.primary {
+  .container.banner-intersecting nav ul li:hover > a.primary, .container.banner-intersecting nav ul li:hover > span.primary {
     outline: none;
+    color: white;
+    background: #83d3c9;
   }
-  .container.top nav ul li ul li a, .container.up nav ul li ul li a {
+  .container.banner-intersecting nav ul li ul li a {
     outline: none;
     color: rgba(28, 32, 33, 0.75);
   }
-  .container.top nav ul li ul li a:hover, .container.up nav ul li ul li a:hover {
+  .container.banner-intersecting nav ul li ul li a:hover {
     outline: none;
     color: white;
     background: #83d3c9;
@@ -1851,6 +1845,7 @@ nav li {
     display: block;
     z-index: 1;
     position: fixed;
+    top: 0;
     height: 56px;
     width: 100%;
     background: white;
@@ -1904,14 +1899,15 @@ nav li {
     background-color: rgba(28, 32, 33, 0.05);
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  nav ul li a.button.primary, nav ul li span.button.primary {
+  nav ul li a.primary, nav ul li span.primary {
     background-color: #39a296;
-    color: white;
+    color: rgba(255, 255, 255, 0.75);
     font-weight: 900;
   }
-  nav ul li a.button.primary:hover, nav ul li span.button.primary:hover {
+  nav ul li a.primary:hover, nav ul li span.primary:hover {
     background-color: #83d3c9;
     outline: none;
+    color: white;
   }
   nav ul li a:hover, nav ul li span:hover {
     color: black;

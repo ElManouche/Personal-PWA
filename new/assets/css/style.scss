@@ -129,25 +129,23 @@ body {
   letter-spacing: .025em;
   scroll-behavior: smooth;
   color: $font-color;
-  &.no-scroll {
+}
+html.no-scroll-mobile {
+  overflow-y: hidden;
+  body {
     overflow: hidden;
-    body, ._container {
-      //width: 100%;
-      //height: 100vh;
-      overflow: hidden;
-      position: relative;
-
-    }
-    @include mq('m') {
-      overflow-y: auto;
-      body, ._container {
+    position: relative;
+  }
+  @include mq('m') {
+    overflow-y: auto;
+    body {
       overflow: auto;
       position: relative;
 
     }
-    }
   }
 }
+
 
 h1,
 h2,
@@ -181,9 +179,6 @@ a {
 }
 .text-center {
   text-align: center;
-}
-.no-scroll {
-  overflow: hidden;
 }
 input#toggler {
   display: none;
@@ -278,7 +273,7 @@ input#toggler {
 
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: 767px) {
-  .container.top, .container.up {
+  .container.banner-intersecting {
     .wrapper .mobile-navbar {
       background: none;
       box-shadow: none;
@@ -456,7 +451,7 @@ input#toggler {
 
 //* DESKTOP NAVIGATION */
 @include mq(m) {
-  .container.top, .container.up {
+  .container.banner-intersecting {
     #banner {
       position: relative;
       &:after {
@@ -470,6 +465,7 @@ input#toggler {
         background: linear-gradient(to bottom, rgba($dark,.75) 0%,rgba($green,0) 100%);
       }}
     nav {
+      top: 0;
       position: absolute;
       display: block;
       background: none;
@@ -496,8 +492,10 @@ input#toggler {
             > a, > span {
               outline: 1px solid $font-color-inverted;
               color: $font-color-inverted-hover;
-              &.button.primary {
+              &.primary {
                 outline: none;
+                color: $font-color-inverted-hover;
+                background: $green-lighter;
               }
             }
           }
@@ -519,6 +517,7 @@ input#toggler {
     display: block;
     z-index: 1;
     position: fixed;
+    top: 0;
     height: 56px;
     width: 100%;
     background: $white;
@@ -569,13 +568,14 @@ input#toggler {
           color: $font-color;
           text-decoration: none;
           outline: 0px solid $font-color-inverted;
-          &.button.primary {
+          &.primary {
             background-color: $green;
-            color: white;
+            color: $font-color-inverted;
             font-weight: 900;
             &:hover {
               background-color: $green-lighter;
               outline: none;
+              color: $font-color-inverted-hover;
             }
           }
           &:hover {

@@ -36,11 +36,12 @@ function linkClickedHandler(e) {
 
 }
 
+// don't scroll body if the mobile menu is visible
 function toggleHandler() {
   if(toggler.checked === true) {
-    document.documentElement.classList.add('no-scroll');
+    document.documentElement.classList.add('no-scroll-mobile');
   } else {
-    document.documentElement.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll-mobile');
   }
 }
 function initLinksCloseNav() {
@@ -58,17 +59,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
   init();
 });
 
-// Animate the desktop navbar
-document.addEventListener("scroll", evt => {
-  const pos = window.scrollY; //evt.target.scrollTop;
-  const container = document.querySelector(".container");
-  if((pos) > 500) {
-    container.classList.remove('up');
-  } else if((pos) > 0) {
-    container.classList.remove('top');
-    container.classList.add('up');
-  } else { // === 0
-    container.classList.add('top');
-    container.classList.remove('up');
-  }
-});
+// Animate the desktop navbar with Intersection observer
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    const container = document.querySelector(".container");
+    if(entry.isIntersecting) {
+      container.classList.add('banner-intersecting');
+    } else {
+      container.classList.remove('banner-intersecting');
+    }
+  });
+};
+const observer = new IntersectionObserver(callback);
+observer.observe(document.querySelector('#banner'));

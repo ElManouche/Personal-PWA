@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="fr" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="container top">
+<div class="container">
   <input id="toggler" type="checkbox" />
   <nav>
     <span class="title"><a href="#home">Sarah <span>Dionne</span></a></span>
@@ -21,7 +21,7 @@
           <li><a href="#reiki">Reiki</a></li>
         </ul>
       </li>
-      <li><a class="button primary" href="#join-me">Contact</a></li>
+      <li><a class="primary" href="#join-me">Contact</a></li>
     </ul>
   </nav>
   <div class="wrapper">
@@ -33,33 +33,33 @@
     </div>
     <div class="content">
       <!-- <section id="contact-form">
-          <form id="my-form" action="?https://formspree.io/f/mvolpglw" method="POST">
+          <form id="my-form" action="url?https://formspree.io/f/mvolpglw" method="POST">
             <fieldset>
               <div class="row">
-                <div class="input-field col u-1/2">
-                  <input id="last_name" type="text">
+                <div class="form-group col u-1/2">
+                  <input id="last_name" type="text" required="required" />
                   <label for="last_name">Nom</label>
                 </div>
-                <div class="input-field col u-1/2">
-                  <input id="first_name" type="text">
+                <div class="form-group col u-1/2">
+                  <input id="first_name" required="required" type="text" />
                   <label for="first_name">Prénom</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field">
-                  <input id="date_of_birth" type="date">
+                <div class="form-group">
+                  <input id="date_of_birth" required="required" type="date" />
                   <label for="phone">Date de naissance</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field">
-                  <input placeholder="Placeholder" id="email" type="email">
+                <div class="form-group">
+                  <input placeholder="Placeholder" id="email" required="required" type="email" />
                   <label for="email">Email</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Placeholder" id="phone" type="text">
+                <div class="form-group col s12">
+                  <input placeholder="Placeholder" id="phone" required="required" type="text" />
                   <label for="phone">Numéro de téléphone</label>
                 </div>
               </div>
@@ -90,13 +90,13 @@
             </div>
             <fieldset>
               <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="message" class="materialize-textarea"></textarea>
+                <div class="form-group col s12">
+                  <textarea id="message" class="materialize-textarea" required="required"></textarea>
                   <label for="message">Message</label>
                 </div>
               </div>
             </fieldset>
-            <input type="submit" id="my-form-button" />
+            <input type="submit" id="my-form-button" class="button" value="Envoyer le message" />
             <p id="my-form-status"></p>
 
           </form>
