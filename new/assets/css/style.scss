@@ -33,6 +33,7 @@ $purple: rgba(69, 48, 64, 1);
 $purple-lighter: rgba($purple, .75);
 $green: rgba(57, 162, 150, 1);
 $green-lighter: rgba(131, 211, 201, 1);
+$deep-blue: rgba(0,37,64,1);
 
 $breakpoints: (
   'xs': (min-width: $xs-min),
@@ -186,7 +187,6 @@ input#toggler {
 
 /* PAGE LAYOUT */
 .wrapper {
-  background-color: linear-gradient(to bottom, rgba(30,87,153,0.5) 0%,rgba(255,255,255,0) 25%);
   transition: margin .3s ease-in-out;
   width: 100%;
   .content {
@@ -458,11 +458,11 @@ input#toggler {
         position: absolute;
         pointer-events: none;
         content: "";
-        height: 200px;
+        height: 100px;
         width: 100%;
         top: 0;
         left: 0;
-        background: linear-gradient(to bottom, rgba($dark,.75) 0%,rgba($green,0) 100%);
+        background: linear-gradient(to bottom, rgba($deep-blue,.65) 0%,rgba($deep-blue,.1) 60%,rgba($deep-blue,0) 90%);
       }}
     nav {
       top: 0;
@@ -686,6 +686,7 @@ input#toggler {
   width: 100%;
   max-width: 100%;
   max-height: 100vh;
+  position: relative;
   overflow: hidden;
   margin: 0;
   text-align: center;
@@ -704,11 +705,32 @@ input#toggler {
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: $purple-lighter;
-  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714.jpg");
-  background-position: center;
+  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new.jpg");
+  background-position: bottom;
   background-repeat: no-repeat;
+  background-attachment: inherit;
   background-size: cover;
-
+  perspective: 1px;
+  .bg, .mg, .fg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-size: cover;
+  }
+  .bg {
+    background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_bg.jpg");
+  }
+  .mg {
+    background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_mg.png");
+  }
+  .fg {
+    background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_fg.png");
+  }
   .inner {
     &:before {
       content: none;
@@ -721,6 +743,7 @@ input#toggler {
       background-repeat: no-repeat;
       background-size: contain;
       }
+    position: relative;
     color: $font-color-inverted;
     display: inline-block;
     padding: 3em 3em 0 3em;
@@ -735,7 +758,7 @@ input#toggler {
       padding: 3px 0 3px 0;
 
       h2 {
-        text-shadow: 0px 0px 10px #000000;
+        text-shadow: 0px 0px 10px $deep-blue;
         border-bottom: solid 2px;
         border-top: solid 2px;
         font-size: 2.5em;
@@ -755,7 +778,7 @@ input#toggler {
       }
     }
     p {
-      text-shadow: 0px 0px 10px $dark, 0px 0px 10px $dark;
+      text-shadow: 0px 0px 10px $deep-blue, 0px 0px 10px $deep-blue;
       letter-spacing: 0.1em;
       margin: 0;
       text-transform: uppercase;
@@ -770,6 +793,8 @@ input#toggler {
           display: inline-block;
 
           a {
+            text-shadow: 0px 0px 10px $deep-blue;
+
             color: $font-color-inverted;
             padding: 12px 18px;
             transition: color .3s ease-in-out;
@@ -789,12 +814,13 @@ input#toggler {
                 transition: background-color .3s ease-in-out;
                 border: 1px solid $font-color-inverted;
                 border-radius: 50%;
+                box-shadow: 0px 0px 10px rgba($deep-blue,.3);
                 padding: 16px;
                 font-size: 36px;
               }
               &:hover {
                 span {
-                  background-color: rgba(255, 255, 255, 0.125);
+                  background-color: rgba($white, .125);
                   outline: 1px solid $font-color-inverted-hover;
                 }
               }
