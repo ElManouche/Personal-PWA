@@ -69,7 +69,7 @@ const parallax = () => {
           mg = document.querySelector("#banner .mg"),
           fg = document.querySelector("#banner .fg");
 
-    bg.style.top = `${pos*0.75}px`;
+    bg.style.top = `${pos*0.4}px`;
     bg.style.transform = `scale(${scale})`;
     mg.style.top = `${pos*0.3}px`;
     mg.style.transform = `scale(${scale})`;
