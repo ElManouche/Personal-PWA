@@ -26,6 +26,7 @@ const linkClickedHandler = evt => {
         copy = ul.cloneNode(true),
         parent = ul.parentNode;
 
+  // Remove than add again the submenu
   if (parent.nodeName === 'LI') {
     setTimeout(() => parent.removeChild(ul), 100);
     setTimeout(() => {
@@ -59,24 +60,26 @@ const containerObserverCallback = (entries, observer) => {
 // Animate the desktop navbar
 const parallax = () => {
   const pos = window.scrollY,
-        banner = document.querySelector("#banner"),
-        bannerHeight = banner.offsetHeight,
-        background = document.querySelector("#banner .bg"),
-        middleground = document.querySelector("#banner .mg"),
-        foreground = document.querySelector("#banner .fg");
+        banner = document.querySelector("#banner");
 
-  background.style.top = +(pos*0.75)+'px';
-  background.style.transform = `scale(${1+(pos/bannerHeight/4)})`;
-  middleground.style.top = +(pos*0.3)+'px';
-  middleground.style.transform = `scale(${1+(pos/bannerHeight/4)})`;
-  foreground.style.top = +(pos*0.25)+'px';
+  // Don't calculate if the banner isn't above the fold
+  if (pos <= banner.offsetHeight) {
+    const scale = 1 + (pos / (banner.offsetHeight * 10)),
+          bg = document.querySelector("#banner .bg"),
+          mg = document.querySelector("#banner .mg"),
+          fg = document.querySelector("#banner .fg");
+
+    bg.style.top = `${pos*0.75}px`;
+    bg.style.transform = `scale(${scale})`;
+    mg.style.top = `${pos*0.3}px`;
+    mg.style.transform = `scale(${scale})`;
+    fg.style.top = `${pos*0.25}px`;
+  }
 };
 
 const initLinksCloseNav = () => {
   Array.from(
     document.querySelectorAll("a[href*='#']:not([href='#'])")
-  ).filter(
-    (link) => link.getAttribute('href').startsWith('#')
   ).forEach((link) => {
     link.removeEventListener('click', linkClickedHandler);
     link.addEventListener('click', linkClickedHandler);
