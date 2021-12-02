@@ -57,17 +57,15 @@ const containerObserverCallback = (entries, observer) => {
   });
 };
 
-const throttle = (callback, limit) => {
-  let waiting = false;
-  return function () {
-    if (!waiting) {
-      callback.apply(this, arguments);
-      waiting = true;
-      setTimeout(function () {
-        waiting = false;
-      }, limit);
-    }
-  }
+let throttleTimer;
+
+const throttle = (callback, time) => {
+  if (throttleTimer) return;
+    throttleTimer = true;
+    setTimeout(() => {
+        callback();
+        throttleTimer = false;
+    }, time);
 }
 
 // Animate the desktop navbar
@@ -107,4 +105,6 @@ const init = () => {
 }
 
 document.addEventListener("DOMContentLoaded", init());
-document.addEventListener("scroll", throttle(parallax, 1000/50));
+window.addEventListener("scroll", () => {
+  throttle(parallax, 1000/48);
+});
