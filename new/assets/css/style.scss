@@ -687,26 +687,21 @@ input#toggler {
   width: 100%;
   max-width: 100%;
   max-height: 100vh;
+  min-height: 400px;
   position: relative;
   overflow: hidden;
   margin: 0;
   text-align: center;
   color: $font-color-inverted;
   cursor: default;
-  padding: 6em 0;
+  padding: 0;
+  height: 400px;
   @include mq(l) {
-    padding: 10em 0;
-  }
-  @include mq(xl) {
-    padding: 12em 0;
-  }
-  @include mq(xxl) {
-    padding: 15em 0;
+    min-height: 70vh;
   }
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: $purple-lighter;
-  // background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new.webp");
   background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: inherit;
@@ -744,11 +739,23 @@ input#toggler {
       background-position: center top;
       background-repeat: no-repeat;
       background-size: contain;
-      }
-    position: relative;
+    }
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: $font-color-inverted;
     display: inline-block;
-    padding: 3em 3em 0 3em;
+    padding: 0;
+    min-width: 275px;
+    @include mq(s) {
+      min-width: 90vw;
+    }
+    @include mq(m) {
+      padding-top: 72px;
+    }
+
     text-align: center;
     vertical-align: middle;
 

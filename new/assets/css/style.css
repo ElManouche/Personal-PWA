@@ -2003,13 +2003,15 @@ nav li {
   width: 100%;
   max-width: 100%;
   max-height: 100vh;
+  min-height: 400px;
   position: relative;
   overflow: hidden;
   margin: 0;
   text-align: center;
   color: rgba(255, 255, 255, 0.75);
   cursor: default;
-  padding: 6em 0;
+  padding: 0;
+  height: 400px;
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: rgba(69, 48, 64, 0.75);
@@ -2021,17 +2023,7 @@ nav li {
 }
 @media only screen and (min-width: 992px) {
   #banner {
-    padding: 10em 0;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  #banner {
-    padding: 12em 0;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  #banner {
-    padding: 15em 0;
+    min-height: 70vh;
   }
 }
 #banner .bg, #banner .mg, #banner .fg {
@@ -2056,10 +2048,15 @@ nav li {
   background-image: url("https://ik.imagekit.io/sarahdionne/hero/webp/20201024_143714_new_fg_bYPFaTtl2.webp");
 }
 #banner .inner {
-  position: relative;
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: rgba(255, 255, 255, 0.75);
   display: inline-block;
-  padding: 3em 3em 0 3em;
+  padding: 0;
+  min-width: 275px;
   text-align: center;
   vertical-align: middle;
 }
@@ -2072,6 +2069,16 @@ nav li {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media only screen and (min-width: 480px) {
+  #banner .inner {
+    min-width: 90vw;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #banner .inner {
+    padding-top: 72px;
+  }
 }
 #banner .inner header {
   display: inline-block;
