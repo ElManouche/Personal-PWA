@@ -1,11 +1,11 @@
 // JS TO USE THE MENU AS A SINGLE PAGE WITH SCROLL
 const linkClickedHandler = evt => {
   evt.preventDefault();
-  const toggler = document.getElementById('toggler'),
+  const toggler       = document.getElementById('toggler'),
         mobileOnlyElm = document.querySelector('.wrapper .mobile-navbar'),
-        isMobile = mobileOnlyElm.computedStyleMap().get('display').value === 'block',
-        timeout = ((isMobile && toggler.checked))? 300 : 10;
-  let   target = evt.target;
+        isMobile      = mobileOnlyElm.computedStyleMap().get('display').value === 'block',
+        timeout       = ((isMobile && toggler.checked))? 300 : 10;
+  let   target        = evt.target;
 
   // Close the mobile menu
   if(isMobile && toggler.checked === true) {
@@ -72,15 +72,15 @@ const throttle = (callback, limit) => {
 
 // Animate the desktop navbar
 const parallax = () => {
-  const pos = window.scrollY,
+  const pos    = window.scrollY,
         banner = document.querySelector("#banner");
 
   // Don't calculate if the banner isn't above the fold
   if (pos <= banner.offsetHeight) {
     const scale = 1 + (pos / (banner.offsetHeight * 10)),
-          bg = document.querySelector("#banner .bg"),
-          mg = document.querySelector("#banner .mg"),
-          fg = document.querySelector("#banner .fg");
+          bg    = document.querySelector("#banner .bg"),
+          mg    = document.querySelector("#banner .mg"),
+          fg    = document.querySelector("#banner .fg");
 
     bg.style.top = `${pos*0.4}px`;
     bg.style.transform = `scale(${scale})`;
