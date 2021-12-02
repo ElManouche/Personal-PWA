@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap");
 .col .row {
   margin-left: -12px;
   margin-right: -12px;
@@ -1602,6 +1602,7 @@ input#toggler {
 .wrapper .content section.about img {
   max-width: 100%;
   width: 100%;
+  height: auto;
   border-radius: 5px;
   margin-bottom: 36px;
 }
@@ -2012,7 +2013,6 @@ nav li {
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: rgba(69, 48, 64, 0.75);
-  background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new.webp");
   background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: inherit;
