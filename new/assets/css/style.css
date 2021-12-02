@@ -2035,6 +2035,7 @@ nav li {
   }
 }
 #banner .bg, #banner .mg, #banner .fg {
+  transition: transform 1s ease-out;
   position: absolute;
   top: 0;
   left: 0;

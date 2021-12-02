@@ -712,6 +712,7 @@ input#toggler {
   background-size: cover;
   perspective: 1px;
   .bg, .mg, .fg {
+    transition: transform 1s ease-out;
     position: absolute;
     top: 0;
     left: 0;
