@@ -2012,7 +2012,7 @@ nav li {
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: rgba(69, 48, 64, 0.75);
-  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new.jpg");
+  background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new.webp");
   background-position: bottom;
   background-repeat: no-repeat;
   background-attachment: inherit;
@@ -2047,13 +2047,13 @@ nav li {
   background-size: cover;
 }
 #banner .bg {
-  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_bg.jpg");
+  background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new_bg.webp");
 }
 #banner .mg {
-  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_mg.png");
+  background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new_mg.webp");
 }
 #banner .fg {
-  background-image: url("https://sarah.dionne.ch/assets/img/20201024_143714_new_fg.png");
+  background-image: url("https://sarah.dionne.ch/assets/img/hero/webp/20201024_143714_new_fg.webp");
 }
 #banner .inner {
   position: relative;
@@ -2069,7 +2069,6 @@ nav li {
   width: 100%;
   height: 300px;
   margin-bottom: 24px;
-  background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain;
