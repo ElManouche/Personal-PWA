@@ -31,7 +31,7 @@ $background-inverted: rgba($dark, .95);
 $white: $light;
 $purple: rgba(69, 48, 64, 1);
 $purple-lighter: rgba($purple, .75);
-$green: rgba(57, 162, 150, 1);
+$green: rgba(67, 172, 160, 1);
 $green-lighter: rgba(131, 211, 201, 1);
 $deep-blue: rgba(0,37,64,1);
 
@@ -167,6 +167,7 @@ h2 {
 }
 p {
   font-size: 17px;
+  margin: 12px 0;
 }
 a {
   text-decoration: none;
@@ -232,12 +233,32 @@ input#toggler {
         .col p:first-child {
           margin-top: 0;
         }
-        img {
-          max-width: 100%;
-          width: 100%;
-          height: auto;
-          border-radius: 5px;
-          margin-bottom: 36px;
+        .col--text-around-img {
+          padding: 0;
+          p {
+            padding: 12px;
+          }
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+
+            max-width: calc(100% - 24px);
+            margin: 0 12px;
+            @include mq(xs) {
+              margin: 12px 24px 12px 12px;
+              max-width: calc((1 * 100% / 2) - 24px);
+              float: left;
+              &.right {
+                float: right;
+                margin: 12px 12px 24px 12px;
+              }
+            }
+            @include mq(s) {
+              max-width: calc((1 * 100% / 3) - 24px);
+            }
+
+          }
         }
       }
       &.join-me {
@@ -485,7 +506,11 @@ input#toggler {
               outline: 1px solid $font-color-inverted;
               color: $font-color-inverted-hover;
             }
+            &.primary {
+              color: $font-color-inverted-hover;
+            }
           }
+
           &.submenu a:after, &.submenu span:after {
             border-color: $font-color-inverted;
           }
@@ -571,7 +596,7 @@ input#toggler {
           outline: 0px solid $font-color-inverted;
           &.primary {
             background-color: $green;
-            color: $font-color-inverted;
+            color: $font-color-inverted-hover;
             font-weight: 900;
             &:hover {
               background-color: $green-lighter;
@@ -706,6 +731,7 @@ input#toggler {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: cover;
+  background-image: url('https://ik.imagekit.io/sarahdionne/hero/bg_simplified_9hY375SH_vH.svg');
   perspective: 1px;
   .bg, .mg, .fg {
     transition: transform 1s ease-out;

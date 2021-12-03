@@ -1523,6 +1523,7 @@ h2 {
 
 p {
   font-size: 17px;
+  margin: 12px 0;
 }
 
 a {
@@ -1599,12 +1600,34 @@ input#toggler {
 .wrapper .content section.about .col p:first-child {
   margin-top: 0;
 }
-.wrapper .content section.about img {
-  max-width: 100%;
+.wrapper .content section.about .col--text-around-img {
+  padding: 0;
+}
+.wrapper .content section.about .col--text-around-img p {
+  padding: 12px;
+}
+.wrapper .content section.about .col--text-around-img img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
-  margin-bottom: 36px;
+  border-radius: 10px;
+  max-width: calc(100% - 24px);
+  margin: 0 12px;
+}
+@media only screen and (min-width: 360px) {
+  .wrapper .content section.about .col--text-around-img img {
+    margin: 12px 24px 12px 12px;
+    max-width: calc((1 * 100% / 2) - 24px);
+    float: left;
+  }
+  .wrapper .content section.about .col--text-around-img img.right {
+    float: right;
+    margin: 12px 12px 24px 12px;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .wrapper .content section.about .col--text-around-img img {
+    max-width: calc((1 * 100% / 3) - 24px);
+  }
 }
 .wrapper .content section.join-me a span.material-icons {
   font-size: 56px;
@@ -1615,7 +1638,7 @@ input#toggler {
   color: #453040;
 }
 .wrapper .content section.find-me {
-  background: linear-gradient(180deg, #39a296 0%, #83d3c9 100%);
+  background: linear-gradient(180deg, #43aca0 0%, #83d3c9 100%);
   color: #fff;
 }
 .wrapper .content section.find-me iframe {
@@ -1819,6 +1842,9 @@ nav li {
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: white;
   }
+  .container.banner-intersecting nav ul li > a.primary, .container.banner-intersecting nav ul li > span.primary {
+    color: white;
+  }
   .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after {
     border-color: rgba(255, 255, 255, 0.75);
   }
@@ -1900,8 +1926,8 @@ nav li {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
   nav ul li a.primary, nav ul li span.primary {
-    background-color: #39a296;
-    color: rgba(255, 255, 255, 0.75);
+    background-color: #43aca0;
+    color: white;
     font-weight: 900;
   }
   nav ul li a.primary:hover, nav ul li span.primary:hover {
@@ -2019,6 +2045,7 @@ nav li {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: cover;
+  background-image: url("https://ik.imagekit.io/sarahdionne/hero/bg_simplified_9hY375SH_vH.svg");
   perspective: 1px;
 }
 @media only screen and (min-width: 992px) {
