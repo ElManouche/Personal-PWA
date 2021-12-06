@@ -510,9 +510,10 @@ input#toggler {
               color: $font-color-inverted-hover;
             }
           }
-
-          &.submenu a:after, &.submenu span:after {
-            border-color: $font-color-inverted;
+          &, &:hover {
+            &.submenu a:after, &.submenu span:after {
+              border-color: $font-color-inverted;
+            }
           }
           &:hover{
             > a, > span {
@@ -664,8 +665,8 @@ input#toggler {
             }
           }
         }
-        &:hover {
-          ul:not(.hidden) {
+        &:not(.closed):hover {
+          ul {
             display: block;
             opacity: 1;
             transform: scale(1);

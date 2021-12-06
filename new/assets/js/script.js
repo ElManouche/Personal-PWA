@@ -58,15 +58,14 @@ const containerObserverCallback = (entries, observer) => {
 };
 
 let throttleTimer;
-
 const throttle = (callback, time) => {
   if (throttleTimer) return;
-    throttleTimer = true;
-    setTimeout(() => {
-        callback();
-        throttleTimer = false;
-    }, time);
-}
+  throttleTimer = true;
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};
 
 // Animate the desktop navbar
 const parallax = () => {
@@ -100,41 +99,53 @@ const initLinksCloseNav = () => {
     link.addEventListener('click', linkClickedHandler);
   });
 }
-const toggleDisplay = (elm, prop = 'block', force = false) => {
-  if (elm.classList.contains('hidden') || force) {
-    elm.classList.add('visible');
-    elm.classList.remove('hidden');
-    //elm.style.display = prop;
+
+// Add first class
+const toggleClass = (elm, classes, force) => {
+  if(force) {
+    elm.classList.remove(...classes);
+    elm.classList.add(force);
   } else {
-    elm.classList.remove('visible');
-    elm.classList.add('hidden');
-    //elm.style.display = "none";
+    if (elm.classList.contains(classes[0])) {
+      elm.classList.replace(...classes)
+    } else if(elm.classList.contains(classes[1])) {
+      [classes[0], classes[1]] = [classes[1], classes[0]];
+      elm.classList.replace(...classes);
+    } else {
+      elm.classList.add(classes[0]);
+    }
   }
 };
+
+
+
 const initCloseSubNav = () => {
-  document.querySelectorAll("li.submenu > span").forEach((item) => {
-    const defaultProp = 'block';
+  document.querySelectorAll("li.submenu").forEach((item) => {
     item.addEventListener('click', (evt) => {
-      const elm = evt.target.parentNode;
-      const ul = elm.querySelector('ul');
-      toggleDisplay(ul, defaultProp);
+      setTimeout(() => toggleClass(item, ['open', 'closed']), 0);
     });
-    item.addEventListener('mouseover', (evt) => {
-      const elm = evt.target.parentNode;
-      const ul = elm.querySelector('ul');
-      toggleDisplay(ul, defaultProp, true);
+    item.addEventListener('mouseenter', (evt) => {
+      // on mobile, timeout to trigger hover after click ;)
+      setTimeout(() => toggleClass(item, ['open', 'closed'], 'open'), 100);
     });
+    /* Doesn't work on mobile
+    item.addEventListener('mousemove', (evt) => {
+      throttle(() => {
+        toggleClass(item, ['open', 'closed'], 'open');
+      }, 1000);
+    });
+    */
   });
 };
 const init = () => {
   initLinksCloseNav();
-  //initCloseSubNav();
+  initCloseSubNav();
   document.getElementById('toggler').addEventListener('click', toggleHandler);
   const observer = new IntersectionObserver(containerObserverCallback);
   observer.observe(document.querySelector('#banner'));
 }
 
-document.addEventListener("DOMContentLoaded", init());
+document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("scroll", () => {
   throttle(parallax, 1000/48);
 });

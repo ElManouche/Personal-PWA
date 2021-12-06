@@ -501,7 +501,7 @@ nav li {
   .container.banner-intersecting nav ul li > a.primary, .container.banner-intersecting nav ul li > span.primary {
     color: white;
   }
-  .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after {
+  .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after, .container.banner-intersecting nav ul li:hover.submenu a:after, .container.banner-intersecting nav ul li:hover.submenu span:after {
     border-color: rgba(255, 255, 255, 0.75);
   }
   .container.banner-intersecting nav ul li:hover > a, .container.banner-intersecting nav ul li:hover > span {
@@ -646,17 +646,17 @@ nav li {
     background-color: #83d3c9;
     color: white;
   }
-  nav ul li:hover ul:not(.hidden) {
+  nav ul li:not(.closed):hover ul {
     display: block;
     opacity: 1;
     transform: scale(1);
   }
-  nav ul li:hover.submenu a:after, nav ul li:hover.submenu span:after {
+  nav ul li:not(.closed):hover.submenu a:after, nav ul li:not(.closed):hover.submenu span:after {
     transform: rotate(225deg);
     margin: 0 0 0px 8px;
     border-color: rgba(28, 32, 33, 0.85);
   }
-  nav ul li:hover a, nav ul li:hover span {
+  nav ul li:not(.closed):hover a, nav ul li:not(.closed):hover span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
   nav ul li.submenu > a:after, nav ul li.submenu > span:after {
