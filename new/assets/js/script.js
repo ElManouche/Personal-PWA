@@ -1,5 +1,46 @@
+// Underscore throttle function
+const throttle = (func, wait, options) => {
+  let timeout, context, args, result,
+      previous = 0;
+  if (!options) options = {};
+
+  const later = () => {
+    previous = options.leading === false ? 0 : new Date().getTime();
+    timeout = null;
+    result = func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+
+  const throttled = function() {
+    const now = new Date().getTime();
+    if (!previous && options.leading === false) previous = now;
+    const remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  };
+
+  throttled.cancel = function() {
+    clearTimeout(timeout);
+    previous = 0;
+    timeout = context = args = null;
+  };
+  return throttled;
+};
+
 // JS TO USE THE MENU AS A SINGLE PAGE WITH SCROLL
-const linkClickedHandler = evt => {
+const linkToAnchorClickedHandler = evt => {
   evt.preventDefault();
   const toggler = document.getElementById('toggler'),
         mobileOnlyElm = document.querySelector('.wrapper .mobile-navbar'),
@@ -36,9 +77,18 @@ const linkClickedHandler = evt => {
   }
 };
 
+const initLinksCloseNav = () => {
+  Array.from(
+    document.querySelectorAll("a[href*='#']:not([href='#'])")
+  ).forEach((link) => {
+    link.removeEventListener('click', linkToAnchorClickedHandler);
+    link.addEventListener('click', linkToAnchorClickedHandler);
+  });
+}
+
 // don't scroll body if the mobile menu is visible
-const toggleHandler = () => {
-  if(toggler.checked === true) {
+const togglerClickedHandler = checked => {
+  if(checked === true) {
     document.documentElement.classList.add('no-scroll-mobile');
   } else {
     document.documentElement.classList.remove('no-scroll-mobile');
@@ -46,7 +96,7 @@ const toggleHandler = () => {
 };
 
 // Animate the desktop navbar with Intersection observer
-const containerObserverCallback = (entries, observer) => {
+const containerObserverCallback = entries => {
   entries.forEach(entry => {
     const container = document.querySelector(".container");
     if(entry.isIntersecting) {
@@ -55,16 +105,6 @@ const containerObserverCallback = (entries, observer) => {
       container.classList.remove('banner-intersecting');
     }
   });
-};
-
-let throttleTimer;
-const throttle = (callback, time) => {
-  if (throttleTimer) return;
-  throttleTimer = true;
-  setTimeout(() => {
-    callback();
-    throttleTimer = false;
-  }, time);
 };
 
 // Animate the desktop navbar
@@ -91,15 +131,6 @@ const parallax = () => {
   }
 };
 
-const initLinksCloseNav = () => {
-  Array.from(
-    document.querySelectorAll("a[href*='#']:not([href='#'])")
-  ).forEach((link) => {
-    link.removeEventListener('click', linkClickedHandler);
-    link.addEventListener('click', linkClickedHandler);
-  });
-}
-
 // Add first class
 const toggleClass = (elm, classes, force) => {
   if(force) {
@@ -120,32 +151,29 @@ const toggleClass = (elm, classes, force) => {
 
 
 const initCloseSubNav = () => {
-  document.querySelectorAll("li.submenu").forEach((item) => {
-    item.addEventListener('click', (evt) => {
+  document.querySelectorAll("li.submenu").forEach(item => {
+    const throttledReopenSubmenu = throttle(() => toggleClass(item, ['open', 'closed'], 'open'), 1000, { leading: false });
+    item.addEventListener('click', () => {
       setTimeout(() => toggleClass(item, ['open', 'closed']), 0);
+      throttledReopenSubmenu.cancel();
     });
-    item.addEventListener('mouseenter', (evt) => {
+    item.addEventListener('mouseenter', () => {
       // on mobile, timeout to trigger hover after click ;)
       setTimeout(() => toggleClass(item, ['open', 'closed'], 'open'), 100);
     });
-    /* Doesn't work on mobile
-    item.addEventListener('mousemove', (evt) => {
-      throttle(() => {
-        toggleClass(item, ['open', 'closed'], 'open');
-      }, 1000);
-    });
-    */
+    item.addEventListener("mousemove", throttledReopenSubmenu);
   });
 };
 const init = () => {
   initLinksCloseNav();
   initCloseSubNav();
-  document.getElementById('toggler').addEventListener('click', toggleHandler);
-  const observer = new IntersectionObserver(containerObserverCallback);
+
+  const toggler = document.getElementById('toggler'),
+        observer = new IntersectionObserver(containerObserverCallback);
+
+  document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
+  toggler.addEventListener('click', () => togglerClickedHandler(toggler.checked) );
   observer.observe(document.querySelector('#banner'));
 }
 
 document.addEventListener("DOMContentLoaded", init);
-window.addEventListener("scroll", () => {
-  throttle(parallax, 1000/48);
-});
