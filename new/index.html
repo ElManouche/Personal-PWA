@@ -11,7 +11,10 @@
            traditionnelle et chinoise à Lausanne et à Pully.">
   <link rel="stylesheet" media="screen" href="assets/css/style.css">
   <link rel="preconnect" media="screen" href="https://fonts.googleapis.com/">
-  <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap">
+  <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap"
+        as="style"
+        onload="this.onload=null; this.media='all' this.rel='stylesheet'; document.body.classList.add('fontLoaded')">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -289,7 +292,7 @@
   </div>
 </div>
 <!-- partial -->
-  <script src='https://polyfill.io/v3/polyfill.min.js?features=default'></script>
+  <script src='https://cdn.polyfill.io/v3/polyfill.min.js'></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
