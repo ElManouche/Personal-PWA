@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap");
 .col .row {
   margin-left: -12px;
   margin-right: -12px;
@@ -198,6 +196,10 @@ input#toggler {
   display: none;
 }
 
+svg.hidden {
+  display: none;
+}
+
 /* PAGE LAYOUT */
 .wrapper {
   transition: margin 0.3s ease-in-out;
@@ -285,13 +287,17 @@ input#toggler {
     max-width: calc((1 * 100% / 3) - 24px);
   }
 }
-.wrapper .content section.join-me a span.material-icons {
+.wrapper .content section.join-me a svg.icon {
   font-size: 56px;
+  height: 56px;
+  width: 56px;
   color: rgba(69, 48, 64, 0.75);
+  fill: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
-.wrapper .content section.join-me a:hover span.material-icons {
+.wrapper .content section.join-me a:hover svg.icon {
   color: #453040;
+  fill: #453040;
 }
 .wrapper .content section.find-me {
   background: linear-gradient(180deg, #43aca0 0%, #83d3c9 100%);
@@ -300,6 +306,15 @@ input#toggler {
 .wrapper .content section.find-me iframe {
   width: 80%;
   height: 250px;
+}
+.wrapper .content footer {
+  text-align: center;
+  padding: 12px;
+}
+.wrapper .content footer svg.icon {
+  height: 12px;
+  width: 12px;
+  fill: rgba(28, 32, 33, 0.75);
 }
 
 /* MOBILE NAVIGATION */
@@ -715,8 +730,9 @@ nav li {
   background-size: cover;
 }
 #banner .inner {
+  filter: drop-shadow(0px 0px 5px #002540) drop-shadow(0px 0px 5px #002540);
   /** add a logo on top?
-  &:before {
+    &:before {
     content: none;
     display: block;
     width: 100%;
@@ -727,7 +743,7 @@ nav li {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  **/
+    **/
   margin: auto;
   position: absolute;
   top: 50%;
@@ -754,11 +770,10 @@ nav li {
   display: inline-block;
   border-bottom: solid 2px;
   border-top: solid 2px;
-  margin: 0 0 2em 0;
+  margin: 0 0 36px 0;
   padding: 3px 0 3px 0;
 }
 #banner .inner header h2 {
-  text-shadow: 0px 0px 10px #002540;
   border-bottom: solid 2px;
   border-top: solid 2px;
   font-size: 2.5em;
@@ -777,13 +792,12 @@ nav li {
   font-weight: 300;
 }
 #banner .inner p {
-  text-shadow: 0px 0px 10px #002540, 0px 0px 10px #002540;
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
 }
 #banner .inner footer {
-  padding-top: 12px;
+  padding-top: 24px;
 }
 #banner .inner footer ul {
   margin: 0;
@@ -794,31 +808,37 @@ nav li {
   display: inline-block;
 }
 #banner .inner footer ul li a {
-  text-shadow: 0px 0px 10px #002540;
+  display: inline-block;
   color: rgba(255, 255, 255, 0.75);
-  padding: 12px 18px;
+  margin: 12px 18px;
   transition: color 0.3s ease-in-out;
+}
+#banner .inner footer ul li a svg.icon {
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  fill: rgba(255, 255, 255, 0.75);
+  transition: fill 0.3s ease-in-out;
 }
 #banner .inner footer ul li a:hover {
   color: white;
 }
-#banner .inner footer ul li a span {
-  border-radius: 50%;
-  font-size: 36px;
+#banner .inner footer ul li a:hover svg.icon {
+  fill: white;
 }
 @media only screen and (min-width: 768px) {
   #banner .inner footer ul li a {
-    padding: 12px 24px;
-  }
-  #banner .inner footer ul li a span {
-    transition: background-color 0.3s ease-in-out;
+    margin: 12px 24px;
+    transition: background-color 0.3s ease-in-out, outline 0.3s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 50%;
-    box-shadow: 0px 0px 10px rgba(0, 37, 64, 0.3);
-    padding: 16px;
-    font-size: 36px;
   }
-  #banner .inner footer ul li a:hover span {
+  #banner .inner footer ul li a svg.icon {
+    padding: 16px;
+    height: calc(36px + 32px);
+    width: calc(36px + 32px);
+  }
+  #banner .inner footer ul li a:hover {
     background-color: rgba(255, 255, 255, 0.125);
     outline: 1px solid white;
   }
