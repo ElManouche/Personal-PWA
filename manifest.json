@@ -1,12 +1,11 @@
 {
   "name": "Sarah Dionne",
-  "short_name": "SD",
+  "short_name": "Sarah Dionne",
   "start_url": "./",
   "scope": ".",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#fff",
-  "theme_color": "#640700",
+  "orientation": "any",
+  "theme_color": "#43aca0",
   "newBranch":"true",
   "icons": [
     {

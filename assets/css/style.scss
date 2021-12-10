@@ -20,8 +20,8 @@ $font-color-hover: rgba($dark, .85);
 $background: rgba($dark, .05);
 $shadow: rgba($dark, .25);
 
-$font-color-inverted: rgba($light, 0.75);
-$font-color-inverted-hover: rgba($light, 1);
+$font-color-inverted: rgba($light, .75);
+$font-color-inverted-hover: rgba($light, .85);
 $borders-inverted: rgba($light, .05);
 $background-inverted: rgba($dark, .95);
 
@@ -231,7 +231,7 @@ input#toggler {
         max-width: 1200px;
       }
       &:nth-child(odd) {
-        background-color: white;
+        background-color: $white;
       }
       &.about {
         .col p:first-child {
@@ -287,7 +287,7 @@ input#toggler {
       &.find-me {
         // background-color: $green;
         background: linear-gradient(180deg, $green 0%, $green-lighter 100%);
-        color: #fff;
+        color: $font-color-inverted;
 
         iframe {
           width: 80%;
@@ -311,9 +311,6 @@ input#toggler {
         width: 24px;
         fill: $font-color;
         margin-right: 12px;
-        &:last-of-type {
-          margin-right: 0;
-        }
       }
     }
   }
@@ -327,6 +324,17 @@ input#toggler {
       box-shadow: none;
       .title {
         display: none;
+      }
+      svg.icon {
+        fill: $font-color-inverted-hover;
+      }
+      label.toggler {
+        .navicon {
+          background: $font-color-inverted-hover;
+          &, &:before, &:after {
+            background: $font-color-inverted-hover;
+          }
+        }
       }
     }
   }
@@ -430,13 +438,15 @@ input#toggler {
     .mobile-navbar {
       position: fixed;
       z-index: 1;
-      background: $light;
+      background: $white;
       box-shadow: 0 1px 2px 0 $shadow;
       display: inline-block;
       width: 100%;
       font-size: 18px;
       line-height: 56px;
       .title {
+        float: right;
+        margin-right: 12px;
         display: block;
         z-index: 0;
         text-transform: uppercase;
@@ -454,23 +464,31 @@ input#toggler {
           font-weight: 300;
         }
       }
+      svg.icon {
+        float: left;
+        height: 36px;
+        width: 36px;
+        margin: 10px 12px 10px 0px;
+        fill: $font-color;
+      }
       label.toggler {
+        position: relative;
         cursor: pointer;
         display: block;
         float: left;
         width: 36px;
         height: 34px;
         margin: 11px 6px;
-        background: $font-color-inverted;
         border-radius: 5px;
         .navicon {
           background: $font-color;
+          visibility: visible;
           display: block;
           height: 3px;
           position: absolute;
-          top: 26px;
-          left: 12px;
-          transition: background .5s ease-in-out;
+          top: 16px;
+          left: 6px;
+          transition: visibility .5s ease-in-out;
           width: 24px;
           &:before,
           &:after {
@@ -480,7 +498,7 @@ input#toggler {
             display: block;
             height: 100%;
             position: absolute;
-            transition: all 0.5s ease-in-out;
+            transition: transform .5s ease-in-out, top .5s ease-in-out;
             width: 100%;
           }
           &:before {
@@ -840,7 +858,7 @@ input#toggler {
         text-transform: uppercase;
         a {
           text-decoration: none;
-          color: $white;
+          color: $font-color-inverted-hover;
         }
         span {
           font-weight: 300;
@@ -873,6 +891,8 @@ input#toggler {
               width: 36px;
               fill: $font-color-inverted;
               transition: fill .3s ease-in-out;
+              margin: 0;
+
             }
             &:hover {
               color: $font-color-inverted-hover;
@@ -924,7 +944,7 @@ input#toggler {
   .wrapper .content {
     section {
       &:nth-child(odd) {
-        background-color: rgba($light,.02);
+        background-color: rgba($white,.02);
       }
       &.join-me a {
         svg.icon { fill: $green-lighter; }
@@ -932,7 +952,7 @@ input#toggler {
       }
       &.find-me {
         background: linear-gradient(180deg, $green 0%, $green-darker 100%);
-        color: #fff;
+        color: $font-color-inverted;
       }
     }
     footer svg.icon {
@@ -945,15 +965,18 @@ input#toggler {
     // styling
     .wrapper {
       .mobile-navbar {
-        background: $background-inverted;
+        background: $dark;
         .title a {
           color: $font-color-inverted;
         }
+        svg.icon {
+          fill: $font-color-inverted-hover;
+        }
         label.toggler {
-          background: $font-color;
           .navicon {
+            background: $font-color-inverted-hover;
             &, &:before, &:after {
-              background: $font-color-inverted;
+              background: $font-color-inverted-hover;
             }
           }
         }
