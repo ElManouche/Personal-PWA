@@ -889,40 +889,10 @@ nav li {
     color: rgba(255, 255, 255, 0.75);
   }
   .wrapper .mobile-navbar label.toggler {
-    cursor: pointer;
-    display: block;
-    float: left;
-    width: 36px;
-    height: 34px;
-    margin: 11px 6px;
     background: rgba(28, 32, 33, 0.75);
-    border-radius: 5px;
   }
-  .wrapper .mobile-navbar label.toggler .navicon {
+  .wrapper .mobile-navbar label.toggler .navicon, .wrapper .mobile-navbar label.toggler .navicon:before, .wrapper .mobile-navbar label.toggler .navicon:after {
     background: rgba(255, 255, 255, 0.75);
-    display: block;
-    height: 3px;
-    position: absolute;
-    top: 26px;
-    left: 12px;
-    transition: background 0.5s ease-in-out;
-    width: 24px;
-  }
-  .wrapper .mobile-navbar label.toggler .navicon:before, .wrapper .mobile-navbar label.toggler .navicon:after {
-    background: rgba(255, 255, 255, 0.75);
-    content: "";
-    left: 0px;
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.5s ease-in-out;
-    width: 100%;
-  }
-  .wrapper .mobile-navbar label.toggler .navicon:before {
-    top: 7px;
-  }
-  .wrapper .mobile-navbar label.toggler .navicon:after {
-    top: -7px;
   }
 }
 @media only screen and (prefers-color-scheme: dark) and (min-width: 768px) {
