@@ -315,10 +315,19 @@ input#toggler {
   text-align: center;
   padding: 12px;
 }
+.wrapper .content footer p {
+  height: 24px;
+  line-height: 24px;
+}
+.wrapper .content footer p small, .wrapper .content footer p svg.icon {
+  vertical-align: middle;
+  display: inline-block;
+}
 .wrapper .content footer svg.icon {
-  height: 12px;
-  width: 12px;
+  height: 24px;
+  width: 24px;
   fill: rgba(28, 32, 33, 0.75);
+  margin-right: 12px;
 }
 
 /* MOBILE NAVIGATION */
@@ -879,6 +888,9 @@ nav li {
   .wrapper .content section.find-me {
     background: linear-gradient(180deg, #43aca0 0%, #26635c 100%);
     color: #fff;
+  }
+  .wrapper .content footer svg.icon {
+    fill: rgba(255, 255, 255, 0.75);
   }
 }
 @media only screen and (prefers-color-scheme: dark) and (max-width: 767.8px) {

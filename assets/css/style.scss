@@ -297,15 +297,23 @@ input#toggler {
     footer {
       text-align: center;
       padding: 12px;
+      p {
+        height: 24px;
+        line-height: 24px;
+        small, svg.icon {
+          vertical-align: middle;
+          display: inline-block;
+        }
+      }
       svg.icon {
-        height: 12px;
-        width: 12px;
+        height: 24px;
+        width: 24px;
         fill: $font-color;
+        margin-right: 12px;
       }
     }
   }
 }
-
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: #{$m-min - 0.2}) {
   // intersecting the menu bar disapear
@@ -892,17 +900,22 @@ input#toggler {
     &:hover { color: $font-color-inverted-hover; }
   }
 
-  .wrapper .content section {
-    &:nth-child(odd) {
-      background-color: rgba($light,.02);
+  .wrapper .content {
+    section {
+      &:nth-child(odd) {
+        background-color: rgba($light,.02);
+      }
+      &.join-me a {
+        svg.icon { fill: $green-lighter; }
+        &:hover svg.icon { fill: $green; }
+      }
+      &.find-me {
+        background: linear-gradient(180deg, $green 0%, $green-darker 100%);
+        color: #fff;
+      }
     }
-    &.join-me a {
-      svg.icon { fill: $green-lighter; }
-      &:hover svg.icon { fill: $green; }
-    }
-    &.find-me {
-      background: linear-gradient(180deg, $green 0%, $green-darker 100%);
-      color: #fff;
+    footer svg.icon {
+      fill: $font-color-inverted;
     }
   }
 
