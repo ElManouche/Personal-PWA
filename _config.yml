@@ -1,9 +1,0 @@
-# Site settings
-title: Sarah Dionne
-subtitle: Physiothérapie pédiatrique · Acupuncture · Reiki
-email: info@dionne.com
-description: > # ignore newlines
-  Physiothérapie pédiatrique · Acupuncture · Reiki
-logo: /assets/img/logos/logo.png
-
-theme: jekyll-theme-minimal
