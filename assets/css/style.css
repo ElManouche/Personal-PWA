@@ -216,16 +216,16 @@ input#toggler {
 }
 .wrapper .content section {
   margin-top: 0px;
-  padding: 56px 24px 48px 24px;
+  padding: 56px 12px 48px 12px;
 }
 @media only screen and (min-width: 480px) {
   .wrapper .content section {
-    padding: 56px 48px;
+    padding: 56px 24px;
   }
 }
 @media only screen and (min-width: 768px) {
   .wrapper .content section {
-    padding: 56px 48px 48px 48px;
+    padding: 56px 24px 48px 24px;
     margin-left: 24px;
     margin-right: 24px;
   }
@@ -248,6 +248,7 @@ input#toggler {
 }
 @media only screen and (min-width: 1200px) {
   .wrapper .content section {
+    padding: 56px 36px 48px 36px;
     max-width: 1024px;
   }
 }
@@ -512,6 +513,9 @@ nav li {
     background: none;
     box-shadow: none;
   }
+  .container.banner-intersecting nav .title svg.icon {
+    fill: rgba(255, 255, 255, 0.75);
+  }
   .container.banner-intersecting nav .title a {
     color: rgba(255, 255, 255, 0.75);
   }
@@ -571,7 +575,17 @@ nav li {
     text-overflow: ellipsis;
     white-space: nowrap;
     float: left;
-    margin-left: 40px;
+    margin-left: 36px;
+  }
+  nav .title svg.icon, nav .title a {
+    display: inline-block;
+  }
+  nav .title svg.icon {
+    height: 36px;
+    width: 36px;
+    fill: rgba(28, 32, 33, 0.75);
+    margin: 10px 12px 0 0;
+    vertical-align: top;
   }
   nav .title a {
     color: rgba(28, 32, 33, 0.75);
@@ -588,7 +602,7 @@ nav li {
   }
   nav ul {
     float: right;
-    margin-right: 40px;
+    margin-right: 36px;
   }
   nav ul li {
     display: inline-block;
@@ -598,6 +612,9 @@ nav li {
     display: inline-block;
     padding: 10px 16px;
     margin: 10px;
+    height: 36px;
+    font-size: 16px;
+    line-height: 16px;
     color: rgba(28, 32, 33, 0.75);
     text-decoration: none;
     outline: 0px solid rgba(255, 255, 255, 0.75);
@@ -661,6 +678,7 @@ nav li {
     margin: 0;
     padding: 10px 36px;
     width: 100%;
+    height: auto;
     max-width: 200px;
     font-size: 14px;
     border-top: 1px solid rgba(28, 32, 33, 0.05);
@@ -786,7 +804,7 @@ nav li {
   display: inline-block;
   border-bottom: solid 2px;
   border-top: solid 2px;
-  margin: 0 0 36px 0;
+  margin: 12px 0 36px 0;
   padding: 3px 0 3px 0;
 }
 #banner .inner header h2 {
@@ -813,7 +831,7 @@ nav li {
   text-transform: uppercase;
 }
 #banner .inner footer {
-  padding-top: 24px;
+  padding: 24px 0 0 0;
 }
 #banner .inner footer ul {
   margin: 0;
@@ -917,6 +935,9 @@ nav li {
   }
   nav .title a {
     color: rgba(255, 255, 255, 0.75);
+  }
+  nav .title svg.icon {
+    fill: rgba(255, 255, 255, 0.75);
   }
   nav ul li a, nav ul li span {
     color: rgba(255, 255, 255, 0.75);

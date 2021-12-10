@@ -200,15 +200,15 @@ input#toggler {
 
     section {
       margin-top: 0px;
-      padding: 56px 24px 48px 24px;
+      padding: 56px 12px 48px 12px;
       @include mq(s) {
-        padding: 56px 48px;
+        padding: 56px 24px;
       }
       @include mq(m) {
         &:first-of-type {
           margin-top: 24px;
         }
-        padding: 56px 48px 48px 48px;
+        padding: 56px 24px 48px 24px;
         margin-left: 24px;
         margin-right: 24px;
       }
@@ -224,6 +224,7 @@ input#toggler {
         }
       }
       @include mq(xl) {
+        padding: 56px 36px 48px 36px;
         max-width: 1024px;
       }
       @include mq(xxl) {
@@ -515,6 +516,9 @@ input#toggler {
       display: block;
       background: none;
       box-shadow: none;
+      .title svg.icon {
+        fill: $font-color-inverted;
+      }
       .title a  {
         color: $font-color-inverted;
       }
@@ -584,7 +588,17 @@ input#toggler {
       text-overflow: ellipsis;
       white-space: nowrap;
       float: left;
-      margin-left: 40px;
+      margin-left: 36px;
+      svg.icon, a {
+        display: inline-block;
+      }
+      svg.icon {
+        height: 36px;
+        width: 36px;
+        fill: $font-color;
+        margin: 10px 12px 0 0;
+        vertical-align: top;
+      }
       a {
         color: $font-color;
         text-decoration: none;
@@ -602,7 +616,7 @@ input#toggler {
     }
     ul {
       float: right;
-      margin-right: 40px;
+      margin-right: 36px;
       li {
         display: inline-block;
         a, span {
@@ -615,6 +629,9 @@ input#toggler {
           display: inline-block;
           padding: 10px 16px;
           margin: 10px;
+          height: 36px;
+          font-size: 16px;
+          line-height: 16px;
           color: $font-color;
           text-decoration: none;
           outline: 0px solid $font-color-inverted;
@@ -674,6 +691,7 @@ input#toggler {
               margin: 0;
               padding: 10px 36px;
               width: 100%;
+              height: auto;
               max-width: 200px;
               font-size: 14px;
               border-top: 1px solid $background;
@@ -807,7 +825,7 @@ input#toggler {
       display: inline-block;
       border-bottom: solid 2px;
       border-top: solid 2px;
-      margin: 0 0 36px 0;
+      margin: 12px 0 36px 0;
       padding: 3px 0 3px 0;
 
       h2 {
@@ -835,7 +853,7 @@ input#toggler {
       text-transform: uppercase;
     }
     footer {
-      padding-top: 24px;
+      padding: 24px 0 0 0;
       ul {
         margin: 0;
         padding: 0;
@@ -951,6 +969,7 @@ input#toggler {
       box-shadow: 0 1px 2px 0 $shadow;
       .title {
         a { color: $font-color-inverted; }
+        svg.icon { fill: $font-color-inverted; }
       }
       ul {
         li {
