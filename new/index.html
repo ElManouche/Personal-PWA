@@ -9,12 +9,22 @@
   content="Site de présentation de Sarah Dionne, Physiothérapeute en pédiatrie,
            acupunctrice et praticienne de reiki. Traitements médecine
            traditionnelle et chinoise à Lausanne et à Pully.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#00aba9">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="rgb(0,37,64)">
+  <link rel="manifest" href="manifest.json">
+
   <link rel="stylesheet" media="screen" href="assets/css/style.css">
-  <link rel="preconnect" media="screen" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" media="screen" href="//fonts.googleapis.com/">
   <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap"
+        href="//fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap"
         as="style"
-        onload="this.onload=null; this.media='all' this.rel='stylesheet'; document.body.classList.add('fontLoaded')">
+        onload="this.onload=null; this.media='all'; this.rel='stylesheet'; document.body.classList.add('fontLoaded')">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -291,8 +301,22 @@
     </div>
   </div>
 </div>
-<!-- partial -->
-  <script src='https://cdn.polyfill.io/v3/polyfill.min.js'></script>
-  <script src="assets/js/script.js"></script>
+<!-- /partial -->
+<script src="//cdn.polyfill.io/v3/polyfill.min.js"></script>
+<!--
+<script type="text/javascript">
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+    .register(`service-worker.js`)
+    .then(function () {
+        console.log("Service Worker Registered");
+    });
+  }
+</script>
+<script defer src="js/settings.js"></script>
+<script defer src="js/install-handler.js"></script>
+<script src="assets/js/main.js"></script>
+-->
+<script src="assets/js/script.js"></script>
 </body>
 </html>

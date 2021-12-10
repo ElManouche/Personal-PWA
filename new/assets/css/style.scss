@@ -29,7 +29,8 @@ $white: $light;
 $purple: rgba(69, 48, 64, 1);
 $purple-lighter: rgba($purple, .75);
 $green: rgba(67, 172, 160, 1);
-$green-lighter: rgba(131, 211, 201, 1);
+$green-lighter: lighten($green, 10%);
+$green-darker: darken($green, 20%);
 $deep-blue: rgba(0,37,64,1);
 
 $breakpoints: (
@@ -121,12 +122,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Lato, sans-serif;
+  font-family: sans-serif;
   font-size: $font-size;
   font-weight: 300;
   letter-spacing: .025em;
   scroll-behavior: smooth;
   color: $font-color;
+  &.fontLoaded {
+    font-family: Lato, sans-serif;
+  }
 }
 // do not scroll if the mobile menu is open
 html.no-scroll-mobile {
@@ -181,8 +185,8 @@ a {
 input#toggler {
   display: none;
 }
-svg.hidden {
-  display: none;
+.hidden {
+  display: none !important;
 }
 
 /* PAGE LAYOUT */
@@ -631,7 +635,7 @@ svg.hidden {
           position: absolute;
           background-color: $white;
           margin: 12px 0 0 0;
-          padding: 12px 0;
+          padding: 16px 0;
           box-shadow: 0 1px 2px 0 $shadow;
           &:before {
             border-bottom: solid 0.5em $white;
@@ -870,6 +874,99 @@ svg.hidden {
           }
           &:last-child a {
             padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// DARK MODE
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color: $font-color-inverted;
+    background-color: $background-inverted;
+  }
+  a {
+    color: $font-color-inverted;
+    &:hover { color: $font-color-inverted-hover; }
+  }
+
+  .wrapper .content section {
+    &:nth-child(odd) {
+      background-color: rgba($light,.02);
+    }
+    &.join-me a {
+      svg.icon { fill: $green-lighter; }
+      &:hover svg.icon { fill: $green; }
+    }
+    &.find-me {
+      background: linear-gradient(180deg, $green 0%, $green-darker 100%);
+      color: #fff;
+    }
+  }
+
+  // Desktop Nav
+  @include mq(m) {
+    nav {
+      background: $dark;
+      box-shadow: 0 1px 2px 0 $shadow;
+      .title {
+        a { color: $font-color-inverted; }
+      }
+      ul {
+        li {
+          a, span {
+            color: $font-color-inverted;
+            outline: 0px solid $font-color-inverted;
+            &.primary {
+              background-color: $green;
+              color: $font-color-inverted-hover;
+              font-weight: 900;
+              &:hover {
+                background-color: $green-lighter;
+                outline: none;
+                color: $font-color-inverted-hover;
+              }
+            }
+            &:hover {
+              color: $font-color-inverted-hover;
+            }
+          }
+
+          // submenu
+          ul {
+            background-color: $dark;
+            box-shadow: 0 1px 2px 0 $shadow;
+            &:before {
+              border-bottom: solid 0.5em $dark;
+            }
+
+            li {
+              a {
+                border-top: 1px solid $background-inverted;
+                background-color: $dark;
+                color: $font-color-inverted;
+                &:hover {
+                  background-color: $green;
+                  color: $font-color-inverted-hover;
+                }
+              }
+            }
+          }
+          &:not(.closed):hover {
+            &.submenu a:after, &.submenu span:after {
+              border-color: $font-color-inverted-hover;
+            }
+            ul li a, ul li span {
+              outline: 0px solid $font-color-inverted;
+              color: $font-color-inverted;
+            }
+          }
+          &.submenu {
+            > a:after, > span:after {
+              border-color: $font-color-inverted;
+            }
           }
         }
       }

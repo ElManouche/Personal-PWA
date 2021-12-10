@@ -126,12 +126,16 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Lato, sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.025em;
   scroll-behavior: smooth;
   color: rgba(28, 32, 33, 0.75);
+}
+html.fontLoaded,
+body.fontLoaded {
+  font-family: Lato, sans-serif;
 }
 
 html.no-scroll-mobile {
@@ -196,8 +200,8 @@ input#toggler {
   display: none;
 }
 
-svg.hidden {
-  display: none;
+.hidden {
+  display: none !important;
 }
 
 /* PAGE LAYOUT */
@@ -300,7 +304,7 @@ svg.hidden {
   fill: #453040;
 }
 .wrapper .content section.find-me {
-  background: linear-gradient(180deg, #43aca0 0%, #83d3c9 100%);
+  background: linear-gradient(180deg, #43aca0 0%, #61c1b6 100%);
   color: #fff;
 }
 .wrapper .content section.find-me iframe {
@@ -521,7 +525,7 @@ nav li {
   .container.banner-intersecting nav ul li:hover > a.primary, .container.banner-intersecting nav ul li:hover > span.primary {
     outline: none;
     color: white;
-    background: #83d3c9;
+    background: #61c1b6;
   }
   .container.banner-intersecting nav ul li ul li a {
     outline: none;
@@ -530,7 +534,7 @@ nav li {
   .container.banner-intersecting nav ul li ul li a:hover {
     outline: none;
     color: white;
-    background: #83d3c9;
+    background: #61c1b6;
   }
 
   nav {
@@ -597,7 +601,7 @@ nav li {
     font-weight: 900;
   }
   nav ul li a.primary:hover, nav ul li span.primary:hover {
-    background-color: #83d3c9;
+    background-color: #61c1b6;
     outline: none;
     color: white;
   }
@@ -616,7 +620,7 @@ nav li {
     position: absolute;
     background-color: white;
     margin: 12px 0 0 0;
-    padding: 12px 0;
+    padding: 16px 0;
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
   nav ul li ul:before {
@@ -653,7 +657,7 @@ nav li {
   }
   nav ul li ul li a:hover {
     outline: none;
-    background-color: #83d3c9;
+    background-color: #61c1b6;
     color: white;
   }
   nav ul li:not(.closed):hover ul {
@@ -848,4 +852,84 @@ nav li {
 }
 #banner .inner footer ul li:last-child a {
   padding-right: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(28, 32, 33, 0.95);
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  a:hover {
+    color: white;
+  }
+
+  .wrapper .content section:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  .wrapper .content section.join-me a svg.icon {
+    fill: #61c1b6;
+  }
+  .wrapper .content section.join-me a:hover svg.icon {
+    fill: #43aca0;
+  }
+  .wrapper .content section.find-me {
+    background: linear-gradient(180deg, #43aca0 0%, #26635c 100%);
+    color: #fff;
+  }
+}
+@media only screen and (prefers-color-scheme: dark) and (min-width: 768px) {
+  nav {
+    background: #1c2021;
+    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
+  }
+  nav .title a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  nav ul li a, nav ul li span {
+    color: rgba(255, 255, 255, 0.75);
+    outline: 0px solid rgba(255, 255, 255, 0.75);
+  }
+  nav ul li a.primary, nav ul li span.primary {
+    background-color: #43aca0;
+    color: white;
+    font-weight: 900;
+  }
+  nav ul li a.primary:hover, nav ul li span.primary:hover {
+    background-color: #61c1b6;
+    outline: none;
+    color: white;
+  }
+  nav ul li a:hover, nav ul li span:hover {
+    color: white;
+  }
+  nav ul li ul {
+    background-color: #1c2021;
+    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
+  }
+  nav ul li ul:before {
+    border-bottom: solid 0.5em #1c2021;
+  }
+  nav ul li ul li a {
+    border-top: 1px solid rgba(28, 32, 33, 0.95);
+    background-color: #1c2021;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  nav ul li ul li a:hover {
+    background-color: #43aca0;
+    color: white;
+  }
+  nav ul li:not(.closed):hover.submenu a:after, nav ul li:not(.closed):hover.submenu span:after {
+    border-color: white;
+  }
+  nav ul li:not(.closed):hover ul li a, nav ul li:not(.closed):hover ul li span {
+    outline: 0px solid rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+  }
+  nav ul li.submenu > a:after, nav ul li.submenu > span:after {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
 }
