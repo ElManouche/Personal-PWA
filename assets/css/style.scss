@@ -759,7 +759,7 @@ input#toggler {
   **/
 
   .inner {
-    filter: drop-shadow(0px 0px 5px $deep-blue) drop-shadow(0px 0px 5px $deep-blue);
+    filter: drop-shadow(0px 0px 5px $deep-blue);
     /** add a logo on top?
     &:before {
     content: none;
@@ -905,6 +905,59 @@ input#toggler {
       color: #fff;
     }
   }
+
+  // Mobile nav
+  @media only screen and (max-width: #{$m-min - 0.2}) {
+    // styling
+    .wrapper {
+      .mobile-navbar {
+        background: $background-inverted;
+        .title {
+          a {
+            color: $font-color-inverted;
+          }
+        }
+        label.toggler {
+          cursor: pointer;
+          display: block;
+          float: left;
+          width: 36px;
+          height: 34px;
+          margin: 11px 6px;
+          background: $font-color;
+          border-radius: 5px;
+          .navicon {
+            background: $font-color-inverted;
+            display: block;
+            height: 3px;
+            position: absolute;
+            top: 26px;
+            left: 12px;
+            transition: background .5s ease-in-out;
+            width: 24px;
+            &:before,
+            &:after {
+              background: $font-color-inverted;
+              content: "";
+              left: 0px;
+              display: block;
+              height: 100%;
+              position: absolute;
+              transition: all 0.5s ease-in-out;
+              width: 100%;
+            }
+            &:before {
+              top: 7px;
+            }
+            &:after {
+              top: -7px;
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   // Desktop Nav
   @include mq(m) {
