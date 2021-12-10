@@ -310,6 +310,9 @@ input#toggler {
         width: 24px;
         fill: $font-color;
         margin-right: 12px;
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }
