@@ -320,6 +320,7 @@ input#toggler {
   // intersecting the menu bar disapear
   .container.banner-intersecting {
     .wrapper .mobile-navbar {
+      position: absolute;
       background: none;
       box-shadow: none;
       .title {

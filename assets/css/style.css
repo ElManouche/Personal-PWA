@@ -334,6 +334,7 @@ input#toggler {
 /* MOBILE NAVIGATION */
 @media only screen and (max-width: 767.8px) {
   .container.banner-intersecting .wrapper .mobile-navbar {
+    position: absolute;
     background: none;
     box-shadow: none;
   }
