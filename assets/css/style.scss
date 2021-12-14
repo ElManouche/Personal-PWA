@@ -265,7 +265,7 @@ input#toggler {
           }
         }
       }
-      &.join-me {
+      &.reach-me {
         a {
           svg.icon {
             font-size: 56px;
@@ -949,7 +949,7 @@ input#toggler {
       &:nth-child(odd) {
         background-color: rgba($white,.02);
       }
-      &.join-me a {
+      &.reach-me a {
         svg.icon { color: $green-lighter; }
         &:hover svg.icon { color: $green; }
       }

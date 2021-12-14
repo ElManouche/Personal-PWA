@@ -292,14 +292,14 @@ input#toggler {
     max-width: calc((1 * 100% / 3) - 24px);
   }
 }
-.wrapper .content section.join-me a svg.icon {
+.wrapper .content section.reach-me a svg.icon {
   font-size: 56px;
   height: 56px;
   width: 56px;
   color: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
-.wrapper .content section.join-me a:hover svg.icon {
+.wrapper .content section.reach-me a:hover svg.icon {
   color: #453040;
 }
 .wrapper .content section.find-me {
@@ -922,10 +922,10 @@ nav li {
   .wrapper .content section:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.02);
   }
-  .wrapper .content section.join-me a svg.icon {
+  .wrapper .content section.reach-me a svg.icon {
     color: #61c1b6;
   }
-  .wrapper .content section.join-me a:hover svg.icon {
+  .wrapper .content section.reach-me a:hover svg.icon {
     color: #43aca0;
   }
   .wrapper .content section.find-me {
