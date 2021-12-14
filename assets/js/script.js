@@ -77,15 +77,6 @@ const linkToAnchorClickedHandler = evt => {
   }
 };
 
-const initLinksCloseNav = () => {
-  Array.from(
-    document.querySelectorAll("a[href*='#']:not([href='#'])")
-  ).forEach((link) => {
-    link.removeEventListener('click', linkToAnchorClickedHandler);
-    link.addEventListener('click', linkToAnchorClickedHandler);
-  });
-}
-
 // don't scroll body if the mobile menu is visible
 const togglerClickedHandler = checked => {
   if(checked === true) {
@@ -131,6 +122,15 @@ const parallax = () => {
   }
 };
 
+const initLinksCloseNav = () => {
+  Array.from(
+    document.querySelectorAll("a[href*='#']:not([href='#'])")
+  ).forEach((link) => {
+    link.removeEventListener('click', linkToAnchorClickedHandler);
+    link.addEventListener('click', linkToAnchorClickedHandler);
+  });
+}
+
 // Add first class
 const toggleClass = (elm, classes, force) => {
   if(force) {
@@ -147,8 +147,6 @@ const toggleClass = (elm, classes, force) => {
     }
   }
 };
-
-
 
 const initCloseSubNav = () => {
   document.querySelectorAll("li.submenu").forEach(item => {
@@ -169,11 +167,17 @@ const init = () => {
   initCloseSubNav();
 
   const toggler = document.getElementById('toggler'),
-        observer = new IntersectionObserver(containerObserverCallback);
+        banner = document.getElementById('banner');
+
+  if(!!banner) {
+    const observer = new IntersectionObserver(
+      containerObserverCallback
+    );
+    observer.observe(banner);
+  }
 
   document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
   toggler.addEventListener('click', () => togglerClickedHandler(toggler.checked) );
-  observer.observe(document.querySelector('#banner'));
 }
 
 document.addEventListener("DOMContentLoaded", init);

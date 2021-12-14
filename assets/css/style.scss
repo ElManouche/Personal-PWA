@@ -199,8 +199,8 @@ input#toggler {
     width: 100%;
 
     section {
-      margin-top: 0px;
-      padding: 56px 12px 48px 12px;
+      margin-top: 1px;
+      padding: 48px 12px;
       @include mq(s) {
         padding: 56px 24px;
       }
@@ -272,13 +272,11 @@ input#toggler {
             height: 56px;
             width: 56px;
             color: $purple-lighter;
-            fill: $purple-lighter;
             margin-top: 16px;
           }
           &:hover {
             svg.icon {
               color: $purple;
-              fill: $purple;
             }
           }
         }
@@ -309,7 +307,7 @@ input#toggler {
       svg.icon {
         height: 24px;
         width: 24px;
-        fill: $font-color;
+        color: $font-color;
         margin-right: 12px;
       }
     }
@@ -327,7 +325,7 @@ input#toggler {
         display: none;
       }
       svg.icon {
-        fill: $font-color-inverted-hover;
+        color: $font-color-inverted-hover;
       }
       label.toggler {
         .navicon {
@@ -454,6 +452,7 @@ input#toggler {
         padding-left: 0px;
         font-weight: 900;
         height: 56px;
+        vertical-align: middle;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -470,7 +469,7 @@ input#toggler {
         height: 36px;
         width: 36px;
         margin: 10px 12px 10px 0px;
-        fill: $font-color;
+        color: $font-color;
       }
       label.toggler {
         position: relative;
@@ -536,7 +535,7 @@ input#toggler {
       background: none;
       box-shadow: none;
       .title svg.icon {
-        fill: $font-color-inverted;
+        color: $font-color-inverted;
       }
       .title a  {
         color: $font-color-inverted;
@@ -614,7 +613,7 @@ input#toggler {
       svg.icon {
         height: 36px;
         width: 36px;
-        fill: $font-color;
+        color: $font-color;
         margin: 10px 12px 0 0;
         vertical-align: top;
       }
@@ -845,6 +844,9 @@ input#toggler {
       border-bottom: solid 2px;
       border-top: solid 2px;
       margin: 36px 0;
+      @include mq(s) {
+        margin-top: 12px;
+      }
       padding: 3px 0;
 
       h2 {
@@ -890,7 +892,7 @@ input#toggler {
               display: inline-block;
               height: 36px;
               width: 36px;
-              fill: $font-color-inverted;
+              color: $font-color-inverted;
               transition: fill .3s ease-in-out;
               margin: 0;
 
@@ -898,7 +900,7 @@ input#toggler {
             &:hover {
               color: $font-color-inverted-hover;
               svg.icon {
-                fill: $font-color-inverted-hover;
+                color: $font-color-inverted-hover;
               }
             }
 
@@ -948,8 +950,8 @@ input#toggler {
         background-color: rgba($white,.02);
       }
       &.join-me a {
-        svg.icon { fill: $green-lighter; }
-        &:hover svg.icon { fill: $green; }
+        svg.icon { color: $green-lighter; }
+        &:hover svg.icon { color: $green; }
       }
       &.find-me {
         background: linear-gradient(180deg, $green 0%, $green-darker 100%);
@@ -957,7 +959,7 @@ input#toggler {
       }
     }
     footer svg.icon {
-      fill: $font-color-inverted;
+      color: $font-color-inverted;
     }
   }
 
@@ -971,7 +973,7 @@ input#toggler {
           color: $font-color-inverted;
         }
         svg.icon {
-          fill: $font-color-inverted-hover;
+          color: $font-color-inverted-hover;
         }
         label.toggler {
           .navicon {
@@ -993,7 +995,7 @@ input#toggler {
       box-shadow: 0 1px 2px 0 $shadow;
       .title {
         a { color: $font-color-inverted; }
-        svg.icon { fill: $font-color-inverted; }
+        svg.icon { color: $font-color-inverted; }
       }
       ul {
         li {

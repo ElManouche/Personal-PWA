@@ -215,8 +215,8 @@ input#toggler {
   width: 100%;
 }
 .wrapper .content section {
-  margin-top: 0px;
-  padding: 56px 12px 48px 12px;
+  margin-top: 1px;
+  padding: 48px 12px;
 }
 @media only screen and (min-width: 480px) {
   .wrapper .content section {
@@ -297,12 +297,10 @@ input#toggler {
   height: 56px;
   width: 56px;
   color: rgba(69, 48, 64, 0.75);
-  fill: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
 .wrapper .content section.join-me a:hover svg.icon {
   color: #453040;
-  fill: #453040;
 }
 .wrapper .content section.find-me {
   background: linear-gradient(180deg, #43aca0 0%, #61c1b6 100%);
@@ -327,7 +325,7 @@ input#toggler {
 .wrapper .content footer svg.icon {
   height: 24px;
   width: 24px;
-  fill: rgba(28, 32, 33, 0.75);
+  color: rgba(28, 32, 33, 0.75);
   margin-right: 12px;
 }
 
@@ -342,7 +340,7 @@ input#toggler {
     display: none;
   }
   .container.banner-intersecting .wrapper .mobile-navbar svg.icon {
-    fill: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
   }
   .container.banner-intersecting .wrapper .mobile-navbar label.toggler .navicon {
     background: rgba(255, 255, 255, 0.85);
@@ -453,6 +451,7 @@ nav li {
     padding-left: 0px;
     font-weight: 900;
     height: 56px;
+    vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -469,7 +468,7 @@ nav li {
     height: 36px;
     width: 36px;
     margin: 10px 12px 10px 0px;
-    fill: rgba(28, 32, 33, 0.75);
+    color: rgba(28, 32, 33, 0.75);
   }
   .wrapper .mobile-navbar label.toggler {
     position: relative;
@@ -531,7 +530,7 @@ nav li {
     box-shadow: none;
   }
   .container.banner-intersecting nav .title svg.icon {
-    fill: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
   }
   .container.banner-intersecting nav .title a {
     color: rgba(255, 255, 255, 0.75);
@@ -600,7 +599,7 @@ nav li {
   nav .title svg.icon {
     height: 36px;
     width: 36px;
-    fill: rgba(28, 32, 33, 0.75);
+    color: rgba(28, 32, 33, 0.75);
     margin: 10px 12px 0 0;
     vertical-align: top;
   }
@@ -824,6 +823,11 @@ nav li {
   margin: 36px 0;
   padding: 3px 0;
 }
+@media only screen and (min-width: 480px) {
+  #banner .inner header {
+    margin-top: 12px;
+  }
+}
 #banner .inner header h2 {
   border-bottom: solid 2px;
   border-top: solid 2px;
@@ -868,7 +872,7 @@ nav li {
   display: inline-block;
   height: 36px;
   width: 36px;
-  fill: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   transition: fill 0.3s ease-in-out;
   margin: 0;
 }
@@ -876,7 +880,7 @@ nav li {
   color: rgba(255, 255, 255, 0.85);
 }
 #banner .inner footer ul li a:hover svg.icon {
-  fill: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 @media only screen and (min-width: 768px) {
   #banner .inner footer ul li a {
@@ -919,17 +923,17 @@ nav li {
     background-color: rgba(255, 255, 255, 0.02);
   }
   .wrapper .content section.join-me a svg.icon {
-    fill: #61c1b6;
+    color: #61c1b6;
   }
   .wrapper .content section.join-me a:hover svg.icon {
-    fill: #43aca0;
+    color: #43aca0;
   }
   .wrapper .content section.find-me {
     background: linear-gradient(180deg, #43aca0 0%, #26635c 100%);
     color: rgba(255, 255, 255, 0.75);
   }
   .wrapper .content footer svg.icon {
-    fill: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
   }
 }
 @media only screen and (prefers-color-scheme: dark) and (max-width: 767.8px) {
@@ -940,7 +944,7 @@ nav li {
     color: rgba(255, 255, 255, 0.75);
   }
   .wrapper .mobile-navbar svg.icon {
-    fill: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
   }
   .wrapper .mobile-navbar label.toggler .navicon {
     background: rgba(255, 255, 255, 0.85);
@@ -958,7 +962,7 @@ nav li {
     color: rgba(255, 255, 255, 0.75);
   }
   nav .title svg.icon {
-    fill: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
   }
   nav ul li a, nav ul li span {
     color: rgba(255, 255, 255, 0.75);
