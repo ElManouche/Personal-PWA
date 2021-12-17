@@ -105,19 +105,15 @@ const parallax = () => {
 
   // Don't calculate if the banner isn't above the fold
   if (pos <= banner.offsetHeight) {
-    const scale = 1 + (pos / (banner.offsetHeight * 10)),
+    const scale = (pos / (banner.offsetHeight * 10)),
           bg = document.querySelector("#banner .bg"),
           mg = document.querySelector("#banner .mg"),
           fg = document.querySelector("#banner .fg");
 
-    bg.style.backgroundImage = 'url("https://ik.imagekit.io/sarahdionne/hero/webp/20201024_143714_new_bg_ezVy20HPB.webp")';
-    mg.style.backgroundImage = 'url("https://ik.imagekit.io/sarahdionne/hero/webp/20201024_143714_new_mg_yX994Z_js.webp")';
-    fg.style.backgroundImage = 'url("https://ik.imagekit.io/sarahdionne/hero/webp/20201024_143714_new_fg_bYPFaTtl2.webp")';
-
     bg.style.top = `${pos*0.4}px`;
-    bg.style.transform = `scale(${scale})`;
+    bg.style.transform = `scale(${1 + scale})`;
     mg.style.top = `${pos*0.3}px`;
-    mg.style.transform = `scale(${scale})`;
+    mg.style.transform = `scale(${1 + (scale * 0.65)})`;
     fg.style.top = `${pos*0.25}px`;
   }
 };
