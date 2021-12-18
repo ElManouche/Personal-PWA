@@ -25,7 +25,7 @@ self.addEventListener('activate', evt => {
 });
 
 self.addEventListener('fetch', evt => {
-  if (event.request.url.includes("?cc")) {
+  if (evt.request.url.includes("?cc")) {
     caches.delete(cacheName);
   }
   evt.respondWith(
