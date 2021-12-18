@@ -8,7 +8,7 @@ const cacheName = "SD-v1.0.2",
 self.addEventListener('install', evt => {
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      return cache.addAll(assets);
+      cache.addAll(assets);
     })
   );
 });
