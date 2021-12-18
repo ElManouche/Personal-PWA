@@ -86,18 +86,6 @@ const togglerClickedHandler = checked => {
   }
 };
 
-// Animate the desktop navbar with Intersection observer
-const containerObserverCallback = entries => {
-  entries.forEach(entry => {
-    const container = document.querySelector(".container");
-    if(entry.isIntersecting) {
-      container.classList.add('banner-intersecting');
-    } else {
-      container.classList.remove('banner-intersecting');
-    }
-  });
-};
-
 // Animate the desktop navbar
 const parallax = () => {
   const pos = window.scrollY,
@@ -159,9 +147,40 @@ const initCloseSubNav = () => {
   });
 };
 
+const initObserveElements = () => {
+  const elements = [].slice.call(document.querySelectorAll(".observable"));
+  const observablesObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observablesObserver.unobserve(entry.target);
+      }
+    });
+  });
+  elements.forEach(lazyBackground => {
+    observablesObserver.observe(lazyBackground);
+  });
+};
+
+const initNavPosition = () => {
+  const banner = document.getElementById('banner');
+  const bannerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const container = document.querySelector(".container");
+      if(entry.isIntersecting) {
+        container.classList.add('banner-intersecting');
+      } else {
+        container.classList.remove('banner-intersecting');
+      }
+    });
+  });
+  bannerObserver.observe(banner);
+};
+
 const initMaps = () => {
   document.querySelectorAll('div.map').forEach(item => {
     item.addEventListener('click', () => {
+      item.classList.add('interact');
       const iframe = item.querySelector('iframe');
       iframe.src = iframe.getAttribute('data-src');
       iframe.removeAttribute('data-src');
@@ -170,22 +189,15 @@ const initMaps = () => {
 };
 
 const init = () => {
+  initObserveElements();
   initLinksCloseNav();
+  initNavPosition();
   initCloseSubNav();
   initMaps();
 
-  const toggler = document.getElementById('toggler'),
-        banner = document.getElementById('banner');
-
-  if(!!banner) {
-    const observer = new IntersectionObserver(
-      containerObserverCallback
-    );
-    observer.observe(banner);
-  }
-
-  document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
+  const toggler = document.getElementById('toggler');
   toggler.addEventListener('click', () => togglerClickedHandler(toggler.checked) );
+  document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
 }
 
 document.addEventListener("DOMContentLoaded", init);

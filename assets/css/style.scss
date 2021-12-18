@@ -292,22 +292,77 @@ input#toggler {
           height: 250px;
         }
         div.map {
+          position: relative;
           width: 80%;
           margin: auto;
+          background:red;
           background-position: center;
           background-size: 600px 420px;
+          cursor: pointer;
           &.map--shen {
-            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+            &.visible {
+              background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+            }
           }
           &.map--cpnl {
-            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
+            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
+            &.visible {
+              background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
+            }
           }
           iframe {
             width: 100%;
             border: 0;
             &:not([src]), &[src=""] { display: none; }
           }
+          &:before, &:after {
+            transition: all 0.25s ease;
+            position: absolute;
+            display: block;
+          }
 
+          &:before {
+            content: "";
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #000;
+            opacity: 0;
+            z-index: 10;
+          }
+
+          &:after {
+            content: 'Click to Interact';
+            background: $purple-lighter;
+            color: $font-color-inverted;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 15px;
+            text-align: center;
+            top: 50%;
+            margin-top: -15px;
+            left: 50%;
+            margin-left: -100px;
+            z-index: 11;
+            opacity: 0;
+          }
+
+          &:hover:before {
+            opacity: .3;
+          }
+
+          &:hover:after {
+            opacity: 1;
+          }
+
+          &.interact {
+            &:before, &:after {
+              display: none;
+            }
+          }
         }
       }
     }

@@ -310,15 +310,24 @@ input#toggler {
   height: 250px;
 }
 .wrapper .content section.find-me div.map {
+  position: relative;
   width: 80%;
   margin: auto;
+  background: red;
   background-position: center;
   background-size: 600px 420px;
+  cursor: pointer;
 }
 .wrapper .content section.find-me div.map.map--shen {
+  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/Shen_Physio_map.jpg");
+}
+.wrapper .content section.find-me div.map.map--shen.visible {
   background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg");
 }
 .wrapper .content section.find-me div.map.map--cpnl {
+  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg");
+}
+.wrapper .content section.find-me div.map.map--cpnl.visible {
   background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg");
 }
 .wrapper .content section.find-me div.map iframe {
@@ -326,6 +335,46 @@ input#toggler {
   border: 0;
 }
 .wrapper .content section.find-me div.map iframe:not([src]), .wrapper .content section.find-me div.map iframe[src=""] {
+  display: none;
+}
+.wrapper .content section.find-me div.map:before, .wrapper .content section.find-me div.map:after {
+  transition: all 0.25s ease;
+  position: absolute;
+  display: block;
+}
+.wrapper .content section.find-me div.map:before {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 10;
+}
+.wrapper .content section.find-me div.map:after {
+  content: "Click to Interact";
+  background: rgba(69, 48, 64, 0.75);
+  color: rgba(255, 255, 255, 0.75);
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  margin-top: -15px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 11;
+  opacity: 0;
+}
+.wrapper .content section.find-me div.map:hover:before {
+  opacity: 0.3;
+}
+.wrapper .content section.find-me div.map:hover:after {
+  opacity: 1;
+}
+.wrapper .content section.find-me div.map.interact:before, .wrapper .content section.find-me div.map.interact:after {
   display: none;
 }
 .wrapper .content footer {
