@@ -153,12 +153,19 @@ const initObserveElements = () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        const dataset = entry.target.dataset;
+        for (const record in dataset) {
+          if (dataset[record]) {
+            entry.target.setAttribute(record, dataset[record]);
+            entry.target.removeAttribute(`data-${record}`);
+          }
+        }
         observablesObserver.unobserve(entry.target);
       }
     });
   });
-  elements.forEach(lazyBackground => {
-    observablesObserver.observe(lazyBackground);
+  elements.forEach(element => {
+    observablesObserver.observe(element);
   });
 };
 
