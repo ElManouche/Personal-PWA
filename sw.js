@@ -11,7 +11,7 @@ const cacheName = "SD-v1.0.2",
         // CDN images
         'https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/hero/full.jpg',
         // Externals
-        'http://cdn.polyfill.io/v3/polyfill.min.js',
+        'https://cdn.polyfill.io/v3/polyfill.min.js',
         'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap'
       ];
 

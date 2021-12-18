@@ -287,9 +287,28 @@ input#toggler {
         background: linear-gradient(180deg, $green 0%, $green-lighter 100%);
         color: $font-color-inverted;
 
-        iframe {
-          width: 80%;
+        iframe, div.map {
+          //width: 80%;
           height: 250px;
+        }
+        div.map {
+          width: 80%;
+          margin: auto;
+          background:red;
+          background-position: center;
+          background-size: 600px 420px;
+          &.map--shen {
+            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+          }
+          &.map--cpnl {
+            background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
+          }
+          iframe {
+            width: 100%;
+            border: 0;
+            &:not([src]), &[src=""] { display: none; }
+          }
+
         }
       }
     }

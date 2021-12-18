@@ -306,9 +306,28 @@ input#toggler {
   background: linear-gradient(180deg, #43aca0 0%, #61c1b6 100%);
   color: rgba(255, 255, 255, 0.75);
 }
-.wrapper .content section.find-me iframe {
-  width: 80%;
+.wrapper .content section.find-me iframe, .wrapper .content section.find-me div.map {
   height: 250px;
+}
+.wrapper .content section.find-me div.map {
+  width: 80%;
+  margin: auto;
+  background: red;
+  background-position: center;
+  background-size: 600px 420px;
+}
+.wrapper .content section.find-me div.map.map--shen {
+  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg");
+}
+.wrapper .content section.find-me div.map.map--cpnl {
+  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg");
+}
+.wrapper .content section.find-me div.map iframe {
+  width: 100%;
+  border: 0;
+}
+.wrapper .content section.find-me div.map iframe:not([src]), .wrapper .content section.find-me div.map iframe[src=""] {
+  display: none;
 }
 .wrapper .content footer {
   text-align: center;

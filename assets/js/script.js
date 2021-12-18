@@ -158,9 +158,21 @@ const initCloseSubNav = () => {
     item.addEventListener("mousemove", throttledReopenSubmenu);
   });
 };
+
+const initMaps = () => {
+  document.querySelectorAll('div.map').forEach(item => {
+    item.addEventListener('click', () => {
+      const iframe = item.querySelector('iframe');
+      iframe.src = iframe.getAttribute('data-src');
+      iframe.removeAttribute('data-src');
+    });
+  });
+};
+
 const init = () => {
   initLinksCloseNav();
   initCloseSubNav();
+  initMaps();
 
   const toggler = document.getElementById('toggler'),
         banner = document.getElementById('banner');
