@@ -1,8 +1,8 @@
 const cacheName = "SD-v1.0.2",
       assets = [
         'assets/css/style.css',
-        'assets/js/script.min.js',
-        '/index.html'
+        'assets/js/script.js',
+        'index.html'
       ];
 
 self.addEventListener('install', evt => {
