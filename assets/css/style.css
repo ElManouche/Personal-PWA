@@ -313,7 +313,6 @@ input#toggler {
   position: relative;
   width: 80%;
   margin: auto;
-  background: red;
   background-position: center;
   background-size: 600px 420px;
   cursor: pointer;
