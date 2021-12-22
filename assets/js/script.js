@@ -42,14 +42,11 @@ const throttle = (func, wait, options) => {
 // JS TO USE THE MENU AS A SINGLE PAGE WITH SCROLL
 const linkToAnchorClickedHandler = evt => {
   evt.preventDefault();
-  const toggler = document.getElementById('toggler'),
-        mobileOnlyElm = document.querySelector('.wrapper .mobile-navbar'),
-        isMobile = mobileOnlyElm.style.display !== 'none',
-        timeout = ((isMobile && toggler.checked))? 400 : 10;
+  const toggler = document.getElementById('toggler');
   let   target = evt.target;
 
   // Close the mobile menu
-  if(isMobile && toggler.checked === true) {
+  if (!!toggler.checked) {
     setTimeout(() => toggler.click(), 50);
   }
 
@@ -61,7 +58,7 @@ const linkToAnchorClickedHandler = evt => {
   setTimeout(() => {
     location.hash = "";
     location.hash = target.getAttribute('href');
-  }, timeout);
+  }, !!toggler.checked? 400 : 10);
 
   const ul = target.parentNode.parentNode,
         copy = ul.cloneNode(true),
@@ -80,9 +77,9 @@ const linkToAnchorClickedHandler = evt => {
 // don't scroll body if the mobile menu is visible
 const togglerClickedHandler = checked => {
   if(checked === true) {
-    document.documentElement.classList.add('no-scroll-mobile');
+    document.documentElement.classList.add('no-scroll');
   } else {
-    document.documentElement.classList.remove('no-scroll-mobile');
+    document.documentElement.classList.remove('no-scroll');
   }
 };
 
