@@ -639,7 +639,8 @@ a:hover {
     min-width: 300px;
     position: fixed;
     z-index: 1;
-    background: white;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px) saturate(100%);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
     display: inline-block;
     width: 100%;
@@ -715,6 +716,7 @@ a:hover {
   .container.banner-intersecting .wrapper .mobile-navbar {
     position: absolute;
     background: none;
+    backdrop-filter: none;
     box-shadow: none;
   }
   .container.banner-intersecting .wrapper .mobile-navbar .title {
@@ -777,6 +779,7 @@ a:hover {
     position: absolute;
     display: block;
     background: none;
+    backdrop-filter: none;
     box-shadow: none;
   }
   .container.banner-intersecting nav .title svg.icon {
@@ -826,7 +829,8 @@ a:hover {
     top: 0;
     height: 56px;
     width: 100%;
-    background: white;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
   nav .title {
@@ -998,7 +1002,7 @@ nav li {
 }
 @media only screen and (prefers-color-scheme: dark) and (min-width: 768px) {
   .container nav {
-    background: #1c2021;
+    background: rgba(28, 32, 33, 0.5);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
   .container nav .title a {
@@ -1052,7 +1056,8 @@ nav li {
 }
 @media (prefers-color-scheme: dark) {
   .container .wrapper .mobile-navbar {
-    background: #1c2021;
+    background: rgba(28, 32, 33, 0.75);
+    backdrop-filter: blur(15px) saturate(100%);
   }
   .container .wrapper .mobile-navbar .title a {
     color: rgba(255, 255, 255, 0.75);

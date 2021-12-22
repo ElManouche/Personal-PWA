@@ -640,7 +640,8 @@ a {
         min-width: 300px;
         position: fixed;
         z-index: 1;
-        background: $white;
+        background: rgba($white, .25);
+        backdrop-filter: blur(15px) saturate(100%);
         box-shadow: 0 1px 2px 0 $shadow;
         display: inline-block;
         width: 100%;
@@ -722,6 +723,7 @@ a {
       .wrapper .mobile-navbar {
         position: absolute;
         background: none;
+        backdrop-filter: none;
         box-shadow: none;
         .title {
           display: none;
@@ -797,6 +799,7 @@ a {
         position: absolute;
         display: block;
         background: none;
+        backdrop-filter: none;
         box-shadow: none;
         .title svg.icon {
           color: $font-color-inverted;
@@ -848,7 +851,8 @@ a {
           }
         }
       }
-    }}
+    }
+  }
   nav {
     display: block;
     z-index: 1;
@@ -856,7 +860,8 @@ a {
     top: 0;
     height: 56px;
     width: 100%;
-    background: $white;
+    background-color: rgba($white, .5);
+    backdrop-filter: blur(15px);
     box-shadow: 0 1px 2px 0 $shadow;
     .title {
       font-size: 18px;
@@ -1040,7 +1045,7 @@ a {
   .container {
     @include mq(m) {
       nav {
-        background: $dark;
+        background: rgba($dark, .5);
         box-shadow: 0 1px 2px 0 $shadow;
         .title {
           a { color: $font-color-inverted; }
@@ -1105,7 +1110,8 @@ a {
     }
     .wrapper {
       .mobile-navbar {
-        background: $dark;
+        background: rgba($dark, 0.75);
+        backdrop-filter: blur(15px) saturate(100%);
         .title a {
           color: $font-color-inverted;
         }
