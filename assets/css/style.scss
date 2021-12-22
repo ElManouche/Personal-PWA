@@ -536,13 +536,7 @@ input#toggler {
           font-weight: 300;
         }
       }
-      svg.icon {
-        float: left;
-        height: 36px;
-        width: 36px;
-        margin: 10px 12px 10px 0px;
-        color: $font-color;
-      }
+
       label.toggler {
         position: relative;
         cursor: pointer;
@@ -579,6 +573,14 @@ input#toggler {
           &:after {
             top: -7px;
           }
+        }
+        svg.icon {
+          position: absolute;
+          left: 40px;
+          height: 36px;
+          width: 36px;
+          margin: 0px 12px 10px 0px;
+          color: $font-color;
         }
       }
     }
@@ -1058,15 +1060,15 @@ input#toggler {
         .title a {
           color: $font-color-inverted;
         }
-        svg.icon {
-          color: $font-color-inverted-hover;
-        }
         label.toggler {
           .navicon {
             background: $font-color-inverted-hover;
             &, &:before, &:after {
               background: $font-color-inverted-hover;
             }
+          }
+          svg.icon {
+            color: $font-color-inverted-hover;
           }
         }
       }

@@ -529,13 +529,6 @@ nav li {
   .wrapper .mobile-navbar .title span {
     font-weight: 300;
   }
-  .wrapper .mobile-navbar svg.icon {
-    float: left;
-    height: 36px;
-    width: 36px;
-    margin: 10px 12px 10px 0px;
-    color: rgba(28, 32, 33, 0.75);
-  }
   .wrapper .mobile-navbar label.toggler {
     position: relative;
     cursor: pointer;
@@ -572,6 +565,14 @@ nav li {
   }
   .wrapper .mobile-navbar label.toggler .navicon:after {
     top: -7px;
+  }
+  .wrapper .mobile-navbar label.toggler svg.icon {
+    position: absolute;
+    left: 40px;
+    height: 36px;
+    width: 36px;
+    margin: 0px 12px 10px 0px;
+    color: rgba(28, 32, 33, 0.75);
   }
 }
 @media only screen and (min-width: 768px) {
@@ -1029,14 +1030,14 @@ nav li {
   .wrapper .mobile-navbar .title a {
     color: rgba(255, 255, 255, 0.75);
   }
-  .wrapper .mobile-navbar svg.icon {
-    color: rgba(255, 255, 255, 0.85);
-  }
   .wrapper .mobile-navbar label.toggler .navicon {
     background: rgba(255, 255, 255, 0.85);
   }
   .wrapper .mobile-navbar label.toggler .navicon, .wrapper .mobile-navbar label.toggler .navicon:before, .wrapper .mobile-navbar label.toggler .navicon:after {
     background: rgba(255, 255, 255, 0.85);
+  }
+  .wrapper .mobile-navbar label.toggler svg.icon {
+    color: rgba(255, 255, 255, 0.85);
   }
 }
 @media only screen and (prefers-color-scheme: dark) and (min-width: 768px) {
