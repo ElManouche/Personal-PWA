@@ -757,11 +757,12 @@ a:hover {
     top: 0;
   }
 }
+
 @media only screen and (min-width: 768px) {
-  .container .container.banner-intersecting #banner {
+  .container.banner-intersecting #banner {
     position: relative;
   }
-  .container .container.banner-intersecting #banner:after {
+  .container.banner-intersecting #banner:after {
     position: absolute;
     pointer-events: none;
     content: "";
@@ -771,53 +772,54 @@ a:hover {
     left: 0;
     background: linear-gradient(to bottom, rgba(0, 37, 64, 0.65) 0%, rgba(0, 37, 64, 0.1) 60%, rgba(0, 37, 64, 0) 90%);
   }
-  .container .container.banner-intersecting nav {
+  .container.banner-intersecting nav {
     top: 0;
     position: absolute;
     display: block;
     background: none;
     box-shadow: none;
   }
-  .container .container.banner-intersecting nav .title svg.icon {
+  .container.banner-intersecting nav .title svg.icon {
     color: rgba(255, 255, 255, 0.75);
   }
-  .container .container.banner-intersecting nav .title a {
+  .container.banner-intersecting nav .title a {
     color: rgba(255, 255, 255, 0.75);
   }
-  .container .container.banner-intersecting nav ul li > a, .container .container.banner-intersecting nav ul li > span {
+  .container.banner-intersecting nav ul li > a, .container.banner-intersecting nav ul li > span {
     color: rgba(255, 255, 255, 0.75);
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  .container .container.banner-intersecting nav ul li > a:hover, .container .container.banner-intersecting nav ul li > span:hover {
+  .container.banner-intersecting nav ul li > a:hover, .container.banner-intersecting nav ul li > span:hover {
     background-color: transparent;
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.85);
   }
-  .container .container.banner-intersecting nav ul li > a.primary, .container .container.banner-intersecting nav ul li > span.primary {
+  .container.banner-intersecting nav ul li > a.primary, .container.banner-intersecting nav ul li > span.primary {
     color: rgba(255, 255, 255, 0.85);
   }
-  .container .container.banner-intersecting nav ul li.submenu a:after, .container .container.banner-intersecting nav ul li.submenu span:after, .container .container.banner-intersecting nav ul li:hover.submenu a:after, .container .container.banner-intersecting nav ul li:hover.submenu span:after {
+  .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after, .container.banner-intersecting nav ul li:hover.submenu a:after, .container.banner-intersecting nav ul li:hover.submenu span:after {
     border-color: rgba(255, 255, 255, 0.75);
   }
-  .container .container.banner-intersecting nav ul li:hover > a, .container .container.banner-intersecting nav ul li:hover > span {
+  .container.banner-intersecting nav ul li:hover > a, .container.banner-intersecting nav ul li:hover > span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.85);
   }
-  .container .container.banner-intersecting nav ul li:hover > a.primary, .container .container.banner-intersecting nav ul li:hover > span.primary {
+  .container.banner-intersecting nav ul li:hover > a.primary, .container.banner-intersecting nav ul li:hover > span.primary {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
     background: #61c1b6;
   }
-  .container .container.banner-intersecting nav ul li ul li a {
+  .container.banner-intersecting nav ul li ul li a {
     outline: none;
     color: rgba(28, 32, 33, 0.75);
   }
-  .container .container.banner-intersecting nav ul li ul li a:hover {
+  .container.banner-intersecting nav ul li ul li a:hover {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
     background: #61c1b6;
   }
-  .container nav {
+
+  nav {
     display: block;
     z-index: 1;
     position: fixed;
@@ -827,7 +829,7 @@ a:hover {
     background: white;
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
-  .container nav .title {
+  nav .title {
     font-size: 18px;
     line-height: 56px;
     display: block;
@@ -841,38 +843,38 @@ a:hover {
     float: left;
     margin-left: 36px;
   }
-  .container nav .title svg.icon, .container nav .title a {
+  nav .title svg.icon, nav .title a {
     display: inline-block;
   }
-  .container nav .title svg.icon {
+  nav .title svg.icon {
     height: 36px;
     width: 36px;
     color: rgba(28, 32, 33, 0.75);
     margin: 10px 12px 0 0;
     vertical-align: top;
   }
-  .container nav .title a {
+  nav .title a {
     color: rgba(28, 32, 33, 0.75);
     text-decoration: none;
   }
-  .container nav .title span {
+  nav .title span {
     font-weight: 300;
   }
-  .container nav ul,
-.container nav li {
+  nav ul,
+nav li {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  .container nav ul {
+  nav ul {
     float: right;
     margin-right: 36px;
   }
-  .container nav ul li {
+  nav ul li {
     display: inline-block;
     margin: 10px;
   }
-  .container nav ul li a, .container nav ul li span {
+  nav ul li a, nav ul li span {
     text-transform: uppercase;
     display: inline-block;
     padding: 10px 16px;
@@ -883,29 +885,29 @@ a:hover {
     text-decoration: none;
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li a:hover, .container nav ul li span:hover {
+  nav ul li a:hover, nav ul li span:hover {
     user-select: none;
     background-color: rgba(28, 32, 33, 0.05);
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li a.primary, .container nav ul li span.primary {
+  nav ul li a.primary, nav ul li span.primary {
     background-color: #43aca0;
     color: rgba(255, 255, 255, 0.85);
     font-weight: 900;
   }
-  .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
+  nav ul li a.primary:hover, nav ul li span.primary:hover {
     background-color: #61c1b6;
     outline: none;
     color: rgba(255, 255, 255, 0.85);
   }
-  .container nav ul li a:hover, .container nav ul li span:hover {
+  nav ul li a:hover, nav ul li span:hover {
     color: black;
     background-color: rgba(28, 32, 33, 0.05);
   }
-  .container nav ul li.current {
+  nav ul li.current {
     font-weight: 900;
   }
-  .container nav ul li ul {
+  nav ul li ul {
     transition: opacity 0.3s ease-in-out;
     transform: scale(0);
     display: block;
@@ -916,7 +918,7 @@ a:hover {
     padding: 16px 0;
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
-  .container nav ul li ul:before {
+  nav ul li ul:before {
     border-bottom: solid 0.5em white;
     border-left: solid 0.5em transparent;
     border-right: solid 0.5em transparent;
@@ -925,21 +927,21 @@ a:hover {
     position: absolute;
     top: -0.45em;
   }
-  .container nav ul li ul:after {
+  nav ul li ul:after {
     content: "";
     width: 100%;
     position: absolute;
     height: 20px;
     top: -18px;
   }
-  .container nav ul li ul li {
+  nav ul li ul li {
     margin: 0;
     display: block;
   }
-  .container nav ul li ul li:first-child a {
+  nav ul li ul li:first-child a {
     border-top: 0px;
   }
-  .container nav ul li ul li a {
+  nav ul li ul li a {
     padding: 10px 36px;
     width: 100%;
     height: auto;
@@ -949,25 +951,25 @@ a:hover {
     background-color: white;
     outline: none;
   }
-  .container nav ul li ul li a:hover {
+  nav ul li ul li a:hover {
     outline: none;
     background-color: #61c1b6;
     color: white;
   }
-  .container nav ul li:not(.closed):hover ul {
+  nav ul li:not(.closed):hover ul {
     display: block;
     opacity: 1;
     transform: scale(1);
   }
-  .container nav ul li:not(.closed):hover.submenu a:after, .container nav ul li:not(.closed):hover.submenu span:after {
+  nav ul li:not(.closed):hover.submenu a:after, nav ul li:not(.closed):hover.submenu span:after {
     transform: rotate(225deg);
     margin: 0 0 0px 8px;
     border-color: rgba(28, 32, 33, 0.85);
   }
-  .container nav ul li:not(.closed):hover a, .container nav ul li:not(.closed):hover span {
+  nav ul li:not(.closed):hover a, nav ul li:not(.closed):hover span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li.submenu > a:after, .container nav ul li.submenu > span:after {
+  nav ul li.submenu > a:after, nav ul li.submenu > span:after {
     content: "";
     border: solid rgba(28, 32, 33, 0.75);
     border-width: 0 2px 2px 0;
@@ -976,11 +978,11 @@ a:hover {
     padding: 3px;
     transform: rotate(45deg);
   }
-  .container .wrapper .mobile-navbar {
+
+  .wrapper .mobile-navbar {
     display: none;
   }
 }
-
 @media (prefers-color-scheme: dark) {
   html, body {
     color: rgba(255, 255, 255, 0.75);
