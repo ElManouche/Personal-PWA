@@ -18,7 +18,6 @@ const cacheName = "SD-v1.0.4-alpha3",
 self.addEventListener('install', evt => {
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      //console.log('caches some stuff');
       cache.addAll(assets);
     })
   );
@@ -35,27 +34,14 @@ self.addEventListener('activate', evt => {
   );
 });
 
-function handleErrors(response) {
-  if (!response.ok) {
-    //console.log('Houston, weve got a problem');
-    throw Error(response.statusText);
-  }
-  return response;
-}
-
 self.addEventListener('fetch', evt => {
   if (evt.request.url.includes("?cc")) {
     caches.delete(cacheName);
-    //console.log('delete all the cache');
   }
-  if (evt.request.url.match(/\.(?:webp|png|jpg|jpeg|svg)$/)) {
-    //console.log('!!! it is an image !!!');
-  }
+  // if (evt.request.url.match(/\.(?:webp|png|jpg|jpeg|svg)$/)) {}
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      //console.log(`Responding ${(cacheRes? 'from cache' : 'go fetch!')}`, evt.request.url);
       return cacheRes || fetch(evt.request)
-      //    .then(response => { console.log("ok"); return response; })
     })
   );
 });
