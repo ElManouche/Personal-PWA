@@ -821,8 +821,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.85);
     background: #61c1b6;
   }
-
-  nav {
+  .container nav {
     display: block;
     z-index: 1;
     position: fixed;
@@ -833,7 +832,7 @@ a:hover {
     backdrop-filter: blur(15px);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
-  nav .title {
+  .container nav .title {
     font-size: 18px;
     line-height: 56px;
     display: block;
@@ -847,38 +846,39 @@ a:hover {
     float: left;
     margin-left: 36px;
   }
-  nav .title svg.icon, nav .title a {
+  .container nav .title svg.icon, .container nav .title a {
     display: inline-block;
   }
-  nav .title svg.icon {
+  .container nav .title svg.icon {
     height: 36px;
     width: 36px;
     color: rgba(28, 32, 33, 0.75);
     margin: 10px 12px 0 0;
     vertical-align: top;
   }
-  nav .title a {
+  .container nav .title a {
     color: rgba(28, 32, 33, 0.75);
     text-decoration: none;
   }
-  nav .title span {
+  .container nav .title span {
     font-weight: 300;
   }
-  nav ul,
-nav li {
+  .container nav ul,
+.container nav li {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  nav ul {
-    float: right;
+  .container nav ul {
+    text-align: right;
     margin-right: 36px;
   }
-  nav ul li {
+  .container nav ul li {
     display: inline-block;
     margin: 10px;
+    position: relative;
   }
-  nav ul li a, nav ul li span {
+  .container nav ul li a, .container nav ul li span {
     text-transform: uppercase;
     display: inline-block;
     padding: 10px 16px;
@@ -889,63 +889,66 @@ nav li {
     text-decoration: none;
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  nav ul li a:hover, nav ul li span:hover {
+  .container nav ul li a:hover, .container nav ul li span:hover {
     user-select: none;
     background-color: rgba(28, 32, 33, 0.05);
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  nav ul li a.primary, nav ul li span.primary {
+  .container nav ul li a.primary, .container nav ul li span.primary {
     background-color: #43aca0;
     color: rgba(255, 255, 255, 0.85);
     font-weight: 900;
   }
-  nav ul li a.primary:hover, nav ul li span.primary:hover {
+  .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
     background-color: #61c1b6;
     outline: none;
     color: rgba(255, 255, 255, 0.85);
   }
-  nav ul li a:hover, nav ul li span:hover {
+  .container nav ul li a:hover, .container nav ul li span:hover {
     color: black;
     background-color: rgba(28, 32, 33, 0.05);
   }
-  nav ul li.current {
+  .container nav ul li.current {
     font-weight: 900;
   }
-  nav ul li ul {
+  .container nav ul li ul {
     transition: opacity 0.3s ease-in-out;
     transform: scale(0);
     display: block;
     opacity: 0;
     position: absolute;
+    z-index: 1;
+    right: -24px;
     background-color: white;
     margin: 12px 0 0 0;
     padding: 16px 0;
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
-  nav ul li ul:before {
-    border-bottom: solid 0.5em white;
-    border-left: solid 0.5em transparent;
-    border-right: solid 0.5em transparent;
+  .container nav ul li ul:before {
+    border-bottom: solid 8px white;
+    border-left: solid 8px transparent;
+    border-right: solid 8px transparent;
     content: "";
-    left: 0.75em;
+    right: 36px;
     position: absolute;
-    top: -0.45em;
+    top: -6px;
   }
-  nav ul li ul:after {
+  .container nav ul li ul:after {
     content: "";
     width: 100%;
     position: absolute;
     height: 20px;
     top: -18px;
+    left: 0;
   }
-  nav ul li ul li {
+  .container nav ul li ul li {
     margin: 0;
     display: block;
   }
-  nav ul li ul li:first-child a {
+  .container nav ul li ul li:first-child a {
     border-top: 0px;
   }
-  nav ul li ul li a {
+  .container nav ul li ul li a {
     padding: 10px 36px;
     width: 100%;
     height: auto;
@@ -955,25 +958,25 @@ nav li {
     background-color: white;
     outline: none;
   }
-  nav ul li ul li a:hover {
+  .container nav ul li ul li a:hover {
     outline: none;
     background-color: #61c1b6;
     color: white;
   }
-  nav ul li:not(.closed):hover ul {
+  .container nav ul li:not(.closed):hover ul {
     display: block;
     opacity: 1;
     transform: scale(1);
   }
-  nav ul li:not(.closed):hover.submenu a:after, nav ul li:not(.closed):hover.submenu span:after {
+  .container nav ul li:not(.closed):hover.submenu a:after, .container nav ul li:not(.closed):hover.submenu span:after {
     transform: rotate(225deg);
     margin: 0 0 0px 8px;
     border-color: rgba(28, 32, 33, 0.85);
   }
-  nav ul li:not(.closed):hover a, nav ul li:not(.closed):hover span {
+  .container nav ul li:not(.closed):hover a, .container nav ul li:not(.closed):hover span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  nav ul li.submenu > a:after, nav ul li.submenu > span:after {
+  .container nav ul li.submenu > a:after, .container nav ul li.submenu > span:after {
     content: "";
     border: solid rgba(28, 32, 33, 0.75);
     border-width: 0 2px 2px 0;
@@ -982,8 +985,7 @@ nav li {
     padding: 3px;
     transform: rotate(45deg);
   }
-
-  .wrapper .mobile-navbar {
+  .container .wrapper .mobile-navbar {
     display: none;
   }
 }
