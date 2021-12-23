@@ -36,6 +36,18 @@
   width: calc(2 * 100% / 3);
 }
 
+.col.u-1\/4 {
+  width: calc(1 * 100% / 4);
+}
+
+.col.u-2\/4 {
+  width: calc(2 * 100% / 4);
+}
+
+.col.u-3\/4 {
+  width: calc(3 * 100% / 4);
+}
+
 @media only screen and (min-width: 360px) {
   .col.xs--u-1\/2 {
     width: calc(1 * 100% / 2);
@@ -47,6 +59,18 @@
 
   .col.xs--u-2\/3 {
     width: calc(2 * 100% / 3);
+  }
+
+  .col.xs--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.xs--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.xs--u-3\/4 {
+    width: calc(3 * 100% / 4);
   }
 }
 @media only screen and (min-width: 480px) {
@@ -61,6 +85,18 @@
   .col.s--u-2\/3 {
     width: calc(2 * 100% / 3);
   }
+
+  .col.s--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.s--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.s--u-3\/4 {
+    width: calc(3 * 100% / 4);
+  }
 }
 @media only screen and (min-width: 768px) {
   .col.m--u-1\/2 {
@@ -73,6 +109,18 @@
 
   .col.m--u-2\/3 {
     width: calc(2 * 100% / 3);
+  }
+
+  .col.m--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.m--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.m--u-3\/4 {
+    width: calc(3 * 100% / 4);
   }
 }
 @media only screen and (min-width: 992px) {
@@ -87,6 +135,18 @@
   .col.l--u-2\/3 {
     width: calc(2 * 100% / 3);
   }
+
+  .col.l--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.l--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.l--u-3\/4 {
+    width: calc(3 * 100% / 4);
+  }
 }
 @media only screen and (min-width: 1200px) {
   .col.xl--u-1\/2 {
@@ -100,6 +160,18 @@
   .col.xl--u-2\/3 {
     width: calc(2 * 100% / 3);
   }
+
+  .col.xl--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.xl--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.xl--u-3\/4 {
+    width: calc(3 * 100% / 4);
+  }
 }
 @media only screen and (min-width: 1400px) {
   .col.xxl--u-1\/2 {
@@ -112,6 +184,18 @@
 
   .col.xxl--u-2\/3 {
     width: calc(2 * 100% / 3);
+  }
+
+  .col.xxl--u-1\/4 {
+    width: calc(1 * 100% / 4);
+  }
+
+  .col.xxl--u-2\/4 {
+    width: calc(2 * 100% / 4);
+  }
+
+  .col.xxl--u-3\/4 {
+    width: calc(3 * 100% / 4);
   }
 }
 html {
@@ -139,16 +223,6 @@ html.fontLoaded, body.fontLoaded {
 
 html.no-scroll {
   overflow-y: hidden;
-  /** / More than mobile we can scroll again
-    @include mq('m') {
-    overflow-y: auto;
-    body {
-    overflow: auto;
-    position: relative;
-
-  }
-  }
-    /**/
 }
 html.no-scroll body {
   overflow: hidden;
@@ -180,6 +254,34 @@ a {
 }
 a:hover {
   color: rgba(28, 32, 33, 0.85);
+}
+
+.button.primary {
+  background-color: #43aca0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+  padding: 12px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2em;
+  max-width: 100%;
+}
+.button.primary:hover {
+  background-color: #61c1b6;
+  outline: none;
+  color: rgba(255, 255, 255, 0.85);
+}
+.button.primary svg.icon {
+  height: 2em;
+  width: 2em;
+  margin-right: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  vertical-align: middle;
+  margin-top: -2px;
 }
 
 .text-center {
@@ -477,14 +579,14 @@ a:hover {
     max-width: calc((1 * 100% / 3) - 24px);
   }
 }
-.wrapper .content .sections section.reach-me a svg.icon {
+.wrapper .content .sections section.reach-me .phone a svg.icon, .wrapper .content .sections section.reach-me .email a svg.icon {
   font-size: 56px;
   height: 56px;
   width: 56px;
   color: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
-.wrapper .content .sections section.reach-me a:hover svg.icon {
+.wrapper .content .sections section.reach-me .phone a:hover svg.icon, .wrapper .content .sections section.reach-me .email a:hover svg.icon {
   color: #453040;
 }
 .wrapper .content .sections section.find-me {
@@ -638,6 +740,7 @@ a:hover {
   .container .wrapper .mobile-navbar {
     min-width: 300px;
     position: fixed;
+    top: 0;
     z-index: 1;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(15px) saturate(100%);
@@ -1076,10 +1179,10 @@ a:hover {
   .container .wrapper .content .sections section:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.02);
   }
-  .container .wrapper .content .sections section.reach-me a svg.icon {
+  .container .wrapper .content .sections section.reach-me .phone a svg.icon, .container .wrapper .content .sections section.reach-me .email a svg.icon {
     color: #61c1b6;
   }
-  .container .wrapper .content .sections section.reach-me a:hover svg.icon {
+  .container .wrapper .content .sections section.reach-me .phone a:hover svg.icon, .container .wrapper .content .sections section.reach-me .email a:hover svg.icon {
     color: #43aca0;
   }
   .container .wrapper .content .sections section.find-me {

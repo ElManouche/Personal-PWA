@@ -93,7 +93,7 @@ $breakpoints: (
 @mixin device-type($namespace: "") {
   $prefix: unquote(".") + $namespace;
 
-  @for $grid-column from 2 through 3 {
+  @for $grid-column from 2 through 4 {
     //@if $grid-column != 11 and $grid-column != 9 and $grid-column != 7 {
     @for $i from 1 through ($grid-column - 1) {
       .col#{$prefix}u-#{$i}\/#{$grid-column} {
@@ -139,16 +139,6 @@ html.no-scroll {
     overflow: hidden;
     position: relative;
   }
-  /** / More than mobile we can scroll again
-  @include mq('m') {
-  overflow-y: auto;
-  body {
-  overflow: auto;
-  position: relative;
-
-}
-}
-  /**/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -172,6 +162,33 @@ a {
   color: $font-color;
   &:hover {
     color: $font-color-hover;
+  }
+}
+.button.primary {
+  background-color: $green;
+  color: $font-color-inverted-hover;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: .25em;
+  padding: 12px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2em;
+  max-width: 100%;
+  &:hover {
+    background-color: $green-lighter;
+    outline: none;
+    color: $font-color-inverted-hover;
+  }
+  svg.icon {
+    height: 2em;
+    width: 2em;
+    margin-right: 4px;
+    color: $font-color-inverted-hover;
+    vertical-align: middle;
+    margin-top: -2px;
   }
 }
 .text-center {
@@ -452,21 +469,22 @@ a {
           }
         }
         &.reach-me {
-          a {
-            svg.icon {
-              font-size: 56px;
-              height: 56px;
-              width: 56px;
-              color: $purple-lighter;
-              margin-top: 16px;
-            }
-            &:hover {
+          .phone, .email {
+            a {
               svg.icon {
-                color: $purple;
+                font-size: 56px;
+                height: 56px;
+                width: 56px;
+                color: $purple-lighter;
+                margin-top: 16px;
+              }
+              &:hover {
+                svg.icon {
+                  color: $purple;
+                }
               }
             }
           }
-
         }
         &.find-me {
           // background-color: $green;
@@ -639,6 +657,7 @@ a {
       .mobile-navbar {
         min-width: 300px;
         position: fixed;
+        top: 0;
         z-index: 1;
         background: rgba($white, .25);
         backdrop-filter: blur(15px) saturate(100%);
@@ -1138,9 +1157,13 @@ a {
           &:nth-child(odd) {
             background-color: rgba($white,.02);
           }
-          &.reach-me a {
-            svg.icon { color: $green-lighter; }
-            &:hover svg.icon { color: $green; }
+          &.reach-me {
+            .phone, .email {
+              a {
+                svg.icon { color: $green-lighter; }
+                &:hover svg.icon { color: $green; }
+              }
+            }
           }
           &.find-me {
             background: linear-gradient(180deg, $green 0%, $green-darker 100%);
