@@ -47,7 +47,7 @@ const linkToAnchorClickedHandler = evt => {
 
   // Close the mobile menu
   if (!!toggler.checked) {
-    setTimeout(() => toggler.click(), 50);
+    setTimeout(() => toggler.click(), 10);
   }
 
   if (target.nodeName !== 'A') {
@@ -60,17 +60,10 @@ const linkToAnchorClickedHandler = evt => {
     location.hash = target.getAttribute('href');
   }, !!toggler.checked? 400 : 10);
 
-  const ul = target.parentNode.parentNode,
-        copy = ul.cloneNode(true),
-        parent = ul.parentNode;
-
-  // Remove than add again the submenu
-  if (parent.nodeName === 'LI') {
-    setTimeout(() => parent.removeChild(ul), 100);
-    setTimeout(() => {
-      parent.appendChild(copy);
-      initLinksCloseNav();
-    }, 1000);
+  const submenu = target.closest('li.submenu');
+  if(!!submenu) {
+    setTimeout(() => submenu.classList.add('closed'), 100);
+    setTimeout(() => submenu.classList.remove('closed'), 1000);
   }
 };
 
@@ -89,7 +82,7 @@ const parallax = () => {
         banner = document.querySelector("#banner");
 
   // Don't calculate if the banner isn't above the fold
-  if (pos <= banner.offsetHeight) {
+  if (!!banner && pos <= banner.offsetHeight) {
     const scale = (pos / (banner.offsetHeight * 10)),
           bg = document.querySelector("#banner .bg"),
           mg = document.querySelector("#banner .mg"),
@@ -104,41 +97,23 @@ const parallax = () => {
 };
 
 const initLinksCloseNav = () => {
-  Array.from(
-    document.querySelectorAll("a[href*='#']:not([href='#'])")
-  ).forEach((link) => {
-    link.removeEventListener('click', linkToAnchorClickedHandler);
-    link.addEventListener('click', linkToAnchorClickedHandler);
-  });
+  document
+    .querySelectorAll("a[href*='#']:not([href='#'])")
+    .forEach(
+    (link) => link.addEventListener('click', linkToAnchorClickedHandler)
+  );
 }
-
-// Add first class
-const toggleClass = (elm, classes, force) => {
-  if(force) {
-    elm.classList.remove(...classes);
-    elm.classList.add(force);
-  } else {
-    if (elm.classList.contains(classes[0])) {
-      elm.classList.replace(...classes)
-    } else if(elm.classList.contains(classes[1])) {
-      [classes[0], classes[1]] = [classes[1], classes[0]];
-      elm.classList.replace(...classes);
-    } else {
-      elm.classList.add(classes[0]);
-    }
-  }
-};
 
 const initCloseSubNav = () => {
   document.querySelectorAll("li.submenu").forEach(item => {
-    const throttledReopenSubmenu = throttle(() => toggleClass(item, ['open', 'closed'], 'open'), 1000, { leading: false });
+    const throttledReopenSubmenu = throttle(() => item.classList.remove('closed'), 1000, { leading: false });
     item.addEventListener('click', () => {
-      setTimeout(() => toggleClass(item, ['open', 'closed']), 0);
+      item.classList.toggle('closed');
       throttledReopenSubmenu.cancel();
     });
     item.addEventListener('mouseenter', () => {
       // on mobile, timeout to trigger hover after click ;)
-      setTimeout(() => toggleClass(item, ['open', 'closed'], 'open'), 100);
+      setTimeout(() => item.classList.remove('closed'), 100);
     });
     item.addEventListener("mousemove", throttledReopenSubmenu);
   });
@@ -178,7 +153,12 @@ const initNavPosition = () => {
       }
     });
   });
-  bannerObserver.observe(banner);
+  if(!!banner) {
+    bannerObserver.observe(banner);
+  } else {
+    const container = document.querySelector(".container");
+    container.classList.remove('banner-intersecting');
+  }
 };
 
 const initMaps = () => {
