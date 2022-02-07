@@ -1,4 +1,4 @@
-const trackEvent = (event, options) => {}
+const trackEvent = (event, options) => {
   console.log("Track event: ", event, options);
   if (mixpanel) {
     mixpanel.track(
@@ -6,7 +6,7 @@ const trackEvent = (event, options) => {}
       options
     );
   }
-;
+};
 
 // Underscore throttle function
 const throttle = (func, wait, options) => {
