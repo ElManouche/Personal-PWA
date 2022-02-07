@@ -79,7 +79,7 @@ const linkToAnchorClickedHandler = evt => {
     setTimeout(() => submenu.classList.remove('closed'), 1000);
   }
   
-  trackEvent('Link clicked', {'link', link});
+  trackEvent('Link clicked', {link: link});
 };
 
 // don't scroll body if the mobile menu is visible
@@ -143,8 +143,8 @@ const initObserveElements = () => {
         trackEvent(
           'Object intersecting',
           {
-            'element': entry.target.nodeName,
-            'class': entry.target.className
+            element: entry.target.nodeName,
+            class: entry.target.className
           }
         );
         const dataset = entry.target.dataset;
