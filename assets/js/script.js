@@ -1,3 +1,13 @@
+const trackEvent = (event, options) => {}
+  console.log("Track event: ", event, options);
+  if (mixpanel) {
+    mixpanel.track(
+      event,
+      options
+    );
+  }
+;
+
 // Underscore throttle function
 const throttle = (func, wait, options) => {
   let timeout, context, args, result,
@@ -43,7 +53,8 @@ const throttle = (func, wait, options) => {
 const linkToAnchorClickedHandler = evt => {
   evt.preventDefault();
   const toggler = document.getElementById('toggler');
-  let   target = evt.target;
+  let   target = evt.target,
+        link;
 
   // Close the mobile menu
   if (!!toggler.checked) {
@@ -53,11 +64,13 @@ const linkToAnchorClickedHandler = evt => {
   if (target.nodeName !== 'A') {
     target = target.closest("a");
   }
+  
+  link = target.getAttribute('href');
 
   // Scroll to the anchor
   setTimeout(() => {
     location.hash = "";
-    location.hash = target.getAttribute('href');
+    location.hash = link;
   }, !!toggler.checked? 400 : 10);
 
   const submenu = target.closest('li.submenu');
@@ -65,6 +78,8 @@ const linkToAnchorClickedHandler = evt => {
     setTimeout(() => submenu.classList.add('closed'), 100);
     setTimeout(() => submenu.classList.remove('closed'), 1000);
   }
+  
+  trackEvent('Link clicked', {'link', link});
 };
 
 // don't scroll body if the mobile menu is visible
@@ -125,6 +140,13 @@ const initObserveElements = () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        trackEvent(
+          'Object intersecting',
+          {
+            'element': entry.target.nodeName,
+            'class': entry.target.className
+          }
+        );
         const dataset = entry.target.dataset;
         for (const record in dataset) {
           if (dataset[record]) {
