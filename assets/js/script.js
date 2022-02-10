@@ -1,13 +1,3 @@
-const trackEvent = (event, options) => {
-  console.log("Track event: ", event, options);
-  if (mixpanel) {
-    mixpanel.track(
-      event,
-      options
-    );
-  }
-};
-
 // Underscore throttle function
 const throttle = (func, wait, options) => {
   let timeout, context, args, result,
@@ -47,6 +37,16 @@ const throttle = (func, wait, options) => {
     timeout = context = args = null;
   };
   return throttled;
+};
+
+const trackEvent = (event, ...options) => {
+  console.log("Track event: ", event, ...options);
+  if (typeof mixpanel === 'object') {
+    mixpanel.track(
+      event,
+      ...options
+    );
+  }
 };
 
 // JS TO USE THE MENU AS A SINGLE PAGE WITH SCROLL
@@ -193,17 +193,32 @@ const initMaps = () => {
     });
   });
 };
+const initParallax = () => {
+  document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
+};
+
+const initTogglerListener = () => {
+  const toggler = document.getElementById('toggler');
+  toggler.addEventListener('click', () => togglerClickedHandler(toggler.checked) );
+};
+const trackFirstScroll = () => {
+  trackEvent('First scroll');
+  document.removeEventListener("scroll", trackFirstScroll);
+};
+
+const initFirstScrollListener = () => {
+  document.addEventListener("scroll", trackFirstScroll);
+};
 
 const init = () => {
+  initFirstScrollListener();
   initObserveElements();
+  initTogglerListener();
   initLinksCloseNav();
   initNavPosition();
   initCloseSubNav();
+  initParallax();
   initMaps();
-
-  const toggler = document.getElementById('toggler');
-  toggler.addEventListener('click', () => togglerClickedHandler(toggler.checked) );
-  document.addEventListener("scroll", throttle(() => parallax(), 1000/48));
 }
 
 document.addEventListener("DOMContentLoaded", init);
