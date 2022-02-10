@@ -40,7 +40,7 @@ const throttle = (func, wait, options) => {
 };
 
 const trackEvent = (event, ...options) => {
-  console.log("Track event: ", event, ...options);
+  console.log(`Track event: ${event}`, ...options);
   if (typeof mixpanel === 'object') {
     mixpanel.track(
       event,
@@ -79,7 +79,7 @@ const linkToAnchorClickedHandler = evt => {
     setTimeout(() => submenu.classList.remove('closed'), 1000);
   }
   
-  trackEvent('Link clicked', {link: link});
+  trackEvent('Link to anchor clicked', {link: link});
 };
 
 // don't scroll body if the mobile menu is visible
@@ -185,12 +185,13 @@ const initNavPosition = () => {
 
 const initMaps = () => {
   document.querySelectorAll('div.map').forEach(item => {
+    const iframe = item.querySelector('iframe');
     item.addEventListener('click', () => {
       item.classList.add('interact');
-      const iframe = item.querySelector('iframe');
       iframe.src = iframe.getAttribute('data-src');
       iframe.removeAttribute('data-src');
     });
+    iframe.addEventListener('load', () => trackEvent("Map loaded", iframe.src), true);
   });
 };
 const initParallax = () => {
@@ -210,11 +211,20 @@ const initFirstScrollListener = () => {
   document.addEventListener("scroll", trackFirstScroll);
 };
 
+const initLinksClicked = () => {
+  document
+    .querySelectorAll("a[class*='contact_']")
+    .forEach(
+    (link) => link.addEventListener('click', () => trackEvent(`Link clicked`, {href: link.href}))
+  );
+};
+
 const init = () => {
   initFirstScrollListener();
   initObserveElements();
   initTogglerListener();
   initLinksCloseNav();
+  initLinksClicked();
   initNavPosition();
   initCloseSubNav();
   initParallax();
