@@ -1,8 +1,7 @@
-# sarah.dionne.ch
+# sncl.github.io
 This open source website is a one page PWA website that can be used for personal presentation website.
 
-View working demo under https://sarah.dionne.ch
-![Preview](assets/img/devices.png)
+View working demo under https://sncl.github.io
 
 ## Key features:
 - Mobile first responsive design
