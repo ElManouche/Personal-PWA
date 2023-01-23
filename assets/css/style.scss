@@ -28,10 +28,12 @@ $background-inverted: rgba($dark, .95);
 $white: $light;
 $purple: rgba(69, 48, 64, 1);
 $purple-lighter: rgba($purple, .75);
-$green: rgba(67, 172, 160, 1);
+$green: rgba(223, 82, 49, 1);
 $green-lighter: lighten($green, 10%);
 $green-darker: darken($green, 20%);
 $deep-blue: rgba(0,37,64,1);
+
+$gradient: linear-gradient(33deg, #43cea2, #185a9d);
 
 $breakpoints: (
   'xs': (min-width: $xs-min),
@@ -129,7 +131,7 @@ html, body {
   scroll-behavior: smooth;
   color: $font-color;
   &.fontLoaded {
-    font-family: Lato, sans-serif;
+    font-family: Roboto, sans-serif;
   }
 }
 // do not scroll if the mobile menu is open
@@ -142,16 +144,19 @@ html.no-scroll {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: center;
+  text-transform: none;
+  font-weight: 600;
   margin: 24px 0;
   span {
     font-weight: 900;
   }
 }
+h1, h2 {
+  text-align: left;
+}
 h2 {
-  font-size: 26px;
+  font-size: 40px;
+  font-weight: 700;
 }
 p {
   font-size: 17px;
@@ -164,8 +169,15 @@ a {
     color: $font-color-hover;
   }
 }
+hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 .button.primary {
-  background-color: $green;
+  background: $gradient;
   color: $font-color-inverted-hover;
   font-weight: 900;
   text-transform: uppercase;
@@ -194,10 +206,32 @@ a {
 .text-center {
   text-align: center;
 }
-.hidden {
+.hidden
+//, #banner,#news,//#about
+{
   display: none !important;
 }
-
+ul.prices {
+  li {
+    max-width: 250px;
+    display: flex;
+    justify-content: space-between;
+    span.price {
+      font-weight: 400;
+      text-align: right;
+    }
+  }
+  &.wide li {
+    max-width: 500px;
+  }
+}
+svg.logo {
+  font-size: 56px;
+  height: 56px;
+  width: 84px;
+  color: $purple-lighter;
+  margin-top: 0;
+}
 /* PAGE LAYOUT */
 .wrapper {
   transition: margin .3s ease-in-out;
@@ -205,13 +239,13 @@ a {
 
   .content {
     margin: 0 auto;
-    background-color: $background;
+    background-color: $white;
     width: 100%;
 
     #banner {
       width: 100%;
       max-width: 100%;
-      max-height: 100vh;
+      max-height: calc(100vh - 56px);
       min-height: 400px;
       position: relative;
       overflow: hidden;
@@ -220,49 +254,38 @@ a {
       color: $font-color-inverted;
       cursor: default;
       padding: 0;
-      height: 400px;
+      height: calc(100vh - 56px);
+      margin-top: 56px;
       @include mq(l) {
-        min-height: 70vh;
+        //min-height: 100vh;
       }
       text-align: center;
       background-attachment: scroll, scroll;
       background-color: $purple-lighter;
-      background-position: bottom;
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: inherit;
       background-size: cover;
-      background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/hero/full.jpg');
+      background-image: url('//www.sncl.ch/wp-content/uploads/2021/03/IMG_7997.jpg');
       perspective: 1px;
 
       .inner {
-        filter: drop-shadow(0px 0px 5px $deep-blue);
-        /** add a logo on top?
-        &:before {
-        content: none;
-        display: block;
-        width: 100%;
-        height: 300px;
-        margin-bottom: 24px;
-        background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
-        **/
+        filter: 
+          drop-shadow(-3px -3px 2px rgba($font-color, .35))
+          drop-shadow(-3px 3px 2px rgba($font-color, .35))
+          drop-shadow(3px -3px 2px rgba($font-color, .35))
+          drop-shadow(3px 3px 2px rgba($font-color, .35));        
         margin: auto;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: $font-color-inverted;
+        color: $white;
         display: inline-block;
         padding: 0;
         min-width: 275px;
         @include mq(s) {
           min-width: 90vw;
-        }
-        @include mq(m) {
-          padding-top: 72px;
         }
 
         text-align: center;
@@ -270,8 +293,8 @@ a {
 
         header {
           display: inline-block;
-          border-bottom: solid 2px;
-          border-top: solid 2px;
+          border-bottom: solid 5px;
+          border-top: solid 5px;
           margin: 36px 0;
           @include mq(s) {
             margin-top: 12px;
@@ -279,30 +302,43 @@ a {
           padding: 3px 0;
 
           h2 {
+            display: none;
+            font-family: 'Suez One', serif;
             border-bottom: solid 2px;
             border-top: solid 2px;
-            font-size: 2.5em;
+            font-size: 4.5em;
             font-weight: 900;
             letter-spacing: .2em;
             margin: 0;
             padding-left: .05em;
             position: relative;
+            background-color: rgba(#434142, .75);
+    box-shadow: rgba(#434142, .75) 12px 0px 0px, rgba(#434142, .75) -12px 0px 0px;
             text-transform: uppercase;
             a {
               text-decoration: none;
               color: $font-color-inverted-hover;
             }
             span {
-              font-weight: 300;
+              //font-weight: 300;
             }
           }
         }
         p {
+          display: inline-block;
+          font-size: 24px;
+          font-size: 7.5vw;
           letter-spacing: .1em;
+          line-height: 1.5em;
           margin: 0;
-          text-transform: uppercase;
+          text-transform: none;
+          font-weight: 900;
+          @include mq(s) {
+            font-size: 4.5vw;
+          }
         }
         footer {
+          display: none;
           padding: 24px 0 0 0;
           ul {
             margin: 0;
@@ -310,7 +346,6 @@ a {
             li {
               list-style-type: none;
               display: inline-block;
-
               a {
                 display: inline-block;
                 color: $font-color-inverted;
@@ -373,29 +408,87 @@ a {
             margin-top: 24px;
           }
           padding: 56px 24px 48px 24px;
-          margin-left: 24px;
-          margin-right: 24px;
         }
         @include mq(l) {
+          & > *:not(.full_width) {
           max-width: calc(960px - 96px);
           margin-left: auto;
           margin-right: auto;
+          }
           h1,h2,h3 {
-            margin: 36px 0;
+            margin-top: 36px;
+            margin-bottom: 36px;
           }
           h3 {
-            margin: 48px 0 36px 0;
+            margin-top: 24px;
           }
         }
         @include mq(xl) {
           padding: 56px 36px 48px 36px;
-          max-width: 1024px;
+          & > *:not(.full_width){
+            max-width: 1024px;
+          }
         }
         @include mq(xxl) {
+          & > *:not(.full_width) {
           max-width: 1200px;
+          }
         }
-        &:nth-child(odd) {
-          background-color: $white;
+        //&:nth-child(even),
+        &.gradient {
+          position: relative;
+          color: $font-color-inverted;
+          > * {
+            position: relative;
+          }
+          &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: $gradient;
+            transform: skewY(4deg);
+            
+          }
+
+          //background-color: $background;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        &.partners {
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            li {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              height: auto;
+              img {
+                filter: brightness(1);
+                max-width: 25vw;
+
+                transition: transform .2s;
+                &:hover {
+                  transform: scale(1.05);
+                  cursor: pointer;
+                }
+              
+                @include mq(m) {
+                  max-width: 12vw;
+                }
+              }
+            }
+          }
         }
         &.about {
           .col p:first-child {
@@ -404,7 +497,7 @@ a {
           .col--text-around-img {
             padding: 0;
             p {
-              padding: 12px;
+              padding: 12px 48px 12px 12px;
             }
             img {
               &.observable {
@@ -413,10 +506,11 @@ a {
                   filter: none;
                 }
               }
-              &.visible {
+              & {
                 transition: transform .2s;
                 &:hover {
                   transform: scale(1.05);
+                  cursor: pointer;
                 }
               }
               width: 100%;
@@ -431,17 +525,42 @@ a {
                 float: left;
                 &.right {
                   float: right;
-                  margin: 12px 12px 24px 12px;
+                  margin: 12px 12px 24px 48px;
                 }
               }
               @include mq(s) {
-                max-width: calc((1 * 100% / 3) - 24px);
+                max-width: calc((1 * 100% / 2) - 24px);
               }
 
             }
           }
         }
-        &.reach-me {
+        &.pricing {
+          table {
+            border-collapse:collapse;
+            border-spacing:0;
+            empty-cells:hide;
+            
+            .empty {
+              empty-cells:hide;
+              border-width:0;
+              background:none;
+            }
+            td{
+              padding:10px 15px;
+            }
+            thead th{
+              font-weight:bold;
+              padding:10px 15px;
+              vertical-align: top;
+              background-color: $background;
+            }
+            thead .subheader td {
+              padding:0 15px 5px 15px;
+            }
+          }
+        }
+        &.reach-us {
           .phone, .email {
             a {
               svg.icon {
@@ -459,34 +578,27 @@ a {
             }
           }
         }
-        &.find-me {
-          // background-color: $green;
-          background: linear-gradient(180deg, $green 0%, $green-lighter 100%);
-          color: $font-color-inverted;
-
+        &.find-us {
           iframe, div.map {
             //width: 80%;
             height: 250px;
+            margin-top: 0px;
           }
           div.map {
             position: relative;
             width: 80%;
             margin: auto;
+            margin-top: 28px;
             background-position: center;
-            background-size: 600px 420px;
+            background-size: 624px 290px;
             cursor: pointer;
-            &.map--shen {
-              background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+            &.map--sncl {
+              background-image: url('https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png');
               &.visible {
-                background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg');
+                background-image: url('https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png');
               }
             }
-            &.map--cpnl {
-              background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
-              &.visible {
-                background-image: url('https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg');
-              }
-            }
+            
             iframe {
               width: 100%;
               border: 0;
@@ -632,7 +744,7 @@ a {
         position: fixed;
         top: 0;
         z-index: 1;
-        background: rgba($white, .25);
+        background: rgba($white, .75);
         backdrop-filter: blur(15px) saturate(100%);
         box-shadow: 0 1px 2px 0 $shadow;
         display: inline-block;
@@ -852,7 +964,7 @@ a {
       top: 0;
       height: 56px;
       width: 100%;
-      background-color: rgba($white, .5);
+      background-color: rgba($white, .75);
       backdrop-filter: blur(15px);
       box-shadow: 0 1px 2px 0 $shadow;
       .title {
@@ -916,7 +1028,7 @@ a {
             text-decoration: none;
             outline: 0px solid $font-color-inverted;
             &.primary {
-              background-color: $green;
+              background: $gradient;
               color: $font-color-inverted-hover;
               font-weight: 900;
               &:hover {
@@ -1029,7 +1141,7 @@ a {
 }
 
 // DARK MODE
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: darker) {
   html, body {
     color: $font-color-inverted;
     background-color: $background-inverted;
@@ -1108,7 +1220,7 @@ a {
     }
     .wrapper {
       .mobile-navbar {
-        background: rgba($dark, 0.75);
+        background: rgba($dark, .75);
         backdrop-filter: blur(15px) saturate(100%);
         .title a {
           color: $font-color-inverted;
@@ -1130,17 +1242,13 @@ a {
           &:nth-child(odd) {
             background-color: rgba($white,.02);
           }
-          &.reach-me {
+          &.reach-us {
             .phone, .email {
               a {
                 svg.icon { color: $green-lighter; }
                 &:hover svg.icon { color: $green; }
               }
             }
-          }
-          &.find-me {
-            background: linear-gradient(180deg, $green 0%, $green-darker 100%);
-            color: $font-color-inverted;
           }
         }
         footer svg.icon {

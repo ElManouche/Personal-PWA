@@ -218,7 +218,7 @@ html, body {
   color: rgba(28, 32, 33, 0.75);
 }
 html.fontLoaded, body.fontLoaded {
-  font-family: Lato, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 html.no-scroll {
@@ -230,17 +230,21 @@ html.no-scroll body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: center;
+  text-transform: none;
+  font-weight: 600;
   margin: 24px 0;
 }
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   font-weight: 900;
 }
 
+h1, h2 {
+  text-align: left;
+}
+
 h2 {
-  font-size: 26px;
+  font-size: 40px;
+  font-weight: 700;
 }
 
 p {
@@ -256,8 +260,16 @@ a:hover {
   color: rgba(28, 32, 33, 0.85);
 }
 
+hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 .button.primary {
-  background-color: #43aca0;
+  background: linear-gradient(33deg, #43cea2, #185a9d);
   color: rgba(255, 255, 255, 0.85);
   font-weight: 900;
   text-transform: uppercase;
@@ -271,7 +283,7 @@ a:hover {
   max-width: 100%;
 }
 .button.primary:hover {
-  background-color: #61c1b6;
+  background-color: #e6775d;
   outline: none;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -292,6 +304,27 @@ a:hover {
   display: none !important;
 }
 
+ul.prices li {
+  max-width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+ul.prices li span.price {
+  font-weight: 400;
+  text-align: right;
+}
+ul.prices.wide li {
+  max-width: 500px;
+}
+
+svg.logo {
+  font-size: 56px;
+  height: 56px;
+  width: 84px;
+  color: rgba(69, 48, 64, 0.75);
+  margin-top: 0;
+}
+
 /* PAGE LAYOUT */
 .wrapper {
   transition: margin 0.3s ease-in-out;
@@ -299,13 +332,13 @@ a:hover {
 }
 .wrapper .content {
   margin: 0 auto;
-  background-color: rgba(28, 32, 33, 0.05);
+  background-color: white;
   width: 100%;
 }
 .wrapper .content #banner {
   width: 100%;
   max-width: 100%;
-  max-height: 100vh;
+  max-height: calc(100vh - 56px);
   min-height: 400px;
   position: relative;
   overflow: hidden;
@@ -314,80 +347,26 @@ a:hover {
   color: rgba(255, 255, 255, 0.75);
   cursor: default;
   padding: 0;
-  height: 400px;
+  height: calc(100vh - 56px);
+  margin-top: 56px;
   text-align: center;
   background-attachment: scroll, scroll;
   background-color: rgba(69, 48, 64, 0.75);
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: cover;
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/hero/full.jpg");
+  background-image: url("//www.sncl.ch/wp-content/uploads/2021/03/IMG_7997.jpg");
   perspective: 1px;
 }
-@media only screen and (min-width: 992px) {
-  .wrapper .content #banner {
-    min-height: 70vh;
-  }
-}
-.wrapper .content #banner .bg, .wrapper .content #banner .mg, .wrapper .content #banner .fg {
-  transition: transform 1s ease-out;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-attachment: inherit;
-  background-size: cover;
-}
-.wrapper .content #banner .bg {
-  background-position: center;
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/hero/background.jpg");
-}
-@media only screen and (min-width: 768px) {
-  .wrapper .content #banner .bg {
-    background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-1200,fo-auto,f-webp/hero/background.jpg");
-  }
-}
-.wrapper .content #banner .mg {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/hero/middleground.png");
-}
-@media only screen and (min-width: 768px) {
-  .wrapper .content #banner .mg {
-    background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-1200,fo-auto,f-webp/hero/middleground.png");
-  }
-}
-.wrapper .content #banner .fg {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/hero/foreground.png");
-}
-@media only screen and (min-width: 768px) {
-  .wrapper .content #banner .fg {
-    background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-1200,fo-auto,f-webp/hero/foreground.png");
-  }
-}
 .wrapper .content #banner .inner {
-  filter: drop-shadow(0px 0px 5px #002540);
-  /** add a logo on top?
-    &:before {
-    content: none;
-    display: block;
-    width: 100%;
-    height: 300px;
-    margin-bottom: 24px;
-    background-image: url("https://sarah.dionne.ch/assets/img/logo_white.svg");
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-    **/
+  filter: drop-shadow(-3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(-3px 3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px 3px 2px rgba(28, 32, 33, 0.35));
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
   display: inline-block;
   padding: 0;
   min-width: 275px;
@@ -399,15 +378,10 @@ a:hover {
     min-width: 90vw;
   }
 }
-@media only screen and (min-width: 768px) {
-  .wrapper .content #banner .inner {
-    padding-top: 72px;
-  }
-}
 .wrapper .content #banner .inner header {
   display: inline-block;
-  border-bottom: solid 2px;
-  border-top: solid 2px;
+  border-bottom: solid 5px;
+  border-top: solid 5px;
   margin: 36px 0;
   padding: 3px 0;
 }
@@ -417,29 +391,41 @@ a:hover {
   }
 }
 .wrapper .content #banner .inner header h2 {
+  display: none;
+  font-family: "Suez One", serif;
   border-bottom: solid 2px;
   border-top: solid 2px;
-  font-size: 2.5em;
+  font-size: 4.5em;
   font-weight: 900;
   letter-spacing: 0.2em;
   margin: 0;
   padding-left: 0.05em;
   position: relative;
+  background-color: rgba(67, 65, 66, 0.75);
+  box-shadow: rgba(67, 65, 66, 0.75) 12px 0px 0px, rgba(67, 65, 66, 0.75) -12px 0px 0px;
   text-transform: uppercase;
 }
 .wrapper .content #banner .inner header h2 a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.85);
 }
-.wrapper .content #banner .inner header h2 span {
-  font-weight: 300;
-}
 .wrapper .content #banner .inner p {
+  display: inline-block;
+  font-size: 24px;
+  font-size: 7.5vw;
   letter-spacing: 0.1em;
+  line-height: 1.5em;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: none;
+  font-weight: 900;
+}
+@media only screen and (min-width: 480px) {
+  .wrapper .content #banner .inner p {
+    font-size: 4.5vw;
+  }
 }
 .wrapper .content #banner .inner footer {
+  display: none;
   padding: 24px 0 0 0;
 }
 .wrapper .content #banner .inner footer ul {
@@ -505,39 +491,87 @@ a:hover {
 @media only screen and (min-width: 768px) {
   .wrapper .content .sections section {
     padding: 56px 24px 48px 24px;
-    margin-left: 24px;
-    margin-right: 24px;
   }
   .wrapper .content .sections section:first-of-type {
     margin-top: 24px;
   }
 }
 @media only screen and (min-width: 992px) {
-  .wrapper .content .sections section {
+  .wrapper .content .sections section > *:not(.full_width) {
     max-width: calc(960px - 96px);
     margin-left: auto;
     margin-right: auto;
   }
   .wrapper .content .sections section h1, .wrapper .content .sections section h2, .wrapper .content .sections section h3 {
-    margin: 36px 0;
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
   .wrapper .content .sections section h3 {
-    margin: 48px 0 36px 0;
+    margin-top: 24px;
   }
 }
 @media only screen and (min-width: 1200px) {
   .wrapper .content .sections section {
     padding: 56px 36px 48px 36px;
+  }
+  .wrapper .content .sections section > *:not(.full_width) {
     max-width: 1024px;
   }
 }
 @media only screen and (min-width: 1400px) {
-  .wrapper .content .sections section {
+  .wrapper .content .sections section > *:not(.full_width) {
     max-width: 1200px;
   }
 }
-.wrapper .content .sections section:nth-child(odd) {
-  background-color: white;
+.wrapper .content .sections section.gradient {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+}
+.wrapper .content .sections section.gradient > * {
+  position: relative;
+}
+.wrapper .content .sections section.gradient:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(33deg, #43cea2, #185a9d);
+  transform: skewY(4deg);
+}
+.wrapper .content .sections section img {
+  max-width: 100%;
+  height: auto;
+}
+.wrapper .content .sections section.partners ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.wrapper .content .sections section.partners ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+.wrapper .content .sections section.partners ul li img {
+  filter: brightness(1);
+  max-width: 25vw;
+  transition: transform 0.2s;
+}
+.wrapper .content .sections section.partners ul li img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+  .wrapper .content .sections section.partners ul li img {
+    max-width: 12vw;
+  }
 }
 .wrapper .content .sections section.about .col p:first-child {
   margin-top: 0;
@@ -546,22 +580,27 @@ a:hover {
   padding: 0;
 }
 .wrapper .content .sections section.about .col--text-around-img p {
-  padding: 12px;
+  padding: 12px 48px 12px 12px;
 }
 .wrapper .content .sections section.about .col--text-around-img img {
-  filter: blur(5px);
   width: 100%;
   height: auto;
   border-radius: 10px;
   max-width: calc(100% - 24px);
   margin: 0 12px;
 }
-.wrapper .content .sections section.about .col--text-around-img img.visible {
+.wrapper .content .sections section.about .col--text-around-img img.observable {
+  filter: blur(5px);
+}
+.wrapper .content .sections section.about .col--text-around-img img.observable.visible {
   filter: none;
+}
+.wrapper .content .sections section.about .col--text-around-img img {
   transition: transform 0.2s;
 }
-.wrapper .content .sections section.about .col--text-around-img img.visible:hover {
+.wrapper .content .sections section.about .col--text-around-img img:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 @media only screen and (min-width: 360px) {
   .wrapper .content .sections section.about .col--text-around-img img {
@@ -571,64 +610,78 @@ a:hover {
   }
   .wrapper .content .sections section.about .col--text-around-img img.right {
     float: right;
-    margin: 12px 12px 24px 12px;
+    margin: 12px 12px 24px 48px;
   }
 }
 @media only screen and (min-width: 480px) {
   .wrapper .content .sections section.about .col--text-around-img img {
-    max-width: calc((1 * 100% / 3) - 24px);
+    max-width: calc((1 * 100% / 2) - 24px);
   }
 }
-.wrapper .content .sections section.reach-me .phone a svg.icon, .wrapper .content .sections section.reach-me .email a svg.icon {
+.wrapper .content .sections section.pricing table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: hide;
+}
+.wrapper .content .sections section.pricing table .empty {
+  empty-cells: hide;
+  border-width: 0;
+  background: none;
+}
+.wrapper .content .sections section.pricing table td {
+  padding: 10px 15px;
+}
+.wrapper .content .sections section.pricing table thead th {
+  font-weight: bold;
+  padding: 10px 15px;
+  vertical-align: top;
+  background-color: rgba(28, 32, 33, 0.05);
+}
+.wrapper .content .sections section.pricing table thead .subheader td {
+  padding: 0 15px 5px 15px;
+}
+.wrapper .content .sections section.reach-us .phone a svg.icon, .wrapper .content .sections section.reach-us .email a svg.icon {
   font-size: 56px;
   height: 56px;
   width: 56px;
   color: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
-.wrapper .content .sections section.reach-me .phone a:hover svg.icon, .wrapper .content .sections section.reach-me .email a:hover svg.icon {
+.wrapper .content .sections section.reach-us .phone a:hover svg.icon, .wrapper .content .sections section.reach-us .email a:hover svg.icon {
   color: #453040;
 }
-.wrapper .content .sections section.find-me {
-  background: linear-gradient(180deg, #43aca0 0%, #61c1b6 100%);
-  color: rgba(255, 255, 255, 0.75);
-}
-.wrapper .content .sections section.find-me iframe, .wrapper .content .sections section.find-me div.map {
+.wrapper .content .sections section.find-us iframe, .wrapper .content .sections section.find-us div.map {
   height: 250px;
+  margin-top: 0px;
 }
-.wrapper .content .sections section.find-me div.map {
+.wrapper .content .sections section.find-us div.map {
   position: relative;
   width: 80%;
   margin: auto;
+  margin-top: 28px;
   background-position: center;
-  background-size: 600px 420px;
+  background-size: 624px 290px;
   cursor: pointer;
 }
-.wrapper .content .sections section.find-me div.map.map--shen {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/Shen_Physio_map.jpg");
+.wrapper .content .sections section.find-us div.map.map--sncl {
+  background-image: url("https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png");
 }
-.wrapper .content .sections section.find-me div.map.map--shen.visible {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/Shen_Physio_map.jpg");
+.wrapper .content .sections section.find-us div.map.map--sncl.visible {
+  background-image: url("https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png");
 }
-.wrapper .content .sections section.find-me div.map.map--cpnl {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg");
-}
-.wrapper .content .sections section.find-me div.map.map--cpnl.visible {
-  background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-720,fo-auto,f-webp/maps/CPN_Lausanne_map.jpg");
-}
-.wrapper .content .sections section.find-me div.map iframe {
+.wrapper .content .sections section.find-us div.map iframe {
   width: 100%;
   border: 0;
 }
-.wrapper .content .sections section.find-me div.map iframe:not([src]), .wrapper .content .sections section.find-me div.map iframe[src=""] {
+.wrapper .content .sections section.find-us div.map iframe:not([src]), .wrapper .content .sections section.find-us div.map iframe[src=""] {
   display: none;
 }
-.wrapper .content .sections section.find-me div.map:before, .wrapper .content .sections section.find-me div.map:after {
+.wrapper .content .sections section.find-us div.map:before, .wrapper .content .sections section.find-us div.map:after {
   transition: all 0.25s ease;
   position: absolute;
   display: block;
 }
-.wrapper .content .sections section.find-me div.map:before {
+.wrapper .content .sections section.find-us div.map:before {
   content: "";
   top: 0;
   right: 0;
@@ -638,7 +691,7 @@ a:hover {
   opacity: 0;
   z-index: 10;
 }
-.wrapper .content .sections section.find-me div.map:after {
+.wrapper .content .sections section.find-us div.map:after {
   content: "Click to Interact";
   background: rgba(69, 48, 64, 0.75);
   color: rgba(255, 255, 255, 0.75);
@@ -654,13 +707,13 @@ a:hover {
   z-index: 11;
   opacity: 0;
 }
-.wrapper .content .sections section.find-me div.map:hover:before {
+.wrapper .content .sections section.find-us div.map:hover:before {
   opacity: 0.3;
 }
-.wrapper .content .sections section.find-me div.map:hover:after {
+.wrapper .content .sections section.find-us div.map:hover:after {
   opacity: 1;
 }
-.wrapper .content .sections section.find-me div.map.interact:before, .wrapper .content .sections section.find-me div.map.interact:after {
+.wrapper .content .sections section.find-us div.map.interact:before, .wrapper .content .sections section.find-us div.map.interact:after {
   display: none;
 }
 .wrapper .content footer {
@@ -742,7 +795,7 @@ a:hover {
     position: fixed;
     top: 0;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(15px) saturate(100%);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
     display: inline-block;
@@ -913,7 +966,7 @@ a:hover {
   .container.banner-intersecting nav ul li:hover > a.primary, .container.banner-intersecting nav ul li:hover > span.primary {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
-    background: #61c1b6;
+    background: #e6775d;
   }
   .container.banner-intersecting nav ul li ul li a {
     outline: none;
@@ -922,7 +975,7 @@ a:hover {
   .container.banner-intersecting nav ul li ul li a:hover {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
-    background: #61c1b6;
+    background: #e6775d;
   }
   .container nav {
     display: block;
@@ -931,7 +984,7 @@ a:hover {
     top: 0;
     height: 56px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(15px);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
   }
@@ -998,12 +1051,12 @@ a:hover {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
   .container nav ul li a.primary, .container nav ul li span.primary {
-    background-color: #43aca0;
+    background: linear-gradient(33deg, #43cea2, #185a9d);
     color: rgba(255, 255, 255, 0.85);
     font-weight: 900;
   }
   .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
-    background-color: #61c1b6;
+    background-color: #e6775d;
     outline: none;
     color: rgba(255, 255, 255, 0.85);
   }
@@ -1063,7 +1116,7 @@ a:hover {
   }
   .container nav ul li ul li a:hover {
     outline: none;
-    background-color: #61c1b6;
+    background-color: #e6775d;
     color: white;
   }
   .container nav ul li:not(.closed):hover ul {
@@ -1092,7 +1145,7 @@ a:hover {
     display: none;
   }
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: darker) {
   html, body {
     color: rgba(255, 255, 255, 0.75);
     background-color: rgba(28, 32, 33, 0.95);
@@ -1105,7 +1158,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.85);
   }
 }
-@media only screen and (prefers-color-scheme: dark) and (min-width: 768px) {
+@media only screen and (prefers-color-scheme: darker) and (min-width: 768px) {
   .container nav {
     background: rgba(28, 32, 33, 0.5);
     box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
@@ -1121,12 +1174,12 @@ a:hover {
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
   .container nav ul li a.primary, .container nav ul li span.primary {
-    background-color: #43aca0;
+    background-color: #df5231;
     color: rgba(255, 255, 255, 0.85);
     font-weight: 900;
   }
   .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
-    background-color: #61c1b6;
+    background-color: #e6775d;
     color: rgba(255, 255, 255, 0.85);
   }
   .container nav ul li a:hover, .container nav ul li span:hover {
@@ -1145,7 +1198,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.75);
   }
   .container nav ul li ul li a:hover {
-    background-color: #43aca0;
+    background-color: #df5231;
     color: rgba(255, 255, 255, 0.85);
   }
   .container nav ul li:not(.closed):hover.submenu a:after, .container nav ul li:not(.closed):hover.submenu span:after {
@@ -1159,7 +1212,7 @@ a:hover {
     border-color: rgba(255, 255, 255, 0.75);
   }
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: darker) {
   .container .wrapper .mobile-navbar {
     background: rgba(28, 32, 33, 0.75);
     backdrop-filter: blur(15px) saturate(100%);
@@ -1179,15 +1232,11 @@ a:hover {
   .container .wrapper .content .sections section:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.02);
   }
-  .container .wrapper .content .sections section.reach-me .phone a svg.icon, .container .wrapper .content .sections section.reach-me .email a svg.icon {
-    color: #61c1b6;
+  .container .wrapper .content .sections section.reach-us .phone a svg.icon, .container .wrapper .content .sections section.reach-us .email a svg.icon {
+    color: #e6775d;
   }
-  .container .wrapper .content .sections section.reach-me .phone a:hover svg.icon, .container .wrapper .content .sections section.reach-me .email a:hover svg.icon {
-    color: #43aca0;
-  }
-  .container .wrapper .content .sections section.find-me {
-    background: linear-gradient(180deg, #43aca0 0%, #26635c 100%);
-    color: rgba(255, 255, 255, 0.75);
+  .container .wrapper .content .sections section.reach-us .phone a:hover svg.icon, .container .wrapper .content .sections section.reach-us .email a:hover svg.icon {
+    color: #df5231;
   }
   .container .wrapper .content footer svg.icon {
     color: rgba(255, 255, 255, 0.75);
