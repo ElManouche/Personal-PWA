@@ -1,12 +1,12 @@
 {
-  "name": "Sarah Dionne",
-  "short_name": "Sarah Dionne",
+  "name": "SNCL - Ski Nautique Club Lausanne",
+  "short_name": "SNCL",
   "start_url": "./",
   "scope": ".",
   "display": "standalone",
   "orientation": "any",
-  "theme_color": "#43aca0",
-  "background_color": "#007592",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "newBranch":"true",
   "icons": [
     {
