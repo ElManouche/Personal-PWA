@@ -1,8 +1,7 @@
-const cacheName = "SD-v1.0.4-alpha5",
+const cacheName = "SNCL-v0.0.1",
       assets = [
         '/',
         '/index.html',
-        '/contact.vcf',
         '/manifest.json',
         '/assets/js/script.js',
         '/assets/css/style.css',
@@ -10,10 +9,10 @@ const cacheName = "SD-v1.0.4-alpha5",
         '/assets/icons/favicon.svg',
         '/assets/icons/android-chrome-144x144.png',
         // CDN images
-        'https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/hero/full.jpg',
+        //'https://ik.imagekit.io/sncl/tr:w-30,fo-auto,f-webp/hero/full.jpg',
         // Externals
         'https://cdn.polyfill.io/v3/polyfill.min.js',
-        'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap'
+        //'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;display=swap'
       ];
 
 self.addEventListener('install', evt => {
