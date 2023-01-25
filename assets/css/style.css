@@ -356,7 +356,7 @@ svg.logo {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: cover;
-  background-image: url("//www.sncl.ch/wp-content/uploads/2021/03/IMG_7997.jpg");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/header/IMG_7997.jpg");
   perspective: 1px;
 }
 .wrapper .content #banner .inner {
@@ -664,10 +664,10 @@ svg.logo {
   cursor: pointer;
 }
 .wrapper .content .sections section.find-us div.map.map--sncl {
-  background-image: url("https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.jpg");
 }
 .wrapper .content .sections section.find-us div.map.map--sncl.visible {
-  background-image: url("https://www.sncl.ch/wp-content/uploads/2021/02/Capture-decran-2021-02-16-a-20.23.38.png");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.jpg");
 }
 .wrapper .content .sections section.find-us div.map iframe {
   width: 100%;
