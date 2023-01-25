@@ -7,7 +7,7 @@ const cacheName = "SNCL-v0.0.1",
         '/assets/css/style.css',
         // Local images
         '/assets/icons/favicon.svg',
-        '/assets/icons/android-chrome-144x144.png',
+        '/assets/icons/android-chrome-192x192.png',
         // CDN images
         //'https://ik.imagekit.io/sncl/tr:w-30,fo-auto,f-webp/hero/full.jpg',
         // Externals
