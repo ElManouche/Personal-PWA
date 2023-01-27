@@ -40,7 +40,7 @@ const throttle = (func, wait, options) => {
 };
 
 const trackEvent = (event, ...options) => {
-  console.log(`Track event: ${event}`, ...options);
+  //console.log(`Track event: ${event}`, ...options);
   if (typeof mixpanel === 'object') {
     mixpanel.track(
       event,
