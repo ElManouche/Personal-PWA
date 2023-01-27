@@ -664,10 +664,10 @@ svg.logo {
   cursor: pointer;
 }
 .wrapper .content .sections section.find-us div.map.map--sncl {
-  background-image: url("//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.jpg");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.png");
 }
 .wrapper .content .sections section.find-us div.map.map--sncl.visible {
-  background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.jpg");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.png");
 }
 .wrapper .content .sections section.find-us div.map iframe {
   width: 100%;
