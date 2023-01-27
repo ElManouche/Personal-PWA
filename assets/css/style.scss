@@ -313,7 +313,7 @@ svg.logo {
             padding-left: .05em;
             position: relative;
             background-color: rgba(#434142, .75);
-    box-shadow: rgba(#434142, .75) 12px 0px 0px, rgba(#434142, .75) -12px 0px 0px;
+            box-shadow: rgba(#434142, .75) 12px 0px 0px, rgba(#434142, .75) -12px 0px 0px;
             text-transform: uppercase;
             a {
               text-decoration: none;
@@ -422,6 +422,7 @@ svg.logo {
           h3 {
             margin-top: 24px;
           }
+          
         }
         @include mq(xl) {
           padding: 56px 36px 48px 36px;
@@ -455,6 +456,9 @@ svg.logo {
 
           //background-color: $background;
         }
+        a {
+          text-decoration: underline;
+        }
         img {
           max-width: 100%;
           height: auto;
@@ -471,7 +475,7 @@ svg.logo {
             li {
               list-style-type: none;
               margin: 0;
-              padding: 0;
+              padding: 0 0 12px 0;
               height: auto;
               img {
                 filter: brightness(1);
@@ -560,6 +564,13 @@ svg.logo {
             }
           }
         }
+        &.hours {
+          svg.icon {
+            display: block;
+            color: #f5ad3d;
+            margin: 0 auto;
+          }
+        }
         &.reach-us {
           .phone, .email {
             a {
@@ -573,6 +584,34 @@ svg.logo {
               &:hover {
                 svg.icon {
                   color: $purple;
+                }
+              }
+            }
+          }
+          h3 {
+            display: inline;
+          }
+          ul.social {
+            margin: 0;
+            padding: 0;
+            display: inline;
+            li {
+              margin: 0;
+              padding: 0;
+              list-style-type: none;
+              display: inline;
+              a {
+                svg.icon {
+                  color: $purple-lighter;
+                  height: 36px;
+                  width: 36px;
+                  vertical-align: middle;
+                  margin-bottom: 8px;
+                }
+                &:hover {
+                  svg.icon {
+                    color: $purple;
+                  }
                 }
               }
             }
@@ -593,9 +632,9 @@ svg.logo {
             background-size: 624px 290px;
             cursor: pointer;
             &.map--sncl {
-              background-image: url('//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.jpg');
+              background-image: url('//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.png');
               &.visible {
-                background-image: url('//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.jpg');
+                background-image: url('//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.png');
               }
             }
             

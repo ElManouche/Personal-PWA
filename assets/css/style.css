@@ -540,6 +540,9 @@ svg.logo {
   background: linear-gradient(33deg, #43cea2, #185a9d);
   transform: skewY(4deg);
 }
+.wrapper .content .sections section a {
+  text-decoration: underline;
+}
 .wrapper .content .sections section img {
   max-width: 100%;
   height: auto;
@@ -556,7 +559,7 @@ svg.logo {
 .wrapper .content .sections section.partners ul li {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 12px 0;
   height: auto;
 }
 .wrapper .content .sections section.partners ul li img {
@@ -640,6 +643,11 @@ svg.logo {
 .wrapper .content .sections section.pricing table thead .subheader td {
   padding: 0 15px 5px 15px;
 }
+.wrapper .content .sections section.hours svg.icon {
+  display: block;
+  color: #f5ad3d;
+  margin: 0 auto;
+}
 .wrapper .content .sections section.reach-us .phone a svg.icon, .wrapper .content .sections section.reach-us .email a svg.icon {
   font-size: 56px;
   height: 56px;
@@ -648,6 +656,30 @@ svg.logo {
   margin-top: 16px;
 }
 .wrapper .content .sections section.reach-us .phone a:hover svg.icon, .wrapper .content .sections section.reach-us .email a:hover svg.icon {
+  color: #453040;
+}
+.wrapper .content .sections section.reach-us h3 {
+  display: inline;
+}
+.wrapper .content .sections section.reach-us ul.social {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.wrapper .content .sections section.reach-us ul.social li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: inline;
+}
+.wrapper .content .sections section.reach-us ul.social li a svg.icon {
+  color: rgba(69, 48, 64, 0.75);
+  height: 36px;
+  width: 36px;
+  vertical-align: middle;
+  margin-bottom: 8px;
+}
+.wrapper .content .sections section.reach-us ul.social li a:hover svg.icon {
   color: #453040;
 }
 .wrapper .content .sections section.find-us iframe, .wrapper .content .sections section.find-us div.map {
