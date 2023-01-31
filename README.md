@@ -1,7 +1,7 @@
-# sncl.github.io
+# sncl-ch.github.io
 This open source website is a one page PWA website that can be used for personal presentation website.
 
-View working demo under https://sncl.github.io
+View working demo under https://sncl-ch.github.io
 
 ## Key features:
 - Mobile first responsive design
