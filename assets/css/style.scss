@@ -288,109 +288,20 @@ svg.logo {
           min-width: 90vw;
         }
 
-        text-align: center;
-        vertical-align: middle;
-
         header {
-          display: inline-block;
-          border-bottom: solid 5px;
-          border-top: solid 5px;
-          margin: 36px 0;
-          @include mq(s) {
-            margin-top: 12px;
-          }
-          padding: 3px 0;
-
-          h2 {
-            display: none;
-            font-family: 'Suez One', serif;
-            border-bottom: solid 2px;
-            border-top: solid 2px;
-            font-size: 4.5em;
+          h1 {
+            display: inline-block;
+            font-size: 24px;
+            font-size: 7.5vw;
+            text-align: center;
+            vertical-align: middle;
+            letter-spacing: .1em;
+            line-height: 1.5em;
+            margin: 0;
+            text-transform: none;
             font-weight: 900;
-            letter-spacing: .2em;
-            margin: 0;
-            padding-left: .05em;
-            position: relative;
-            background-color: rgba(#434142, .75);
-            box-shadow: rgba(#434142, .75) 12px 0px 0px, rgba(#434142, .75) -12px 0px 0px;
-            text-transform: uppercase;
-            a {
-              text-decoration: none;
-              color: $font-color-inverted-hover;
-            }
-            span {
-              //font-weight: 300;
-            }
-          }
-        }
-        p {
-          display: inline-block;
-          font-size: 24px;
-          font-size: 7.5vw;
-          letter-spacing: .1em;
-          line-height: 1.5em;
-          margin: 0;
-          text-transform: none;
-          font-weight: 900;
-          @include mq(s) {
-            font-size: 4.5vw;
-          }
-        }
-        footer {
-          display: none;
-          padding: 24px 0 0 0;
-          ul {
-            margin: 0;
-            padding: 0;
-            li {
-              list-style-type: none;
-              display: inline-block;
-              a {
-                display: inline-block;
-                color: $font-color-inverted;
-                margin: 12px 18px;
-                transition: color .3s ease-in-out;
-
-                svg.icon {
-                  display: inline-block;
-                  height: 36px;
-                  width: 36px;
-                  color: $font-color-inverted;
-                  transition: fill .3s ease-in-out;
-                  margin: 0;
-
-                }
-                &:hover {
-                  color: $font-color-inverted-hover;
-                  svg.icon {
-                    color: $font-color-inverted-hover;
-                  }
-                }
-
-                @include mq(m) {
-                  margin: 12px 24px;
-                  transition: background-color .3s ease-in-out, outline .3s ease-in-out;
-                  border: 1px solid $font-color-inverted;
-                  border-radius: 50%;
-                  svg.icon {
-                    padding: 16px;
-                    height: calc(36px + 32px);
-                    width: calc(36px + 32px);
-                  }
-                  &:hover {
-                    background-color: rgba($white, .125);
-                    outline: 1px solid $font-color-inverted-hover;
-                  }
-                }
-              }
-
-              &:first-child a {
-                padding-left: 0;
-              }
-              &:last-child a {
-                padding-right: 0;
-              }
+            @include mq(s) {
+              font-size: 4.5vw;
             }
           }
         }
@@ -462,6 +373,13 @@ svg.logo {
         img {
           max-width: 100%;
           height: auto;
+        }
+        &.gallery {
+          .tagembed-container {
+            width:100%;
+            height:100%;
+            overflow: auto;
+          }
         }
         &.partners {
           ul {
