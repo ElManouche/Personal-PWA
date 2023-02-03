@@ -327,37 +327,37 @@ svg.logo {
 
 @keyframes imageSlider {
   0% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
   }
   15% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
   }
   20% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg");
   }
   35% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg");
   }
   40% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_group.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg");
   }
   55% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_group.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg");
   }
   60% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_sunset.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg");
   }
   75% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_sunset.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg");
   }
   80% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg");
   }
   95% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg");
   }
   100% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
   }
 }
 /* PAGE LAYOUT */
