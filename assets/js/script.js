@@ -188,6 +188,15 @@ const initFirstScrollListener = () => {
   document.addEventListener("scroll", trackFirstScroll);
 };
 
+const trackAppInstallation = () => {
+  trackEvent('App installed');
+  window.removeEventListener('appinstalled', trackAppInstallation);
+};
+
+const initAppInstallation = () => {
+  window.addEventListener('appinstalled', trackAppInstallation);
+};
+
 const initLinksClicked = () => {
   document
     .querySelectorAll("a[class*='contact_']")
@@ -202,6 +211,7 @@ const init = () => {
   initTogglerListener();
   initLinksCloseNav();
   initLinksClicked();
+  initAppInstallation();
   //initNavPosition();
   initCloseSubNav();
   initMaps();
