@@ -239,8 +239,7 @@ svg.logo {
 
 
 :root {
-  $slide-width: map.get($min-widths, 'xs');
-  $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},fo-auto,f-webp/header/';
+  $img-path: '//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/';
   --slide-1: url('#{$img-path}sncl_1966.jpg');
   --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
   --slide-3: url('#{$img-path}sncl_group.jpg');
@@ -259,7 +258,7 @@ svg.logo {
 
     @include mq($name) {
         :root {
-            $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},fo-auto,f-webp/header/';
+            $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},h-600,c-at_least,f-webp/header/';
             --slide-1: url('#{$img-path}sncl_1966.jpg');
             --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
             --slide-3: url('#{$img-path}sncl_group.jpg');

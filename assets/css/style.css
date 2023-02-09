@@ -326,65 +326,65 @@ svg.logo {
 }
 
 :root {
-  --slide-1: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_1966.jpg");
-  --slide-2: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-  --slide-3: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_group.jpg");
-  --slide-4: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_sunset.jpg");
-  --slide-5: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  --slide-1: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+  --slide-2: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+  --slide-3: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+  --slide-4: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+  --slide-5: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
 }
 
 @media only screen and (min-width: 360px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @media only screen and (min-width: 480px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @media only screen and (min-width: 768px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @media only screen and (min-width: 992px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @media only screen and (min-width: 1200px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @media only screen and (min-width: 1400px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
   }
 }
 @keyframes imageSlider {
