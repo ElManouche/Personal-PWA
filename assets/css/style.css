@@ -325,39 +325,101 @@ svg.logo {
   margin-top: 0;
 }
 
+:root {
+  --slide-1: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_1966.jpg");
+  --slide-2: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+  --slide-3: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_group.jpg");
+  --slide-4: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_sunset.jpg");
+  --slide-5: url("//ik.imagekit.io/sncl/tr:w-360,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+}
+
+@media only screen and (min-width: 360px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
+@media only screen and (min-width: 480px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
+@media only screen and (min-width: 768px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
+@media only screen and (min-width: 992px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
+@media only screen and (min-width: 1200px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
+@media only screen and (min-width: 1400px) {
+  :root {
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_group.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_sunset.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+  }
+}
 @keyframes imageSlider {
   0% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: var(--slide-1);
   }
   15% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: var(--slide-1);
   }
   20% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    background-image: var(--slide-2);
   }
   35% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg");
+    background-image: var(--slide-2);
   }
   40% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg");
+    background-image: var(--slide-3);
   }
   55% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg");
+    background-image: var(--slide-3);
   }
   60% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg");
+    background-image: var(--slide-4);
   }
   75% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg");
+    background-image: var(--slide-4);
   }
   80% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    background-image: var(--slide-5);
   }
   95% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg");
+    background-image: var(--slide-5);
   }
   100% {
-    background-image: url("//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg");
+    background-image: var(--slide-1);
   }
 }
 /* PAGE LAYOUT */
@@ -391,9 +453,14 @@ svg.logo {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: cover;
-  background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/header/sncl_1966.jpg");
+  background-image: var(--slide-1);
   perspective: 1px;
   animation: imageSlider 30s linear infinite 0s;
+}
+@media only screen and (min-width: 992px) {
+  .wrapper .content #banner {
+    background-image: var(--slide-1);
+  }
 }
 .wrapper .content #banner .inner {
   filter: drop-shadow(-3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(-3px 3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px 3px 2px rgba(28, 32, 33, 0.35));

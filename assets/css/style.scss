@@ -1,10 +1,14 @@
+@use "sass:map";
+
 // Responsive sizes
-$xs-min: 360px;
-$s-min: 480px;
-$m-min: 768px;
-$l-min: 992px;
-$xl-min: 1200px;
-$xxl-min: 1400px;
+$min-widths: (
+  'xs': 360,
+  's': 480,
+  'm': 768,
+  'l': 992,
+  'xl': 1200,
+  'xxl': 1400
+);
 
 // Options
 $gutter: 24px;
@@ -36,17 +40,17 @@ $deep-blue: rgba(0,37,64,1);
 $gradient: linear-gradient(33deg, #43cea2, #185a9d);
 
 $breakpoints: (
-  'xs': (min-width: $xs-min),
-  's': (min-width: $s-min),
-  'm': (min-width: $m-min),
-  'l': (min-width: $l-min),
-  'xl': (min-width: $xl-min),
-  'xxl': (min-width: $xxl-min)
+  'xs': (min-width: #{map.get($min-widths, 'xs')+'px'}),
+  's': (min-width: #{map.get($min-widths, 's')+'px'}),
+  'm': (min-width: #{map.get($min-widths, 'm')+'px'}),
+  'l': (min-width: #{map.get($min-widths, 'l')+'px'}),
+  'xl': (min-width: #{map.get($min-widths, 'xl')+'px'}),
+  'xxl': (min-width: #{map.get($min-widths, 'xxl')+'px'})
 );
 
 @mixin mq($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media only screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+    @media only screen and #{inspect(map.get($breakpoints, $breakpoint))} {
       @content;
     }
   }
@@ -233,18 +237,52 @@ svg.logo {
   margin-top: 0;
 }
 
-@keyframes imageSlider { 
-    0% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg'); }
-    15% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg'); }
-    20% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg'); }
-    35% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakesurf.jpg'); }
-    40% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg'); }
-    55% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_group.jpg'); }
-    60% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg'); }
-    75% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_sunset.jpg'); }
-    80% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg'); }
-    95% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_wakeboard.jpg'); }
-    100% { background-image: url('//ik.imagekit.io/sncl/tr:w-1024,fo-auto,f-webp/header/sncl_1966.jpg'); }
+
+:root {
+  $slide-width: map.get($min-widths, 'xs');
+  $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},fo-auto,f-webp/header/';
+  --slide-1: url('#{$img-path}sncl_1966.jpg');
+  --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
+  --slide-3: url('#{$img-path}sncl_group.jpg');
+  --slide-4: url('#{$img-path}sncl_sunset.jpg');
+  --slide-5: url('#{$img-path}sncl_wakeboard.jpg');
+}
+
+
+@for $i from 1 through length($min-widths) {
+    $name: nth(map_keys($min-widths),$i);
+    $min-width: nth(map_values($min-widths),$i);
+    $slide-width: $min-width;
+    @if $i+1 <= length($min-widths) {
+        $slide-width: nth(map_values($min-widths),$i+1);
+    }
+
+    @include mq($name) {
+        :root {
+            $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},fo-auto,f-webp/header/';
+            --slide-1: url('#{$img-path}sncl_1966.jpg');
+            --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
+            --slide-3: url('#{$img-path}sncl_group.jpg');
+            --slide-4: url('#{$img-path}sncl_sunset.jpg');
+            --slide-5: url('#{$img-path}sncl_wakeboard.jpg');
+        }
+    }
+}
+
+$slides: var(--slide-1), var(--slide-2), var(--slide-3), var(--slide-4), var(--slide-5);
+
+@keyframes imageSlider {
+
+  @for $i from 0 through length($slides)-1 {
+    $slide: nth($slides, $i+1);
+
+    $from: $i * 20;
+    $to: ($i+1) * 20 - 5;
+
+    #{$from}% { background-image: $slide; }
+    #{$to}% { background-image: $slide; }
+  }
+  100% { background-image: nth($slides, 1); }
 }
 
 /* PAGE LAYOUT */
@@ -272,7 +310,7 @@ svg.logo {
       height: calc(100vh - 56px);
       margin-top: 56px;
       @include mq(l) {
-        //min-height: 100vh;
+        background-image: nth($slides, 1);
       }
       text-align: center;
       background-attachment: scroll, scroll;
@@ -281,7 +319,7 @@ svg.logo {
       background-repeat: no-repeat;
       background-attachment: inherit;
       background-size: cover;
-      background-image: url('//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/header/sncl_1966.jpg');
+      background-image: nth($slides, 1);
       perspective: 1px;
       animation: imageSlider 30s linear infinite 0s; 
 
@@ -654,7 +692,7 @@ svg.logo {
     display: none;
   }
   // Mobile menu
-  @media only screen and (max-width: #{$m-min - 0.2}) {
+  @media only screen and (max-width: #{map.get($min-widths, 'm') - 0.2}px) {
     nav {
       transition: transform .3s ease-in-out;
       transform: translateX(-275px);
