@@ -39,18 +39,9 @@ $deep-blue: rgba(0,37,64,1);
 
 $gradient: linear-gradient(33deg, #43cea2, #185a9d);
 
-$breakpoints: (
-  'xs': (min-width: #{map.get($min-widths, 'xs')+'px'}),
-  's': (min-width: #{map.get($min-widths, 's')+'px'}),
-  'm': (min-width: #{map.get($min-widths, 'm')+'px'}),
-  'l': (min-width: #{map.get($min-widths, 'l')+'px'}),
-  'xl': (min-width: #{map.get($min-widths, 'xl')+'px'}),
-  'xxl': (min-width: #{map.get($min-widths, 'xxl')+'px'})
-);
-
 @mixin mq($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media only screen and #{inspect(map.get($breakpoints, $breakpoint))} {
+  @if map-has-key($min-widths, $breakpoint) {
+    @media only screen and (min-width: #{map.get($min-widths, $breakpoint)+'px'}) {
       @content;
     }
   }
@@ -59,11 +50,11 @@ $breakpoints: (
 @mixin grid-media-query($media-query) {
   $breakpoint-found: false;
 
-  @each $name, $declaration in $breakpoints {
-    @if $media-query == $name and $declaration {
+  @each $name, $min-width in $min-widths {
+    @if $media-query == $name {
       $breakpoint-found: true;
-
-      @media only screen and #{inspect($declaration)} {
+      
+      @media only screen and (min-width: #{map.get($min-widths, $name)+'px'}) {
         @content;
       }
     }
@@ -100,20 +91,19 @@ $breakpoints: (
   $prefix: unquote(".") + $namespace;
 
   @for $grid-column from 2 through 4 {
-    //@if $grid-column != 11 and $grid-column != 9 and $grid-column != 7 {
     @for $i from 1 through ($grid-column - 1) {
       .col#{$prefix}u-#{$i}\/#{$grid-column} {
         width: calc(#{$i} * 100% / #{$grid-column});
       }
     }
-    //}
   }
 }
 
 @include device-type();
-@each $breakpoint, $declaration in $breakpoints {
-  @include grid-media-query($breakpoint) {
-    @include device-type("#{$breakpoint}--");
+
+@each $name, $min-width in $min-widths {
+  @include grid-media-query($name) {
+    @include device-type("#{$name}--");
   }
 }
 
@@ -237,51 +227,51 @@ svg.logo {
   margin-top: 0;
 }
 
+$slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'sncl_group.jpg', 'sncl_sunset.jpg');
 
 :root {
   $img-path: '//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/';
-  --slide-1: url('#{$img-path}sncl_1966.jpg');
-  --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
-  --slide-3: url('#{$img-path}sncl_group.jpg');
-  --slide-4: url('#{$img-path}sncl_sunset.jpg');
-  --slide-5: url('#{$img-path}sncl_wakeboard.jpg');
+  @for $i from 1 through length($slide-images) {
+    $slide-image: nth($slide-images, $i);
+    --slide-#{$i}: url('#{$img-path}#{$slide-image}');
+  }
 }
 
 
 @for $i from 1 through length($min-widths) {
-    $name: nth(map_keys($min-widths),$i);
-    $min-width: nth(map_values($min-widths),$i);
-    $slide-width: $min-width;
-    @if $i+1 <= length($min-widths) {
-        $slide-width: nth(map_values($min-widths),$i+1);
-    }
+  $name: nth(map_keys($min-widths),$i);
+  $min-width: nth(map_values($min-widths),$i);
+  $slide-width: $min-width;
+  @if $i+1 <= length($min-widths) {
+    $slide-width: nth(map_values($min-widths),$i+1);
+  }
 
-    @include mq($name) {
-        :root {
-            $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},h-600,c-at_least,f-webp/header/';
-            --slide-1: url('#{$img-path}sncl_1966.jpg');
-            --slide-2: url('#{$img-path}sncl_wakesurf.jpg');
-            --slide-3: url('#{$img-path}sncl_group.jpg');
-            --slide-4: url('#{$img-path}sncl_sunset.jpg');
-            --slide-5: url('#{$img-path}sncl_wakeboard.jpg');
-        }
+  @include mq($name) {
+    :root {
+      $img-path: '//ik.imagekit.io/sncl/tr:w-#{$slide-width},h-600,c-at_least,f-webp/header/';
+      @for $i from 1 through length($slide-images) {
+        $slide-image: nth($slide-images, $i);
+        --slide-#{$i}: url('#{$img-path}#{$slide-image}');
+      }
     }
+  }
 }
 
-$slides: var(--slide-1), var(--slide-2), var(--slide-3), var(--slide-4), var(--slide-5);
-
 @keyframes imageSlider {
+  @for $i from 0 through length($slide-images)-1 {
+    $slide-num: $i+1;
+    $next-num: 1;
+    @if $i+2 <= length($slide-images) {
+        $next-num: $i+2;
+    }
+    $duration: 100 / length($slide-images);
+    $from: $i * $duration;
+    $to: ($i+1) * $duration - 5;
 
-  @for $i from 0 through length($slides)-1 {
-    $slide: nth($slides, $i+1);
-
-    $from: $i * 20;
-    $to: ($i+1) * 20 - 5;
-
-    #{$from}% { background-image: $slide; }
-    #{$to}% { background-image: $slide; }
+    #{$from}% { background-image: var(--slide-#{$slide-num}); }
+    #{$to}% { background-image: var(--slide-#{$slide-num}), var(--slide-#{$next-num}); }
   }
-  100% { background-image: nth($slides, 1); }
+  100% { background-image: var(--slide-1); }
 }
 
 /* PAGE LAYOUT */
@@ -309,7 +299,7 @@ $slides: var(--slide-1), var(--slide-2), var(--slide-3), var(--slide-4), var(--s
       height: calc(100vh - 56px);
       margin-top: 56px;
       @include mq(l) {
-        background-image: nth($slides, 1);
+        background-image: var(--slide-1);
       }
       text-align: center;
       background-attachment: scroll, scroll;
@@ -318,7 +308,7 @@ $slides: var(--slide-1), var(--slide-2), var(--slide-3), var(--slide-4), var(--s
       background-repeat: no-repeat;
       background-attachment: inherit;
       background-size: cover;
-      background-image: nth($slides, 1);
+      background-image: var(--slide-1);
       perspective: 1px;
       animation: imageSlider 30s linear infinite 0s; 
 

@@ -328,63 +328,63 @@ svg.logo {
 :root {
   --slide-1: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
   --slide-2: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-  --slide-3: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-  --slide-4: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-  --slide-5: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+  --slide-3: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+  --slide-4: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+  --slide-5: url("//ik.imagekit.io/sncl/tr:w-360,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
 }
 
 @media only screen and (min-width: 360px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 480px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 768px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 992px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 1200px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 1400px) {
   :root {
     --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
     --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @keyframes imageSlider {
@@ -392,31 +392,31 @@ svg.logo {
     background-image: var(--slide-1);
   }
   15% {
-    background-image: var(--slide-1);
+    background-image: var(--slide-1), var(--slide-2);
   }
   20% {
     background-image: var(--slide-2);
   }
   35% {
-    background-image: var(--slide-2);
+    background-image: var(--slide-2), var(--slide-3);
   }
   40% {
     background-image: var(--slide-3);
   }
   55% {
-    background-image: var(--slide-3);
+    background-image: var(--slide-3), var(--slide-4);
   }
   60% {
     background-image: var(--slide-4);
   }
   75% {
-    background-image: var(--slide-4);
+    background-image: var(--slide-4), var(--slide-5);
   }
   80% {
     background-image: var(--slide-5);
   }
   95% {
-    background-image: var(--slide-5);
+    background-image: var(--slide-5), var(--slide-1);
   }
   100% {
     background-image: var(--slide-1);
