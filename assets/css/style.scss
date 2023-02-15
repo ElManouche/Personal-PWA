@@ -298,9 +298,6 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
       padding: 0;
       height: calc(100vh - 56px);
       margin-top: 56px;
-      @include mq(l) {
-        background-image: var(--slide-1);
-      }
       text-align: center;
       background-attachment: scroll, scroll;
       background-color: $purple-lighter;
@@ -311,13 +308,18 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
       background-image: var(--slide-1);
       perspective: 1px;
       animation: imageSlider 30s linear infinite 0s; 
-
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        background: linear-gradient( rgba($dark,.275), rgba($dark,.2));
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
       .inner {
-        filter: 
-          drop-shadow(-3px -3px 2px rgba($font-color, .35))
-          drop-shadow(-3px 3px 2px rgba($font-color, .35))
-          drop-shadow(3px -3px 2px rgba($font-color, .35))
-          drop-shadow(3px 3px 2px rgba($font-color, .35));        
+        z-index: 2;
         margin: auto;
         position: absolute;
         top: 50%;
@@ -405,10 +407,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             bottom: 0;
             background: $gradient;
             transform: skewY(4deg);
-            
           }
-
-          //background-color: $background;
         }
         a {
           text-decoration: underline;

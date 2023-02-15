@@ -457,13 +457,18 @@ svg.logo {
   perspective: 1px;
   animation: imageSlider 30s linear infinite 0s;
 }
-@media only screen and (min-width: 992px) {
-  .wrapper .content #banner {
-    background-image: var(--slide-1);
-  }
+.wrapper .content #banner:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: linear-gradient(rgba(28, 32, 33, 0.275), rgba(28, 32, 33, 0.2));
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 .wrapper .content #banner .inner {
-  filter: drop-shadow(-3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(-3px 3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px -3px 2px rgba(28, 32, 33, 0.35)) drop-shadow(3px 3px 2px rgba(28, 32, 33, 0.35));
+  z-index: 2;
   margin: auto;
   position: absolute;
   top: 50%;
