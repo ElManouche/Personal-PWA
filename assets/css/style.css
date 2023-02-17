@@ -209,7 +209,6 @@ html {
 html, body {
   margin: 0;
   padding: 0;
-  min-width: 300px;
   font-family: sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -456,21 +455,39 @@ svg.logo {
   background-image: var(--slide-1);
   perspective: 1px;
   animation: imageSlider 30s linear infinite 0s;
+  /*//
+  &.paused, &:hover {
+    animation-play-state: paused;
+    &:after {
+      opacity: 0.01;
+    }
+    .inner {
+      opacity: 0.01;
+    }
+  }
+  //*/
+}
+.wrapper .content #banner.running {
+  animation-play-state: running;
 }
 .wrapper .content #banner:after {
+  transition: opacity 0.5s ease-in-out;
   position: absolute;
   top: 0;
   left: 0;
   content: "";
-  background: linear-gradient(rgba(28, 32, 33, 0.275), rgba(28, 32, 33, 0.2));
+  background: linear-gradient(rgba(28, 32, 33, 0.275), rgba(28, 32, 33, 0.3));
   width: 100%;
   height: 100%;
   z-index: 1;
+  opacity: 1;
 }
 .wrapper .content #banner .inner {
+  transition: opacity 0.5s ease-in-out;
   z-index: 2;
   margin: auto;
   position: absolute;
+  opacity: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -625,13 +642,6 @@ svg.logo {
 .wrapper .content .sections section.about .col--text-around-img img.observable.visible {
   filter: none;
 }
-.wrapper .content .sections section.about .col--text-around-img img {
-  transition: transform 0.2s;
-}
-.wrapper .content .sections section.about .col--text-around-img img:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
 @media only screen and (min-width: 360px) {
   .wrapper .content .sections section.about .col--text-around-img img {
     margin: 12px 24px 12px 12px;
@@ -723,7 +733,7 @@ svg.logo {
   cursor: pointer;
 }
 .wrapper .content .sections section.find-us div.map.map--sncl {
-  background-image: url("//ik.imagekit.io/sncl/tr:w-20,fo-auto,f-webp/content/SNCL_map.png");
+  background-image: url("//ik.imagekit.io/sncl/tr:w-32,fo-auto,f-webp/content/SNCL_map.png");
 }
 .wrapper .content .sections section.find-us div.map.map--sncl.visible {
   background-image: url("//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.png");
@@ -850,7 +860,6 @@ svg.logo {
     font-weight: 300;
   }
   .container .wrapper .mobile-navbar {
-    min-width: 300px;
     position: fixed;
     top: 0;
     z-index: 1;
