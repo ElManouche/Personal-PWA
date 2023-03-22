@@ -1,12 +1,5 @@
 @use "sass:map";
 
-#banner
-,section:not(#form)
-,.logo
-{
-  //display: none;
-}
-
 // Responsive sizes
 $min-widths: (
   'xs': 360,
@@ -194,11 +187,6 @@ hr {
   line-height: 2em;
   max-width: 100%;
   border: none;
-  &:hover {
-    //background-color: $green-lighter;
-    //outline: none;
-    //color: $font-color-inverted-hover;
-  }
   &.primary {
     background: $gradient;
     color: $font-color-inverted-hover;

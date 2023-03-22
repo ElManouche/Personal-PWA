@@ -38,7 +38,28 @@ const throttle = (func, wait, options) => {
   };
   return throttled;
 };
-
+const convertDate = (event) => {
+  // Prevent the form from submitting
+  event.preventDefault();
+  
+  // Get the date value from the input field
+  const dateInput = document.getElementById('date');
+  const dateValue = dateInput.value;
+  
+  // Convert the date to the desired format (YYYY-MM-DD)
+  const dateParts = dateValue.split('-');
+  const year = dateParts[0];
+  const month = dateParts[1];
+  const day = dateParts[2];
+  const formattedDate = `${day}.${month}.${year}`;
+  
+  // Set the value of the hidden input field with the formatted date
+  const formattedDateInput = document.getElementById('00N0900000K6W6s');
+  formattedDateInput.value = formattedDate;
+  
+  // Submit the form
+  event.target.submit();
+};
 const trackEvent = (event, ...options) => {
   //console.log(`Track event: ${event}`, ...options);
   if (typeof mixpanel === 'object') {
@@ -209,6 +230,19 @@ const initForm = () => {
     input.setAttribute('value', "");
     input.addEventListener('change', (e) => input.setAttribute('value', e.target.value));
   });
+  const curYear = new Date().getFullYear();
+  var min = 1966,
+      max = curYear,
+      select = document.getElementById('00N0900000K6W72');
+
+  for (var i = min; i<=max; i++){
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = i;
+    select.appendChild(opt);
+  }
+
+  select.value = new Date().getFullYear();
 };
 
 const locationHandler = () => {
