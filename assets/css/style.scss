@@ -1,5 +1,12 @@
 @use "sass:map";
 
+#banner
+,section:not(#form)
+,.logo
+{
+  //display: none;
+}
+
 // Responsive sizes
 $min-widths: (
   'xs': 360,
@@ -53,7 +60,7 @@ $gradient: linear-gradient(33deg, #43cea2, #185a9d);
   @each $name, $min-width in $min-widths {
     @if $media-query == $name {
       $breakpoint-found: true;
-      
+
       @media only screen and (min-width: #{map.get($min-widths, $name)+'px'}) {
         @content;
       }
@@ -156,7 +163,7 @@ p {
   margin: 12px 0;
 }
 a {
-  text-decoration: none;
+  //text-decoration: none;
   color: $font-color;
   &:hover {
     color: $font-color-hover;
@@ -169,22 +176,31 @@ hr {
   margin-top: 24px;
   margin-bottom: 24px;
 }
-.button.primary {
-  background: $gradient;
-  color: $font-color-inverted-hover;
+.button, a.button {
+  color: $font-color;
+  background-color: rgba(125,125,125,0.25);
+  font-size: 1em;
   font-weight: 900;
   text-transform: uppercase;
+  text-decoration: none;
   border-radius: .25em;
-  padding: 12px;
+  padding: 3px 12px;
+  margin: 0;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
   line-height: 2em;
   max-width: 100%;
+  border: none;
   &:hover {
-    background-color: $green-lighter;
-    outline: none;
+    //background-color: $green-lighter;
+    //outline: none;
+    //color: $font-color-inverted-hover;
+  }
+  &.primary {
+    background: $gradient;
     color: $font-color-inverted-hover;
   }
   svg.icon {
@@ -259,7 +275,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
     $slide-num: $i+1;
     $next-num: 1;
     @if $i+2 <= length($slide-images) {
-        $next-num: $i+2;
+      $next-num: $i+2;
     }
     $duration: 100 / length($slide-images);
     $from: $i * $duration;
@@ -310,14 +326,14 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
       }
       /*//
       &.paused, &:hover {
-        animation-play-state: paused;
-        &:after {
-          opacity: 0.01;
-        }
-        .inner {
-          opacity: 0.01;
-        }
-      }
+      animation-play-state: paused;
+      &:after {
+      opacity: 0.01;
+    }
+      .inner {
+      opacity: 0.01;
+    }
+    }
       //*/
       &:after {
         transition: opacity .5s ease-in-out;
@@ -381,9 +397,9 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
         }
         @include mq(l) {
           & > *:not(.full_width) {
-          max-width: calc(960px - 96px);
-          margin-left: auto;
-          margin-right: auto;
+            max-width: calc(960px - 96px);
+            margin-left: auto;
+            margin-right: auto;
           }
           h1,h2,h3 {
             margin-top: 36px;
@@ -392,7 +408,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
           h3 {
             margin-top: 24px;
           }
-          
+
         }
         @include mq(xl) {
           padding: 56px 36px 48px 36px;
@@ -402,12 +418,15 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
         }
         @include mq(xxl) {
           & > *:not(.full_width) {
-          max-width: 1200px;
+            max-width: 1200px;
           }
         }
         &.gradient {
           position: relative;
           color: $font-color-inverted;
+          a:not(.button) {
+            color: $font-color-inverted;
+          }
           > * {
             position: relative;
           }
@@ -422,7 +441,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             transform: skewY(4deg);
           }
         }
-        a {
+        a:not(.button) {
           text-decoration: underline;
         }
         img {
@@ -459,7 +478,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
                   transform: scale(1.05);
                   cursor: pointer;
                 }
-              
+
                 @include mq(m) {
                   max-width: 12vw;
                 }
@@ -510,7 +529,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             border-collapse:collapse;
             border-spacing:0;
             empty-cells:hide;
-            
+
             .empty {
               empty-cells:hide;
               border-width:0;
@@ -603,7 +622,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
                 background-image: url('//ik.imagekit.io/sncl/tr:w-576,fo-auto,f-webp/content/SNCL_map.png');
               }
             }
-            
+
             iframe {
               width: 100%;
               border: 0;
@@ -1260,5 +1279,74 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
         }
       }
     }
+  }
+}
+
+
+form {
+  fieldset {
+    border: 1px solid rgba($font-color, .1);
+  }
+  .form-field {
+    position: relative;
+    margin: 10px 0;
+    input[type="date"]:not([autocomplete=on]) {
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        filter: invert(0.8);
+      }
+      color: transparent;
+      &:focus, &:valid {
+        color: inherit;
+      }
+    }
+    input[type="text"], input[type="date"], input[type="password"], input[type="email"], input[type="tel"], textarea {
+      transition: border-color .2s ease-in-out;
+      appearance: none;
+      background: transparent;
+      border: 1px solid rgba($font-color, 0.2);
+      border-width: 0 0 1px 0;
+      font-size: 16px;
+      border-radius: 0px;
+      color: $font-color;
+      display: block;
+      padding: 18px 12px;
+      text-decoration: none;
+      width: 100%;
+      outline: 0px;
+      position: relative;
+      caret-color:#fff;
+      height: 0;
+      background-clip: content-box;
+      &::first-line {
+        color: $font-color;
+      }
+      ~ label {
+        transition: top .2s ease-in-out, font-size .2s ease-in-out;
+        position: absolute;
+        top: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      &:focus,
+      &:valid:not([value=""]),
+      &:invalid:not([value=""])
+      {
+        ~ label {
+          top: -10px;
+          font-size: 12px;
+        }
+      }
+      &:focus {
+        border-color: rgb(131, 211, 201);
+      }
+      &:invalid:not([value=""]) {
+        border-color: rgb(211, 100, 100);
+      }
+    }
+  }
+  input[type="submit"] {
+    border-width: 0;
   }
 }

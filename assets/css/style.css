@@ -252,7 +252,6 @@ p {
 }
 
 a {
-  text-decoration: none;
   color: rgba(28, 32, 33, 0.75);
 }
 a:hover {
@@ -267,26 +266,30 @@ hr {
   margin-bottom: 24px;
 }
 
-.button.primary {
-  background: linear-gradient(33deg, #43cea2, #185a9d);
-  color: rgba(255, 255, 255, 0.85);
+.button, a.button {
+  color: rgba(28, 32, 33, 0.75);
+  background-color: rgba(125, 125, 125, 0.25);
+  font-size: 1em;
   font-weight: 900;
   text-transform: uppercase;
+  text-decoration: none;
   border-radius: 0.25em;
-  padding: 12px;
+  padding: 3px 12px;
+  margin: 0;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
   line-height: 2em;
   max-width: 100%;
+  border: none;
 }
-.button.primary:hover {
-  background-color: #e6775d;
-  outline: none;
+.button.primary, a.button.primary {
+  background: linear-gradient(33deg, #43cea2, #185a9d);
   color: rgba(255, 255, 255, 0.85);
 }
-.button.primary svg.icon {
+.button svg.icon, a.button svg.icon {
   height: 2em;
   width: 2em;
   margin-right: 4px;
@@ -456,16 +459,16 @@ svg.logo {
   perspective: 1px;
   animation: imageSlider 30s linear infinite 0s;
   /*//
-  &.paused, &:hover {
+    &.paused, &:hover {
     animation-play-state: paused;
     &:after {
-      opacity: 0.01;
-    }
-    .inner {
-      opacity: 0.01;
-    }
+    opacity: 0.01;
   }
-  //*/
+    .inner {
+    opacity: 0.01;
+  }
+  }
+    //*/
 }
 .wrapper .content #banner.running {
   animation-play-state: running;
@@ -566,6 +569,9 @@ svg.logo {
   position: relative;
   color: rgba(255, 255, 255, 0.75);
 }
+.wrapper .content .sections section.gradient a:not(.button) {
+  color: rgba(255, 255, 255, 0.75);
+}
 .wrapper .content .sections section.gradient > * {
   position: relative;
 }
@@ -579,7 +585,7 @@ svg.logo {
   background: linear-gradient(33deg, #43cea2, #185a9d);
   transform: skewY(4deg);
 }
-.wrapper .content .sections section a {
+.wrapper .content .sections section a:not(.button) {
   text-decoration: underline;
 }
 .wrapper .content .sections section img {
@@ -1309,4 +1315,63 @@ svg.logo {
   .container .wrapper .content footer svg.icon {
     color: rgba(255, 255, 255, 0.75);
   }
+}
+form fieldset {
+  border: 1px solid rgba(28, 32, 33, 0.1);
+}
+form .form-field {
+  position: relative;
+  margin: 10px 0;
+}
+form .form-field input[type=date]:not([autocomplete=on]) {
+  color: transparent;
+}
+form .form-field input[type=date]:not([autocomplete=on])::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8);
+}
+form .form-field input[type=date]:not([autocomplete=on]):focus, form .form-field input[type=date]:not([autocomplete=on]):valid {
+  color: inherit;
+}
+form .form-field input[type=text], form .form-field input[type=date], form .form-field input[type=password], form .form-field input[type=email], form .form-field input[type=tel], form .form-field textarea {
+  transition: border-color 0.2s ease-in-out;
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(28, 32, 33, 0.2);
+  border-width: 0 0 1px 0;
+  font-size: 16px;
+  border-radius: 0px;
+  color: rgba(28, 32, 33, 0.75);
+  display: block;
+  padding: 18px 12px;
+  text-decoration: none;
+  width: 100%;
+  outline: 0px;
+  position: relative;
+  caret-color: #fff;
+  height: 0;
+  background-clip: content-box;
+}
+form .form-field input[type=text]::first-line, form .form-field input[type=date]::first-line, form .form-field input[type=password]::first-line, form .form-field input[type=email]::first-line, form .form-field input[type=tel]::first-line, form .form-field textarea::first-line {
+  color: rgba(28, 32, 33, 0.75);
+}
+form .form-field input[type=text] ~ label, form .form-field input[type=date] ~ label, form .form-field input[type=password] ~ label, form .form-field input[type=email] ~ label, form .form-field input[type=tel] ~ label, form .form-field textarea ~ label {
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+  position: absolute;
+  top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+form .form-field input[type=text]:focus ~ label, form .form-field input[type=text]:valid:not([value=""]) ~ label, form .form-field input[type=text]:invalid:not([value=""]) ~ label, form .form-field input[type=date]:focus ~ label, form .form-field input[type=date]:valid:not([value=""]) ~ label, form .form-field input[type=date]:invalid:not([value=""]) ~ label, form .form-field input[type=password]:focus ~ label, form .form-field input[type=password]:valid:not([value=""]) ~ label, form .form-field input[type=password]:invalid:not([value=""]) ~ label, form .form-field input[type=email]:focus ~ label, form .form-field input[type=email]:valid:not([value=""]) ~ label, form .form-field input[type=email]:invalid:not([value=""]) ~ label, form .form-field input[type=tel]:focus ~ label, form .form-field input[type=tel]:valid:not([value=""]) ~ label, form .form-field input[type=tel]:invalid:not([value=""]) ~ label, form .form-field textarea:focus ~ label, form .form-field textarea:valid:not([value=""]) ~ label, form .form-field textarea:invalid:not([value=""]) ~ label {
+  top: -10px;
+  font-size: 12px;
+}
+form .form-field input[type=text]:focus, form .form-field input[type=date]:focus, form .form-field input[type=password]:focus, form .form-field input[type=email]:focus, form .form-field input[type=tel]:focus, form .form-field textarea:focus {
+  border-color: #83d3c9;
+}
+form .form-field input[type=text]:invalid:not([value=""]), form .form-field input[type=date]:invalid:not([value=""]), form .form-field input[type=password]:invalid:not([value=""]), form .form-field input[type=email]:invalid:not([value=""]), form .form-field input[type=tel]:invalid:not([value=""]), form .form-field textarea:invalid:not([value=""]) {
+  border-color: #d36464;
+}
+form input[type=submit] {
+  border-width: 0;
 }

@@ -204,6 +204,55 @@ const initLinksClicked = () => {
     (link) => link.addEventListener('click', () => trackEvent(`Link clicked`, {href: link.href}))
   );
 };
+const initForm = () => {
+  document.querySelectorAll("input[type='text'], input[type='email'], input[type='tel'], input[type='date'], textarea").forEach((input) => {
+    input.setAttribute('value', "");
+    input.addEventListener('change', (e) => input.setAttribute('value', e.target.value));
+  });
+};
+
+const locationHandler = () => {
+  var location = window.location.hash.replace("#", "");
+  // if the path length is 0, set it to primary page route
+  if (location.length == 0) {
+    location = "/";
+  }
+  //console.log(location);
+  // get the route object from the routes object
+  if (location === 'form') {
+    document.getElementById("banner").style.display = 'none';
+    const sections = document.querySelectorAll(".sections section");
+
+    sections.forEach((section) => {
+      if(section.id !== 'form') {
+        section.style.display = 'none';
+      } else {
+        section.style.display = 'block';
+      }
+    });
+  } else {
+    if (location === 'form_sent') {
+      document.getElementById("form_sent").showModal();
+    }
+    document.getElementById("banner").style.display = 'block';
+    const sections = document.querySelectorAll(".sections section");
+    //console.log(sections);
+    sections.forEach((section) => {
+      //console.log(section.id);
+      if(section.id !== 'form') {
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  }
+};
+const initRouting = () => {
+  // create a function that watches the hash and calls the urlLocationHandler
+  window.addEventListener("hashchange", locationHandler);
+  // call the urlLocationHandler to load the page
+  locationHandler();
+};
 
 const init = () => {
   initFirstScrollListener();
@@ -212,8 +261,9 @@ const init = () => {
   initLinksCloseNav();
   initLinksClicked();
   initAppInstallation();
-  //initNavPosition();
   initCloseSubNav();
+  initForm();
+  initRouting();
   initMaps();
 }
 
