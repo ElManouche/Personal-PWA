@@ -1,4 +1,4 @@
-const cacheName = "SNCL-v1.0.06",
+const cacheName = "SNCL-v1.0.07",
       assets = [
         '/',
         '/index.html',
