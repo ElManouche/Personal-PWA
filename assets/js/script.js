@@ -151,8 +151,27 @@ const initObserveElements = () => {
         const dataset = entry.target.dataset;
         for (const record in dataset) {
           if (dataset[record]) {
-            entry.target.setAttribute(record, dataset[record]);
-            entry.target.removeAttribute(`data-${record}`);
+            if(record == "hover") {
+              var initialSrc = entry.target.src;
+              entry.target.setAttribute('src', dataset[record]);
+              setTimeout(() => {
+                var timeoutID = undefined;
+                entry.target.setAttribute('src', initialSrc);
+                ['click','mouseenter'].forEach(
+                  evt => entry.target.addEventListener(evt, () => {
+                    entry.target.setAttribute('src', dataset[record]);
+                    timeoutID = setTimeout(() => entry.target.setAttribute('src', initialSrc), 2000);
+                  }, false)
+                );
+                entry.target.addEventListener('mouseleave', () => {
+                  entry.target.setAttribute('src', initialSrc);
+                  clearTimeout(timeoutID);
+                });
+              }, 2000);
+            } else{
+              entry.target.setAttribute(record, dataset[record]);
+              entry.target.removeAttribute(`data-${record}`);
+            }
           }
         }
         observablesObserver.unobserve(entry.target);
@@ -231,18 +250,18 @@ const initForm = () => {
     input.addEventListener('change', (e) => input.setAttribute('value', e.target.value));
   });
   const curYear = new Date().getFullYear();
-  var min = 1966,
-      max = curYear,
-      select = document.getElementById('00N0900000K6W72');
+var min = 1966,
+    max = curYear,
+    select = document.getElementById('00N0900000K6W72');
 
-  for (var i = min; i<=max; i++){
+for (var i = min; i<=max; i++){
     var opt = document.createElement('option');
     opt.value = i;
     opt.innerHTML = i;
     select.appendChild(opt);
-  }
+}
 
-  select.value = new Date().getFullYear();
+select.value = new Date().getFullYear();
 };
 
 const locationHandler = () => {
