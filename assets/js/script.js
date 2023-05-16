@@ -159,6 +159,7 @@ const initObserveElements = () => {
                 entry.target.setAttribute('src', initialSrc);
                 ['click','mouseenter'].forEach(
                   evt => entry.target.addEventListener(evt, () => {
+                    clearTimeout(timeoutID);
                     entry.target.setAttribute('src', dataset[record]);
                     timeoutID = setTimeout(() => entry.target.setAttribute('src', initialSrc), 2000);
                   }, false)
