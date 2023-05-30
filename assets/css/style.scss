@@ -1,5 +1,12 @@
 @use "sass:map";
 
+#banner
+,section:not(#form)
+,.logo
+{
+  //display: none;
+}
+
 // Responsive sizes
 $min-widths: (
   'xs': 360,
@@ -187,6 +194,11 @@ hr {
   line-height: 2em;
   max-width: 100%;
   border: none;
+  &:hover {
+    //background-color: $green-lighter;
+    //outline: none;
+    //color: $font-color-inverted-hover;
+  }
   &.primary {
     background: $gradient;
     color: $font-color-inverted-hover;
@@ -450,25 +462,27 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             padding: 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
             flex-wrap: wrap;
             li {
               list-style-type: none;
               margin: 0;
-              padding: 0 0 12px 0;
+              padding: 0 12px 24px 12px;
               height: auto;
+              display: flex;
+              justify-content: center;
+               @include mq(m) {
+                  //max-width: 12vw;
+                  flex-basis: 25%;
+                }
               img {
                 filter: brightness(1);
-                max-width: 25vw;
+                max-width: 35vw;
 
                 transition: transform .2s;
                 &:hover {
                   transform: scale(1.05);
                   cursor: pointer;
-                }
-
-                @include mq(m) {
-                  max-width: 12vw;
                 }
               }
             }
@@ -542,6 +556,7 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             display: block;
             color: #f5ad3d;
             margin: 0 auto;
+            max-width: 100%;
           }
         }
         &.reach-us {

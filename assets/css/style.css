@@ -603,28 +603,30 @@ svg.logo {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .wrapper .content .sections section.partners ul li {
   list-style-type: none;
   margin: 0;
-  padding: 0 0 12px 0;
+  padding: 0 12px 24px 12px;
   height: auto;
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .wrapper .content .sections section.partners ul li {
+    flex-basis: 25%;
+  }
 }
 .wrapper .content .sections section.partners ul li img {
   filter: brightness(1);
-  max-width: 25vw;
+  max-width: 35vw;
   transition: transform 0.2s;
 }
 .wrapper .content .sections section.partners ul li img:hover {
   transform: scale(1.05);
   cursor: pointer;
-}
-@media only screen and (min-width: 768px) {
-  .wrapper .content .sections section.partners ul li img {
-    max-width: 12vw;
-  }
 }
 .wrapper .content .sections section.about .col p:first-child {
   margin-top: 0;
@@ -690,6 +692,7 @@ svg.logo {
   display: block;
   color: #f5ad3d;
   margin: 0 auto;
+  max-width: 100%;
 }
 .wrapper .content .sections section.reach-us .phone a svg.icon, .wrapper .content .sections section.reach-us .email a svg.icon {
   font-size: 56px;
