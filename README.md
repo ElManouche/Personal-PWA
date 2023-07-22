@@ -4,7 +4,7 @@ This is the presentation website for the SNCL - Ski Nautique Club Lausanne.
 It is forked from ElManouche's open source personal PWA template.
 This is a fully working Progressive Web App for a one page website.
 
-View working demo under https://sncl.ch
+View working implementation under https://sncl.ch
 
 ## Key features:
 - Mobile first responsive design
