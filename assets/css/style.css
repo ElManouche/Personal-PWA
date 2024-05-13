@@ -597,6 +597,9 @@ svg.logo {
   height: 100%;
   overflow: auto;
 }
+.wrapper .content .sections section.news div.archived {
+  display: none;
+}
 .wrapper .content .sections section.partners ul {
   list-style-type: none;
   margin: 0;

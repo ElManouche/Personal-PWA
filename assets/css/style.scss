@@ -455,6 +455,12 @@ $slide-images: ('sncl_1966.jpg', 'sncl_wakesurf.jpg', 'sncl_wakeboard.jpg', 'snc
             overflow: auto;
           }
         }
+        &.news {
+          // hide archived news
+          div.archived {
+            display: none;
+          }
+        }
         &.partners {
           ul {
             list-style-type: none;
