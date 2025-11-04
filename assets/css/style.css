@@ -1,6 +1,13 @@
+:root {
+  --gutter: 24px;
+}
+
+/* ==================
+   GRID & BREAKPOINTS
+   ================== */
 .col .row {
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: calc(-1 * var(--gutter) / 2);
+  margin-right: calc(-1 * var(--gutter) / 2);
 }
 
 .row {
@@ -16,7 +23,7 @@
 .row .col {
   float: left;
   box-sizing: border-box;
-  padding: 0 12px;
+  padding: 0 var(--gutter)/2;
   min-height: 1px;
   margin-left: auto;
   left: auto;
@@ -72,6 +79,18 @@
   .col.xs--u-3\/4 {
     width: calc(3 * 100% / 4);
   }
+
+  .inline-xs {
+    display: inline !important;
+  }
+
+  .block-xs {
+    display: block !important;
+  }
+
+  .hidden-xs {
+    display: none !important;
+  }
 }
 @media only screen and (min-width: 480px) {
   .col.s--u-1\/2 {
@@ -96,6 +115,18 @@
 
   .col.s--u-3\/4 {
     width: calc(3 * 100% / 4);
+  }
+
+  .inline-s {
+    display: inline !important;
+  }
+
+  .block-s {
+    display: block !important;
+  }
+
+  .hidden-s {
+    display: none !important;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -122,6 +153,18 @@
   .col.m--u-3\/4 {
     width: calc(3 * 100% / 4);
   }
+
+  .inline-m {
+    display: inline !important;
+  }
+
+  .block-m {
+    display: block !important;
+  }
+
+  .hidden-m {
+    display: none !important;
+  }
 }
 @media only screen and (min-width: 992px) {
   .col.l--u-1\/2 {
@@ -146,6 +189,18 @@
 
   .col.l--u-3\/4 {
     width: calc(3 * 100% / 4);
+  }
+
+  .inline-l {
+    display: inline !important;
+  }
+
+  .block-l {
+    display: block !important;
+  }
+
+  .hidden-l {
+    display: none !important;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -172,8 +227,20 @@
   .col.xl--u-3\/4 {
     width: calc(3 * 100% / 4);
   }
+
+  .inline-xl {
+    display: inline !important;
+  }
+
+  .block-xl {
+    display: block !important;
+  }
+
+  .hidden-xl {
+    display: none !important;
+  }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1440px) {
   .col.xxl--u-1\/2 {
     width: calc(1 * 100% / 2);
   }
@@ -197,16 +264,31 @@
   .col.xxl--u-3\/4 {
     width: calc(3 * 100% / 4);
   }
+
+  .inline-xxl {
+    display: inline !important;
+  }
+
+  .block-xxl {
+    display: block !important;
+  }
+
+  .hidden-xxl {
+    display: none !important;
+  }
 }
 html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -216,7 +298,8 @@ html, body {
   scroll-behavior: smooth;
   color: rgba(28, 32, 33, 0.75);
 }
-html.fontLoaded, body.fontLoaded {
+html.fontLoaded,
+body.fontLoaded {
   font-family: Roboto, sans-serif;
 }
 
@@ -228,16 +311,27 @@ html.no-scroll body {
   position: relative;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-transform: none;
   font-weight: 600;
   margin: 24px 0;
 }
-h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
   font-weight: 900;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: left;
 }
 
@@ -266,7 +360,8 @@ hr {
   margin-bottom: 24px;
 }
 
-.button, a.button {
+.button,
+a.button {
   color: rgba(28, 32, 33, 0.75);
   background-color: rgba(125, 125, 125, 0.25);
   font-size: 1em;
@@ -285,11 +380,13 @@ hr {
   max-width: 100%;
   border: none;
 }
-.button.primary, a.button.primary {
+.button.primary,
+a.button.primary {
   background: linear-gradient(33deg, #43cea2, #185a9d);
   color: rgba(255, 255, 255, 0.85);
 }
-.button svg.icon, a.button svg.icon {
+.button svg.icon,
+a.button svg.icon {
   height: 2em;
   width: 2em;
   margin-right: 4px;
@@ -337,56 +434,56 @@ svg.logo {
 
 @media only screen and (min-width: 360px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-480px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-480px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-480px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-480px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-480px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 480px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-768px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-768px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-768px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-768px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-768px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 768px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-992px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-992px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-992px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-992px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-992px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 992px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1200px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1200px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1200px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1200px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1200px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @media only screen and (min-width: 1200px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1440px) {
   :root {
-    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
-    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
-    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
-    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_group.jpg");
-    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1400,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
+    --slide-1: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_1966.jpg");
+    --slide-2: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_wakesurf.jpg");
+    --slide-3: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_wakeboard.jpg");
+    --slide-4: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_group.jpg");
+    --slide-5: url("//ik.imagekit.io/sncl/tr:w-1440px,h-600,c-at_least,f-webp/header/sncl_sunset.jpg");
   }
 }
 @keyframes imageSlider {
@@ -544,7 +641,9 @@ svg.logo {
     margin-left: auto;
     margin-right: auto;
   }
-  .wrapper .content .sections section h1, .wrapper .content .sections section h2, .wrapper .content .sections section h3 {
+  .wrapper .content .sections section h1,
+.wrapper .content .sections section h2,
+.wrapper .content .sections section h3 {
     margin-top: 36px;
     margin-bottom: 36px;
   }
@@ -560,7 +659,7 @@ svg.logo {
     max-width: 1024px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1440px) {
   .wrapper .content .sections section > *:not(.full_width) {
     max-width: 1200px;
   }
@@ -697,14 +796,16 @@ svg.logo {
   margin: 0 auto;
   max-width: 100%;
 }
-.wrapper .content .sections section.reach-us .phone a svg.icon, .wrapper .content .sections section.reach-us .email a svg.icon {
+.wrapper .content .sections section.reach-us .phone a svg.icon,
+.wrapper .content .sections section.reach-us .email a svg.icon {
   font-size: 56px;
   height: 56px;
   width: 56px;
   color: rgba(69, 48, 64, 0.75);
   margin-top: 16px;
 }
-.wrapper .content .sections section.reach-us .phone a:hover svg.icon, .wrapper .content .sections section.reach-us .email a:hover svg.icon {
+.wrapper .content .sections section.reach-us .phone a:hover svg.icon,
+.wrapper .content .sections section.reach-us .email a:hover svg.icon {
   color: #453040;
 }
 .wrapper .content .sections section.reach-us h3 {
@@ -721,6 +822,9 @@ svg.logo {
   list-style-type: none;
   display: inline;
 }
+.wrapper .content .sections section.reach-us ul.social li a {
+  text-decoration: none;
+}
 .wrapper .content .sections section.reach-us ul.social li a svg.icon {
   color: rgba(69, 48, 64, 0.75);
   height: 36px;
@@ -731,7 +835,8 @@ svg.logo {
 .wrapper .content .sections section.reach-us ul.social li a:hover svg.icon {
   color: #453040;
 }
-.wrapper .content .sections section.find-us iframe, .wrapper .content .sections section.find-us div.map {
+.wrapper .content .sections section.find-us iframe,
+.wrapper .content .sections section.find-us div.map {
   height: 250px;
   margin-top: 0px;
 }
@@ -805,7 +910,8 @@ svg.logo {
   height: 24px;
   line-height: 24px;
 }
-.wrapper .content footer p small, .wrapper .content footer p svg.icon {
+.wrapper .content footer p small,
+.wrapper .content footer p svg.icon {
   vertical-align: middle;
   display: inline-block;
 }
@@ -851,7 +957,8 @@ svg.logo {
   .container nav ul li:first-child a {
     border-top-width: 0px;
   }
-  .container nav ul li a, .container nav ul li span {
+  .container nav ul li a,
+.container nav ul li span {
     text-transform: uppercase;
     user-select: none;
     color: rgba(255, 255, 255, 0.75);
@@ -867,7 +974,8 @@ svg.logo {
   .container nav ul li ul li:first-child a, .container nav ul li ul li:first-child span {
     border-top-width: 1px;
   }
-  .container nav ul li ul li a, .container nav ul li ul li span {
+  .container nav ul li ul li a,
+.container nav ul li ul li span {
     padding-left: 12px;
     font-weight: 300;
   }
@@ -1024,26 +1132,31 @@ svg.logo {
   .container.banner-intersecting nav .title a {
     color: rgba(255, 255, 255, 0.75);
   }
-  .container.banner-intersecting nav ul li > a, .container.banner-intersecting nav ul li > span {
+  .container.banner-intersecting nav ul li > a,
+.container.banner-intersecting nav ul li > span {
     color: rgba(255, 255, 255, 0.75);
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  .container.banner-intersecting nav ul li > a:hover, .container.banner-intersecting nav ul li > span:hover {
+  .container.banner-intersecting nav ul li > a:hover,
+.container.banner-intersecting nav ul li > span:hover {
     background-color: transparent;
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.85);
   }
-  .container.banner-intersecting nav ul li > a.primary, .container.banner-intersecting nav ul li > span.primary {
+  .container.banner-intersecting nav ul li > a.primary,
+.container.banner-intersecting nav ul li > span.primary {
     color: rgba(255, 255, 255, 0.85);
   }
   .container.banner-intersecting nav ul li.submenu a:after, .container.banner-intersecting nav ul li.submenu span:after, .container.banner-intersecting nav ul li:hover.submenu a:after, .container.banner-intersecting nav ul li:hover.submenu span:after {
     border-color: rgba(255, 255, 255, 0.75);
   }
-  .container.banner-intersecting nav ul li:hover > a, .container.banner-intersecting nav ul li:hover > span {
+  .container.banner-intersecting nav ul li:hover > a,
+.container.banner-intersecting nav ul li:hover > span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.85);
   }
-  .container.banner-intersecting nav ul li:hover > a.primary, .container.banner-intersecting nav ul li:hover > span.primary {
+  .container.banner-intersecting nav ul li:hover > a.primary,
+.container.banner-intersecting nav ul li:hover > span.primary {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
     background: #e6775d;
@@ -1082,7 +1195,8 @@ svg.logo {
     float: left;
     margin-left: 36px;
   }
-  .container nav .title svg.icon, .container nav .title a {
+  .container nav .title svg.icon,
+.container nav .title a {
     display: inline-block;
   }
   .container nav .title svg.icon {
@@ -1114,7 +1228,8 @@ svg.logo {
     margin: 10px;
     position: relative;
   }
-  .container nav ul li a, .container nav ul li span {
+  .container nav ul li a,
+.container nav ul li span {
     text-transform: uppercase;
     display: inline-block;
     padding: 10px 16px;
@@ -1125,22 +1240,26 @@ svg.logo {
     text-decoration: none;
     outline: 0px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li a:hover, .container nav ul li span:hover {
+  .container nav ul li a:hover,
+.container nav ul li span:hover {
     user-select: none;
     background-color: rgba(28, 32, 33, 0.05);
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li a.primary, .container nav ul li span.primary {
+  .container nav ul li a.primary,
+.container nav ul li span.primary {
     background: linear-gradient(33deg, #43cea2, #185a9d);
     color: rgba(255, 255, 255, 0.85);
     font-weight: 900;
   }
-  .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
+  .container nav ul li a.primary:hover,
+.container nav ul li span.primary:hover {
     background-color: #e6775d;
     outline: none;
     color: rgba(255, 255, 255, 0.85);
   }
-  .container nav ul li a:hover, .container nav ul li span:hover {
+  .container nav ul li a:hover,
+.container nav ul li span:hover {
     color: black;
     background-color: rgba(28, 32, 33, 0.05);
   }
@@ -1209,10 +1328,12 @@ svg.logo {
     margin: 0 0 0px 8px;
     border-color: rgba(28, 32, 33, 0.85);
   }
-  .container nav ul li:not(.closed):hover a, .container nav ul li:not(.closed):hover span {
+  .container nav ul li:not(.closed):hover a,
+.container nav ul li:not(.closed):hover span {
     outline: 1px solid rgba(255, 255, 255, 0.75);
   }
-  .container nav ul li.submenu > a:after, .container nav ul li.submenu > span:after {
+  .container nav ul li.submenu > a:after,
+.container nav ul li.submenu > span:after {
     content: "";
     border: solid rgba(28, 32, 33, 0.75);
     border-width: 0 2px 2px 0;
@@ -1223,103 +1344,6 @@ svg.logo {
   }
   .container .wrapper .mobile-navbar {
     display: none;
-  }
-}
-@media (prefers-color-scheme: darker) {
-  html, body {
-    color: rgba(255, 255, 255, 0.75);
-    background-color: rgba(28, 32, 33, 0.95);
-  }
-
-  a {
-    color: rgba(255, 255, 255, 0.75);
-  }
-  a:hover {
-    color: rgba(255, 255, 255, 0.85);
-  }
-}
-@media only screen and (prefers-color-scheme: darker) and (min-width: 768px) {
-  .container nav {
-    background: rgba(28, 32, 33, 0.5);
-    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
-  }
-  .container nav .title a {
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .container nav .title svg.icon {
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .container nav ul li a, .container nav ul li span {
-    color: rgba(255, 255, 255, 0.75);
-    outline: 0px solid rgba(255, 255, 255, 0.75);
-  }
-  .container nav ul li a.primary, .container nav ul li span.primary {
-    background-color: #df5231;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 900;
-  }
-  .container nav ul li a.primary:hover, .container nav ul li span.primary:hover {
-    background-color: #e6775d;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .container nav ul li a:hover, .container nav ul li span:hover {
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .container nav ul li ul {
-    background-color: #1c2021;
-    box-shadow: 0 1px 2px 0 rgba(28, 32, 33, 0.25);
-  }
-  .container nav ul li ul:before {
-    border-bottom: solid 0.5em #1c2021;
-  }
-  .container nav ul li ul li a {
-    border-top: 1px solid rgba(28, 32, 33, 0.95);
-    background-color: #1c2021;
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .container nav ul li ul li a:hover {
-    background-color: #df5231;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .container nav ul li:not(.closed):hover.submenu a:after, .container nav ul li:not(.closed):hover.submenu span:after {
-    border-color: rgba(255, 255, 255, 0.85);
-  }
-  .container nav ul li:not(.closed):hover ul li a, .container nav ul li:not(.closed):hover ul li span {
-    outline: 0px solid rgba(255, 255, 255, 0.75);
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .container nav ul li.submenu > a:after, .container nav ul li.submenu > span:after {
-    border-color: rgba(255, 255, 255, 0.75);
-  }
-}
-@media (prefers-color-scheme: darker) {
-  .container .wrapper .mobile-navbar {
-    background: rgba(28, 32, 33, 0.75);
-    backdrop-filter: blur(15px) saturate(100%);
-  }
-  .container .wrapper .mobile-navbar .title a {
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .container .wrapper .mobile-navbar label.toggler .navicon {
-    background: rgba(255, 255, 255, 0.85);
-  }
-  .container .wrapper .mobile-navbar label.toggler .navicon, .container .wrapper .mobile-navbar label.toggler .navicon:before, .container .wrapper .mobile-navbar label.toggler .navicon:after {
-    background: rgba(255, 255, 255, 0.85);
-  }
-  .container .wrapper .mobile-navbar label.toggler svg.icon {
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .container .wrapper .content .sections section:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.02);
-  }
-  .container .wrapper .content .sections section.reach-us .phone a svg.icon, .container .wrapper .content .sections section.reach-us .email a svg.icon {
-    color: #e6775d;
-  }
-  .container .wrapper .content .sections section.reach-us .phone a:hover svg.icon, .container .wrapper .content .sections section.reach-us .email a:hover svg.icon {
-    color: #df5231;
-  }
-  .container .wrapper .content footer svg.icon {
-    color: rgba(255, 255, 255, 0.75);
   }
 }
 form fieldset {
@@ -1339,7 +1363,12 @@ form .form-field input[type=date]:not([autocomplete=on])::-webkit-calendar-picke
 form .form-field input[type=date]:not([autocomplete=on]):focus, form .form-field input[type=date]:not([autocomplete=on]):valid {
   color: inherit;
 }
-form .form-field input[type=text], form .form-field input[type=date], form .form-field input[type=password], form .form-field input[type=email], form .form-field input[type=tel], form .form-field textarea {
+form .form-field input[type=text],
+form .form-field input[type=date],
+form .form-field input[type=password],
+form .form-field input[type=email],
+form .form-field input[type=tel],
+form .form-field textarea {
   transition: border-color 0.2s ease-in-out;
   appearance: none;
   background: transparent;
@@ -1358,24 +1387,59 @@ form .form-field input[type=text], form .form-field input[type=date], form .form
   height: 0;
   background-clip: content-box;
 }
-form .form-field input[type=text]::first-line, form .form-field input[type=date]::first-line, form .form-field input[type=password]::first-line, form .form-field input[type=email]::first-line, form .form-field input[type=tel]::first-line, form .form-field textarea::first-line {
+form .form-field input[type=text]::first-line,
+form .form-field input[type=date]::first-line,
+form .form-field input[type=password]::first-line,
+form .form-field input[type=email]::first-line,
+form .form-field input[type=tel]::first-line,
+form .form-field textarea::first-line {
   color: rgba(28, 32, 33, 0.75);
 }
-form .form-field input[type=text] ~ label, form .form-field input[type=date] ~ label, form .form-field input[type=password] ~ label, form .form-field input[type=email] ~ label, form .form-field input[type=tel] ~ label, form .form-field textarea ~ label {
+form .form-field input[type=text] ~ label,
+form .form-field input[type=date] ~ label,
+form .form-field input[type=password] ~ label,
+form .form-field input[type=email] ~ label,
+form .form-field input[type=tel] ~ label,
+form .form-field textarea ~ label {
   transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
   position: absolute;
   top: 10px;
   margin-left: 10px;
   cursor: pointer;
 }
-form .form-field input[type=text]:focus ~ label, form .form-field input[type=text]:valid:not([value=""]) ~ label, form .form-field input[type=text]:invalid:not([value=""]) ~ label, form .form-field input[type=date]:focus ~ label, form .form-field input[type=date]:valid:not([value=""]) ~ label, form .form-field input[type=date]:invalid:not([value=""]) ~ label, form .form-field input[type=password]:focus ~ label, form .form-field input[type=password]:valid:not([value=""]) ~ label, form .form-field input[type=password]:invalid:not([value=""]) ~ label, form .form-field input[type=email]:focus ~ label, form .form-field input[type=email]:valid:not([value=""]) ~ label, form .form-field input[type=email]:invalid:not([value=""]) ~ label, form .form-field input[type=tel]:focus ~ label, form .form-field input[type=tel]:valid:not([value=""]) ~ label, form .form-field input[type=tel]:invalid:not([value=""]) ~ label, form .form-field textarea:focus ~ label, form .form-field textarea:valid:not([value=""]) ~ label, form .form-field textarea:invalid:not([value=""]) ~ label {
+form .form-field input[type=text]:focus ~ label, form .form-field input[type=text]:valid:not([value=""]) ~ label, form .form-field input[type=text]:invalid:not([value=""]) ~ label,
+form .form-field input[type=date]:focus ~ label,
+form .form-field input[type=date]:valid:not([value=""]) ~ label,
+form .form-field input[type=date]:invalid:not([value=""]) ~ label,
+form .form-field input[type=password]:focus ~ label,
+form .form-field input[type=password]:valid:not([value=""]) ~ label,
+form .form-field input[type=password]:invalid:not([value=""]) ~ label,
+form .form-field input[type=email]:focus ~ label,
+form .form-field input[type=email]:valid:not([value=""]) ~ label,
+form .form-field input[type=email]:invalid:not([value=""]) ~ label,
+form .form-field input[type=tel]:focus ~ label,
+form .form-field input[type=tel]:valid:not([value=""]) ~ label,
+form .form-field input[type=tel]:invalid:not([value=""]) ~ label,
+form .form-field textarea:focus ~ label,
+form .form-field textarea:valid:not([value=""]) ~ label,
+form .form-field textarea:invalid:not([value=""]) ~ label {
   top: -10px;
   font-size: 12px;
 }
-form .form-field input[type=text]:focus, form .form-field input[type=date]:focus, form .form-field input[type=password]:focus, form .form-field input[type=email]:focus, form .form-field input[type=tel]:focus, form .form-field textarea:focus {
+form .form-field input[type=text]:focus,
+form .form-field input[type=date]:focus,
+form .form-field input[type=password]:focus,
+form .form-field input[type=email]:focus,
+form .form-field input[type=tel]:focus,
+form .form-field textarea:focus {
   border-color: #83d3c9;
 }
-form .form-field input[type=text]:invalid:not([value=""]), form .form-field input[type=date]:invalid:not([value=""]), form .form-field input[type=password]:invalid:not([value=""]), form .form-field input[type=email]:invalid:not([value=""]), form .form-field input[type=tel]:invalid:not([value=""]), form .form-field textarea:invalid:not([value=""]) {
+form .form-field input[type=text]:invalid:not([value=""]),
+form .form-field input[type=date]:invalid:not([value=""]),
+form .form-field input[type=password]:invalid:not([value=""]),
+form .form-field input[type=email]:invalid:not([value=""]),
+form .form-field input[type=tel]:invalid:not([value=""]),
+form .form-field textarea:invalid:not([value=""]) {
   border-color: #d36464;
 }
 form input[type=submit] {
