@@ -1,13 +1,23 @@
 @use "sass:map";
 
 #banner,
-section:not(#pricing) {
-  //display: none !important;
+section:not(#reach-us) {
+  // display: none !important;
 }
 
 // Options
 :root {
   --gutter: 24px;
+
+  --dark-rgb: 28, 32, 33;
+  --dark: rgb(var(--dark-rgb));
+
+  --light-rgb: 255, 255, 255;
+  --light: rgb(var(--light-rgb));
+
+  --background: color-mix(in srgb, var(--light), #000 5%);
+  --borders: rgba(var(--dark-rgb), 0.15);
+  --overlay: rgba(var(--dark-rgb), 0.25);
 }
 
 $font-size: 16px;
@@ -118,7 +128,6 @@ $breakpoints: (
   }
 }
 
-
 // Start page styling
 html {
   box-sizing: border-box;
@@ -138,6 +147,7 @@ body {
   letter-spacing: 0.025em;
   scroll-behavior: smooth;
   color: $font-color;
+  min-width: 320px;
   &.fontLoaded {
     font-family: Roboto, sans-serif;
   }
@@ -148,6 +158,22 @@ html.no-scroll {
   body {
     overflow: hidden;
     position: relative;
+
+    .content {
+      position: relative;
+      //opacity: 0.5;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        //background-color: var(--overlay);
+        backdrop-filter: blur(5px);
+      }
+    }
   }
 }
 
@@ -217,12 +243,15 @@ a.button {
   &.primary {
     background: $gradient;
     color: $font-color-inverted-hover;
+    svg.icon {
+      color: $font-color-inverted;
+    }
   }
   svg.icon {
     height: 2em;
     width: 2em;
     margin-right: 4px;
-    color: $font-color-inverted-hover;
+    color: $font-color;
     vertical-align: middle;
     margin-top: -2px;
   }
@@ -310,6 +339,36 @@ $slide-images: (
   }
   100% {
     background-image: var(--slide-1);
+  }
+}
+
+dialog {
+  max-width: 20rem;
+  padding: 2rem;
+  border: 1px solid var(--borders);
+  border-radius: 0.5rem;
+  background: var(--background);
+  box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
+  &::backdrop {
+    background: var(--overlay);
+  }
+  &:after {
+    display: inline-block;
+    content: "×";
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    cursor: pointer;
+  }
+  ul.buttons_list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
   }
 }
 

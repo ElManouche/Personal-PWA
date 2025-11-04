@@ -1,5 +1,13 @@
+@charset "UTF-8";
 :root {
   --gutter: 24px;
+  --dark-rgb: 28, 32, 33;
+  --dark: rgb(var(--dark-rgb));
+  --light-rgb: 255, 255, 255;
+  --light: rgb(var(--light-rgb));
+  --background: color-mix(in srgb, var(--light), #000 5%);
+  --borders: rgba(var(--dark-rgb), 0.15);
+  --overlay: rgba(var(--dark-rgb), 0.25);
 }
 
 /* ==================
@@ -297,6 +305,7 @@ body {
   letter-spacing: 0.025em;
   scroll-behavior: smooth;
   color: rgba(28, 32, 33, 0.75);
+  min-width: 320px;
 }
 html.fontLoaded,
 body.fontLoaded {
@@ -309,6 +318,19 @@ html.no-scroll {
 html.no-scroll body {
   overflow: hidden;
   position: relative;
+}
+html.no-scroll body .content {
+  position: relative;
+}
+html.no-scroll body .content:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
 }
 
 h1,
@@ -385,12 +407,16 @@ a.button.primary {
   background: linear-gradient(33deg, #43cea2, #185a9d);
   color: rgba(255, 255, 255, 0.85);
 }
+.button.primary svg.icon,
+a.button.primary svg.icon {
+  color: rgba(255, 255, 255, 0.75);
+}
 .button svg.icon,
 a.button svg.icon {
   height: 2em;
   width: 2em;
   margin-right: 4px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(28, 32, 33, 0.75);
   vertical-align: middle;
   margin-top: -2px;
 }
@@ -521,6 +547,36 @@ svg.logo {
     background-image: var(--slide-1);
   }
 }
+dialog {
+  max-width: 20rem;
+  padding: 2rem;
+  border: 1px solid var(--borders);
+  border-radius: 0.5rem;
+  background: var(--background);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0.5rem 0.25rem;
+}
+dialog::backdrop {
+  background: var(--overlay);
+}
+dialog:after {
+  display: inline-block;
+  content: "×";
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  cursor: pointer;
+}
+dialog ul.buttons_list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+dialog ul.buttons_list li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 /* PAGE LAYOUT */
 .wrapper {
   transition: margin 0.3s ease-in-out;
