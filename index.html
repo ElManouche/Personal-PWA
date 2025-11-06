@@ -504,10 +504,9 @@
             </div>
           </div>
         </section>
-        <section id="form" class="form">
+        <!--section id="form" class="form">
           <h2>Formulaire de contact</h2>
-          <form id="my-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" onsubmit="convertDate(event)">
-            <!--form id="my-form" action="http://sncl.ch/#form_sent" method="GET"-->
+          <form id="my-form" action="http://sncl.ch/#form_sent" method="GET" onsubmit="convertDate(event)">
             <input type="hidden" name="oid" value="00D09000009oayI" />
             <input type="hidden" name="retURL" value="https://sncl.ch/#form_sent" />
             <fieldset class="row">
@@ -584,7 +583,7 @@
             <input type="submit" id="my-form-button" class="button primary" value="Envoyer le message" />
             <input type="reset" class="button" value="Annuler" onclick="window.location.hash = '#home'" />
           </form>
-        </section>
+        </section-->
         <dialog id="form_sent" onClick="this.close()">
           <form method="dialog" onClick="event.stopPropagation()">
             <h2>Merci!</h2>
