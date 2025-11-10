@@ -1,13 +1,14 @@
-# sarah.dionne.ch
-This open source website is a one page PWA website that can be used for personal presentation website.
+# sncl.ch
+This is the presentation website for the SNCL - Ski Nautique Club Lausanne.
 
-View working demo under https://sarah.dionne.ch
-![Preview](assets/img/devices.png)
+It is forked from ElManouche's open source personal PWA template.
+This is a fully working Progressive Web App for a one page website.
+
+View working implementation under https://sncl.ch
 
 ## Key features:
 - Mobile first responsive design
 - Progressive Web App installable
-- Dark mode compatible
 - One page website with navigation and auto scroll
 - Lazy loading for images and maps
 - Home banner with parallax
