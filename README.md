@@ -1,17 +1,16 @@
-# sncl.ch
-This is the presentation website for the SNCL - Ski Nautique Club Lausanne.
+# Personal PWA
+This open source website is a one page PWA website that can be used for personal presentation website.
 
-It is forked from ElManouche's open source personal PWA template.
-This is a fully working Progressive Web App for a one page website.
-
-View working implementation under https://sncl.ch
+View working demo under https://elmanou.ch/Personal-PWA
+![Preview](assets/img/devices.png)
 
 ## Key features:
+- Dark mode compatible with switcher
 - Mobile first responsive design
 - Progressive Web App installable
 - One page website with navigation and auto scroll
 - Lazy loading for images and maps
-- Home banner with parallax
+- Home banner with parallax or slider
 - Responsive grid with personnalisable breakpoints
 - Sticky navbar with intersection check
 - Multi-level navigation items
