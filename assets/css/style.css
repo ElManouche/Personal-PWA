@@ -1515,7 +1515,6 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
   }
   .container.banner-intersecting nav.inverted-top > ul > li > a:hover,
 .container.banner-intersecting nav.inverted-top > ul > li > span:hover {
-    background-color: transparent;
     color: var(--font-color-inverted-hover);
   }
   .container.banner-intersecting nav.inverted-top > ul > li > a.primary,

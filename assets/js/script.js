@@ -64,7 +64,7 @@ const convertDate = (event) => {
   event.target.submit();
 };
 const trackEvent = (event, ...options) => {
-  //console.log(`Track event: ${event}`, ...options);
+  // console.log(`Track event: ${event}`, ...options);
   if (typeof mixpanel === "object") {
     mixpanel.track(event, ...options);
   }
@@ -87,12 +87,13 @@ const linkToAnchorClickedHandler = (evt) => {
   }
 
   link = target.getAttribute("href");
+  const hash = link === "#home" ? "" : link;
 
   // Scroll to the anchor
   setTimeout(
     () => {
       location.hash = "";
-      location.hash = link;
+      location.hash = hash;
     },
     !!toggler.checked ? 400 : 10
   );
