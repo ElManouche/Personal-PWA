@@ -28,7 +28,7 @@
   --green: rgb(var(--green-rgb));
   --green-lighter: color-mix(in srgb, var(--green), #fff 10%);
   --green-darker: color-mix(in srgb, var(--green), #000 20%);
-  --deep-blue-rgb: 0, 37, 64;
+  --deep-blue-rgb: 0, 18, 36;
   --deep-blue: rgb(var(--deep-blue-rgb));
   --blue-rgb: 24, 90, 157;
   --blue: rgb(var(--blue-rgb));
@@ -73,8 +73,6 @@
   --primary-btn-bg: var(--gradient);
   --nav-bg: light-dark(var(--light-75), var(--dark-75));
   --font-color-inverted: var(--light);
-  --header-border-width: 0px;
-  --h1-font-size: 2em;
 }
 
 /* ==================
@@ -494,9 +492,6 @@ body ul.buttons_list li {
   padding: 0;
   list-style-type: none;
 }
-body .display-inline {
-  display: inline;
-}
 body ul.social_links {
   margin: 0;
   padding: 0;
@@ -530,7 +525,7 @@ body ul.images_list {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-body ul.images_list li {
+body ul.images_list > li {
   list-style-type: none;
   margin: 0;
   padding: 0 12px 24px 12px;
@@ -539,11 +534,11 @@ body ul.images_list li {
   justify-content: center;
 }
 @media only screen and (min-width: 768px) {
-  body ul.images_list li {
+  body ul.images_list > li {
     flex-basis: 25%;
   }
 }
-body ul.images_list li a {
+body ul.images_list > li > a {
   display: grid;
   place-items: center;
   background: var(--background-light);
@@ -552,22 +547,25 @@ body ul.images_list li a {
   max-width: 35vw;
   aspect-ratio: 1;
 }
-body ul.images_list li a img {
+body ul.images_list > li > a img {
   filter: brightness(1);
   width: auto;
   height: auto;
   max-width: 100%;
   transition: transform 0.2s;
 }
-body ul.images_list li a img:hover {
+body ul.images_list > li > a img:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
+body button,
 body .button,
 body a.button {
+  background: transparent;
   color: var(--font-color);
   font-weight: 900;
   text-transform: uppercase;
+  border: 0px;
   border-radius: 0.25em;
   padding: 12px;
   display: inline-block;
@@ -577,30 +575,36 @@ body a.button {
   line-height: 2em;
   max-width: 100%;
 }
+body button:hover,
 body .button:hover,
 body a.button:hover {
   outline: 1px solid var(--font-color-hover);
   color: var(--font-color-hover);
 }
+body button:hover svg.icon,
 body .button:hover svg.icon,
 body a.button:hover svg.icon {
   color: var(--font-color-hover);
 }
+body button.primary,
 body .button.primary,
 body a.button.primary {
   background: var(--primary-btn-bg);
   color: var(--font-color-inverted-hover);
 }
+body button.primary svg.icon,
 body .button.primary svg.icon,
 body a.button.primary svg.icon {
   color: var(--font-color-inverted-hover);
 }
+body button.primary:hover,
 body .button.primary:hover,
 body a.button.primary:hover {
   outline: none;
   background: var(--green-lighter);
   color: var(--font-color-inverted-hover);
 }
+body button svg.icon,
 body .button svg.icon,
 body a.button svg.icon {
   height: 2em;
@@ -630,6 +634,9 @@ body .uppercase {
 }
 body .hidden {
   display: none !important;
+}
+body .display-inline {
+  display: inline;
 }
 body .col--text-around-img {
   padding: 0;
@@ -764,6 +771,9 @@ body dialog:after {
   top: 12px;
   right: 24px;
   cursor: pointer;
+}
+body dialog .button {
+  width: 100%;
 }
 body div.map-iframe {
   height: 250px;
@@ -977,8 +987,7 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
   perspective: 1px;
 }
 .container .wrapper .content #banner.full-height {
-  height: calc(100vh - 56px);
-  margin-top: 56px;
+  height: 100vh;
 }
 .container .wrapper .content #banner.parallax {
   background-image: url("https://ik.imagekit.io/sarahdionne/tr:w-30,fo-auto,f-webp/hero/full.jpg");
@@ -1117,12 +1126,14 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
   bottom: -100px;
   left: 50%;
   width: 1em;
-  content: "↓";
+  content: "⌄";
   margin-left: -0.5em;
   cursor: pointer;
+  transition: bottom 0.5s linear;
 }
-.container .wrapper .content #banner .inner header h1 a:after:hover {
+.container .wrapper .content #banner .inner header h1 a:hover:after {
   color: var(--light);
+  bottom: -110px;
 }
 .container .wrapper .content #banner .inner header h1 span {
   font-weight: 300;
@@ -1150,6 +1161,7 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
 }
 .container .wrapper .content #banner .inner footer ul li a {
   display: inline-block;
+  line-height: 0px;
   color: var(--font-color-inverted);
   margin: 12px 18px;
   transition: color 0.3s ease-in-out;
@@ -1177,8 +1189,8 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
   }
   .container .wrapper .content #banner .inner footer ul li a svg.icon {
     padding: 16px;
-    height: calc(36px + 32px);
-    width: calc(36px + 32px);
+    height: 64px;
+    width: 64px;
   }
   .container .wrapper .content #banner .inner footer ul li a:hover {
     background-color: var(--light-15);
@@ -1529,10 +1541,10 @@ body div.map-iframe.interact:before, body div.map-iframe.interact:after {
     outline: 1px solid var(--borders-dark);
     color: var(--font-color-inverted-hover);
   }
-  .container.banner-intersecting #banner {
+  .container.banner-intersecting .content {
     position: relative;
   }
-  .container.banner-intersecting #banner:after {
+  .container.banner-intersecting .content:after {
     position: absolute;
     pointer-events: none;
     content: "";

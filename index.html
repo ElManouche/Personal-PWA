@@ -51,6 +51,10 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="place_24dp" fill="currentColor">
     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="calendar_clock_24dp" fill="currentColor">
+    <path d="m 18,12 a 6,6 0 0 0 -6,6 6,6 0 0 0 6,6 6,6 0 0 0 6,-6 6,6 0 0 0 -6,-6 z m -0.5,3.5 h 1 v 2.75 l 2,2 -0.7,0.7 -2.25,-2.25 z" />
+    <path d="M 4,0 V 2 H 2 A 2,2 0 0 0 0,4 v 16 a 2,2 0 0 0 2,2 h 9 A 8,8 0 0 1 10,20 H 2 V 9 h 18 v 1.25 a 8,8 0 0 1 2,0.8 V 4 A 2,2 0 0 0 20,2 H 18 V 0 H 16 V 2 H 11 6 l 0,-2 z M 2,4 H 20 V 7 H 2 Z" />
+  </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="whatsapp_24dp" fill="currentColor">
     <path d="m19.05 4.91c-1.87-1.88-4.36-2.91-7.01-2.91-5.46 0-9.91 4.45-9.91 9.91 0 1.75 0.46 3.45 1.32 4.95l-1.4 5.14 5.25-1.38c1.45 0.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-0.4-4.2-1.15l-0.3-0.18-3.12 0.82 0.83-3.04-0.2-0.31c-0.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27 0.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-0.25-0.12-1.47-0.72-1.69-0.81-0.23-0.08-0.39-0.12-0.56 0.12-0.17 0.25-0.64 0.81-0.78 0.97-0.14 0.17-0.29 0.19-0.54 0.06-0.25-0.12-1.05-0.39-1.99-1.23-0.74-0.66-1.23-1.47-1.38-1.72-0.14-0.25-0.02-0.38 0.11-0.51 0.11-0.11 0.25-0.29 0.37-0.43s0.17-0.25 0.25-0.41c0.08-0.17 0.04-0.31-0.02-0.43s-0.56-1.34-0.76-1.84c-0.2-0.48-0.41-0.42-0.56-0.43h-0.48c-0.17 0-0.43 0.06-0.66 0.31-0.22 0.25-0.86 0.85-0.86 2.07s0.89 2.4 1.01 2.56c0.12 0.17 1.75 2.67 4.23 3.74 0.59 0.26 1.05 0.41 1.41 0.52 0.59 0.19 1.13 0.16 1.56 0.1 0.48-0.07 1.47-0.6 1.67-1.18 0.21-0.58 0.21-1.07 0.14-1.18s-0.22-0.16-0.47-0.28z" />
   </symbol>
@@ -73,35 +77,35 @@
 </svg>
 <dialog id="phone-contact" onClick="this.close()">
   <form method="dialog" onClick="event.stopPropagation()">
-    <p>Nous contacter par:</p>
+    <p>Contact us:</p>
     <ul class="buttons_list">
       <li>
-        <a class="button" href="tel:+41792102968" title="tel:+41792102968">
+        <a class="button" href="#" title="Click to call us">
           <svg class="icon">
             <use xlink:href="#call_24dp"></use>
-          </svg> Téléphone</a>
+          </svg> Phone</a>
       </li>
       <li>
-        <a class="button" href="sms:+41792102968" title="sms:+41792102968">
+        <a class="button" href="#" title="Click to message us">
           <svg class="icon">
             <use xlink:href="#forum_24dp"></use>
           </svg> SMS</a>
       </li>
       <li>
-        <a class="button" href="//wa.me/41792102968" title="Whatsapp">
+        <a class="button" href="#" title="Whatsapp">
           <svg class="icon">
             <use xlink:href="#whatsapp_24dp"></use>
           </svg> WhatsApp</a>
       </li>
     </ul>
     <div>
-      <button class="button hidden" id="cancel" type="reset" onClick="document.getElementById('phone-contact').close()">Annuler</button>
+      <button class="button hidden" id="cancel" type="reset" onClick="document.getElementById('phone-contact').close()">Cancel</button>
     </div>
   </form>
 </dialog>
-<div class="sncl container banner-no-intersecting">
+<div class="sncl container banner-intersecting">
   <input id="toggler" type="checkbox" />
-  <nav>
+  <nav class="inverted-top">
     <span class="title">
       <a href="#home">
         <svg class="sncl_logo icon">
@@ -113,13 +117,13 @@
     <ul>
       <li class="current"><a href="#home">Home</a></li>
       <li class="submenu">
-        <span>Le Club</span>
+        <span>Content</span>
         <ul>
-          <li><a href="#news">Actualités</a></li>
-          <li><a href="#about">Présentation</a></li>
-          <li><a href="#pricing">Tarifs</a></li>
-          <li><a href="#hours">Horaires</a></li>
-          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#gallery">Gallery</a></li>
         </ul>
       </li>
       <li><a class="primary" href="#reach-us">Contact</a></li>
@@ -149,120 +153,71 @@
       <div id="banner" class="slider full-height">
         <div class="inner">
           <header>
-            <h1><a href="#news">Ski Nautique, Wakeboard et Wakesurf Club de Lausanne - Since 1966</a></h1>
+            <h1 class="uppercase"><a href="#news">Personal <span>PWA</span></a></h1>
           </header>
+          <p>Presentation website</p>
+          <p class="small">Unique Selling Proposition · Second asset · Not the least</p>
+          <footer>
+            <ul>
+              <li>
+                <a class="icon contact_tel" href="javascript:document.getElementById('phone-contact').showModal()" title="Contact by phone">
+                  <svg class="icon">
+                    <use xlink:href="#call_24dp"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a class="icon contact_mailto" href="#" title="Contact by email">
+                  <svg class="icon">
+                    <use xlink:href="#email_24dp"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a class="icon contact_onedoc" href="#" title="Take an appointment">
+                  <svg class="icon">
+                    <use xlink:href="#calendar_clock_24dp"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </footer>
         </div>
       </div>
-      <div class="sections no-odd">
+      <div class="sections">
         <section id="news" class="news">
-          <h2>Actualités</h2>
+          <h2>News</h2>
           <div class="row">
-            <div class="archived" id="news_20240513_swiss_tour_2024_trailer">
-              <p><b>Annonce Swiss Wake tour 2024</b></p>
-              <p>Le 29 juin se déroulera une étape du tour suisse de wakeboard sur notre plan d'eau à Lausanne-Ouchy.</p>
-              <div class="text-center"><img class="observable" src="//ik.imagekit.io/sncl/tr:w-32,fo-auto,f-webp/content/SwissWakeTour2024_Lausanne_centurion.png" data-src="//ik.imagekit.io/sncl/tr:w-864,fo-auto,f-webp/content/SwissWakeTour2024_Lausanne_centurion.png" alt="Swiss Wake Tour 2024 #2 - Compétition de Wakeboard - 29 juin 2024 - Tour Haldimand, Lausanne Ouchy - sncl.ch" width="864" height="864" /></div>
-              <p>Venez découvrir les performances des athlètes de haut niveau dans un cadre exceptionnel.</p>
-              <p><b>Informations:</b> Entrée gratuite - Musique de 9h à 22h - Compétition dès 8h - Stands nourriture et boissons en partenariat avec la société <a href="//www.sebon.ch">Sébon</a>.</p>
-              <p><a href="//www.sebon.ch"><img src="//ik.imagekit.io/sncl/tr:w-200,fo-auto,f-webp/partners/Sebon.png" alt="Sébon" width="200" height="200" /></a></p>
-              <p>Inscriptions sur le site de la fédération internationale de wakeboard et de ski nautique: <a href="https://ems.iwwf.sport/Competitions/Details?Id=d837f34d-770f-4812-bcc9-4e0f2226f87e">https://ems.iwwf.sport/Competitions/Details?Id=d837f34d-770f-4812-bcc9-4e0f2226f87e</a>. Tarifs: CHF 50.- (CHF 30.- pour les juniors) à payer sur place.</p>
-              <hr />
-            </div>
-            <div class="archived" id="news_20240410_pricing_2024">
-              <p><b>Tarifs 2024</b></p>
-              <p>
-                Profitez des tarifs réduits suivant si vous payez votre cotisation annuelle avant le 12 avril 2024:
-              </p>
-              <ul>
-                <li>Pack de 100 minutes membre adulte: CHF 300.-</li>
-                <li>Pack de 100 minutes membre jeune/étudiant/AVS: CHF 250.-</li>
-              </ul>
-              <p>Nouveau cette année, packs de minutes pour non-membres!</p>
-              <ul>
-                <li>Pack de 100 minutes non-membre adulte: CHF 470.-</li>
-                <li>Pack de 100 minutes non-membre jeune/étudiant/AVS: CHF 420.-</li>
-              </ul>
-              <p><a class="button primary" href="#pricing">Voir les tarifs</a></p>
-              <hr />
-            </div>
-            <div class="archived" id="news_swiss_wake_champs_2023_review">
-              <p><b>🇨🇭 Swiss Wake Champs 2023</b></p>
-              <p>Les Championnats Suisses de Wakeboard & Wakesurf se sont déroulés à Lausanne les 23 et 24 septembre 2023!</p>
-              <p>🎥 Des vidéos personalisées peuvent être commandées au prix de CHF 50. Contactez jamestaylor.dronefootage@gmail.com pour plus d'information.</p>
-              <p>🇬🇧 Personalised videos can be ordered for CHF 50. Contact jamestaylor.dronefootage@gmail.com for more information.</p>
-              <p>La RTS parle de notre événement! Voir la vidéo sur <a href="https://www.rts.ch/play/tv/-/video/-?urn=urn:rts:video:14336289&startTime=3059">le site de la RTS</a>.</p>
-              <hr />
-            </div>
-            <div class="archived" id="news_swiss_wake_champs_2023_trailer">
-              <p><b>Annonce Swiss Wake Champs 2023</b></p>
-              <div class="text-center"><img class="observable" src="//ik.imagekit.io/sncl/tr:w-32,fo-auto,f-webp/content/Nautique2023.png" data-src="//ik.imagekit.io/sncl/tr:w-864,fo-auto,f-webp/content/Nautique2023.png" alt="Swiss Wake Champs 2023 by Nautique flyer - Championnats Suisses de Wakeboard et de Wakesurf - 23-24 septembre 2023 - Tour Haldimand, Lausanne Ouchy - sncl.ch" width="864" height="864" /></div>
-              <p>Venez découvrir les performances des athlètes de haut niveau dans un cadre exceptionnel sur notre plan d'eau à Lausanne-Ouchy.</p>
-              <p>Informations: Entrée gratuite - Musique de 9h à 22h - Compétition dès 8h - Stands nourriture et boissons.</p>
-              <hr />
-            </div>
-            <div class="archived" id="news_open_trophy_2023">
-              <p>Le Ski Nautique Club de Lausanne est fier de vous présenter le <b>Lausanne Open Trophy</b> qui se tiendra le 16 septembre 2023.<br />
-                Ne manquez sous aucun prétexte cette compétition de ski nautique slalom et de ski de figure.</p>
-              <hr>
-            </div>
-            <div class="archived" id="news_pricing_2023">
-              <p>
-                Profitez des tarifs réduits suivant si vous payez votre cotisation 2023 avant le 5 avril:
-              </p>
-              <ul>
-                <li>Pack de 100 minutes adulte: CHF 300.-</li>
-                <li>Pack de 100 minutes jeune/étudiant/AVS: CHF 250.-</li>
-              </ul>
-              <p><a class="button primary" href="#pricing">Voir les tarifs 2023</a></p>
-              <hr />
-            </div>
-            <div class="archived" id="news_easter_2023">
-              <p>Le club prévoit de faire une sortie de PÂQUES du vendredi 7 avril au lundi 10 avril 2023. Annoncez-vous sur <a href="https://doodle.com/meeting/participate/id/e165m3oa">ce sondage en ligne</a></p>
-              <hr />
-            </div>
-            <div class="archived" id="news_end_of_season_2022">
-              <p>
-                La saison 2022 est terminée. Merci à tous le monde et on se réjouit de vous retrouver sur le lac à partir du 1er mai 2023.<br />
-                Très bon hiver et bon ride à tous.
-              </p>
-              <hr />
-            </div>
-            <div class="archived" id="news_swiss_tour_2022">
-              <p>Si vous voulez un souvenir de votre compétition au Tour Suisse 🇨🇭 étape 2 – WAKEBOARD et WAKESURF des 31 juillet et 1er août 2022 à Lausanne, allez admirer les clichés de <a href="https://thibautlampe.pic-time.com/-wakechampionshipslausanne/gallery">Thibaut Lampe 📷</a></p>
-              <hr>
-            </div>
-            <div id="news_discover">
-              <p><b>Bon Découverte</b></p>
-              <p>Profitez de votre session d'initiation pour CHF 50.–</p>
+            <div id="news_top">
+              <p><b>First news of the website</b></p>
+              <p>This is the content of the first news. Maybe you have something important to showcase?</p>
               <hr />
             </div>
             <div id="news_welcome">
-              <p><b>Bienvenue !</b></p>
-              <p>
-                Vivez l'adrénaline des sports nautiques dans notre club à Lausanne. Que vous soyez débutant ou pro, nous proposons des cours et des locations privatisées pour le wakeboard, le ski nautique, le monoski et le wakesurf pour tous
-                niveaux. Rejoignez-nous pour une journée inoubliable sur l'eau!
-              </p>
+              <p><b>Welcome !</b></p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque augue quis massa blandit feugiat. Etiam molestie velit nec odio placerat hendrerit. Etiam blandit diam sit amet feugiat pretium. Mauris eget pharetra sem. Cras cursus ornare feugiat. Duis libero lacus, feugiat id metus non, elementum ornare lectus. Phasellus rhoncus volutpat tortor a lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
               <hr />
             </div>
           </div>
         </section>
         <section id="partners" class="partners">
-          <h2>Nos partenaires</h2>
+          <h2>They trust us</h2>
           <ul class="images_list full_width">
-            <!--li>
+            <li>
               <a href="https://www.instagram.com/broriderx"><img alt="BRO RIDER X" width="180px" height="57px" src="//ik.imagekit.io/sncl/tr:w-180,fo-auto,f-webp/partners/BRO.png" /></a>
             </li>
             <li>
               <a href="javascript:document.getElementById('zurichDialog').showModal()"> <img alt="Zurich Assurance - Agence de Nyon" width="180px" height="164px" src="//ik.imagekit.io/sncl/tr:w-180,fo-auto,f-webp/partners/Zurich.jpg" /></a>
               <dialog id="zurichDialog" onClick="this.close()">
                 <form method="dialog" onClick="event.stopPropagation()">
-                  <p>SNCL est assuré à la Zurich, Agence de Nyon.</p>
-                  <p>N’hésitez pas à prendre contact avec eux pour bénéficier de rabais sur vos primes d’assurances et de prévoyance: <a href="mailto:gaetan.proffit@zurich.ch">gaetan.proffit@zurich.ch</a></p>
+                  <p>Here is some special information.</p>
+                  <p>You can use custom links also from this list: <a href="#">External link</a></p>
                   <div>
-                    <button id="cancel" type="reset" onClick="document.getElementById('zurichDialog').close()">Cancel</button>
+                    <button class="button" id="cancel" type="reset" onClick="document.getElementById('zurichDialog').close()">Close</button>
                   </div>
                 </form>
               </dialog>
-            </li-->
+            </li>
             <li>
               <a href="//www.mastercraft.ch/"><img alt="MasterCraft" width="180px" height="192px" src="//ik.imagekit.io/sncl/tr:w-180,fo-auto,f-webp/partners/MasterCraft.jpg" /></a>
             </li>
@@ -287,24 +242,21 @@
           </ul>
         </section>
         <section id="about" class="about">
-          <h2>Le Club</h2>
+          <h2>About</h2>
           <div class="row">
             <div class="col--text-around-img">
               <img class="large observable right" src="//ik.imagekit.io/sncl/tr:w-32,fo-auto,f-webp/content/about.png" data-src="//ik.imagekit.io/sncl/tr:w-580,fo-auto,f-webp/content/about.png" alt="SNCL 1966" width="389" height="419" />
-              <p>Le Ski Nautique Club Lausanne a été créé en 1966 pour tous ceux qui voulaient pratiquer le ski nautique sur le lac Léman, plus précisément à Ouchy.</p>
-              <p>Au fil des années, le club s’est ouvert au wakeboard et au wakesurf.</p>
-              <p>Les membres du Ski Nautique Club de Lausanne ont tous les niveaux : du débutant au compétiteur dont certains champions tels qu'Eliane Borter et Frédéric Halt.</p>
-              <p>
-                Nos pilotes et entraîneurs sont en mesure de vous donner des cours et des conseils pour toutes les activités du club. Notre principal objectif au cours des prochaines années est d’ouvrir ces sports merveilleux aux plus
-                jeunes.
-              </p>
-              <p>Notre bateau est un MasterCraft NXT22. Il possède plus de 350 chevaux et peut accueillir jusqu'à 11 personnes à son bord.</p>
-              <p>Consultez <a href="//ik.imagekit.io/sncl/Ski-Nautique-Club.pdf">les statuts du club 📄</a>.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque augue quis massa blandit feugiat. Etiam molestie velit nec odio placerat hendrerit. Etiam blandit diam sit amet feugiat pretium. Mauris eget pharetra sem. Cras cursus ornare feugiat. Duis libero lacus, feugiat id metus non, elementum ornare lectus. Phasellus rhoncus volutpat tortor a lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+              <p>Suspendisse mi arcu, condimentum vel fringilla sed, rutrum vel justo. Morbi volutpat ligula dolor, vel lobortis justo molestie ac. Ut nec ante sollicitudin, sodales urna nec, semper mi. Sed vel ex vehicula, placerat lorem at, euismod nulla. Nam at lorem ut ex blandit facilisis. Etiam eros enim, tempus vel ornare sit amet, egestas consequat risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In sed mattis libero, sit amet fermentum massa. Quisque sodales nisi velit, quis eleifend felis rutrum in. Nullam quis lorem mollis, dignissim mauris id, convallis risus.</p>
+              <p>Curabitur mattis quis tellus ut malesuada. Ut imperdiet justo nec dolor cursus commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam iaculis sapien in eros semper, vitae vestibulum lacus vulputate. In interdum erat non diam pellentesque consequat. Vestibulum finibus tristique sapien, quis semper mi venenatis sit amet. Proin augue eros, pellentesque at libero sit amet, vulputate luctus turpis. Praesent facilisis auctor porta. Donec porta, quam et volutpat aliquet, tortor elit dictum neque, molestie molestie massa felis nec est.</p>
+              <img class="large observable" src="//ik.imagekit.io/sncl/tr:w-32,fo-auto,f-webp/content/about.png" data-src="//ik.imagekit.io/sncl/tr:w-580,fo-auto,f-webp/content/about.png" alt="SNCL 1966" width="389" height="419" />
+              <p>Maecenas aliquam aliquet urna vel gravida. Pellentesque pharetra dui at urna iaculis dictum. Sed venenatis nulla mauris, ac facilisis est scelerisque ut. Nunc vulputate diam sit amet sapien tincidunt posuere. Ut dolor quam, blandit in libero ac, fermentum mollis nulla. Maecenas non est tristique, posuere augue id, egestas metus. Vivamus eu mi et nisl eleifend maximus ut ac felis. Cras varius tortor ac auctor volutpat. Mauris sit amet mauris tincidunt, aliquet velit et, interdum urna. Cras nec urna nec nisl luctus finibus non malesuada urna. Nunc a ipsum nisl. Morbi tempor hendrerit semper. Nunc rutrum nibh in laoreet dignissim. Vivamus fermentum turpis neque, non facilisis purus dignissim quis. Sed sed malesuada diam.</p>
+              <p>In eget interdum sapien. Pellentesque sit amet varius quam. Sed feugiat ligula elit. Morbi in blandit quam. Cras ultricies nibh ut aliquet pretium. Vivamus mollis purus eu odio venenatis condimentum. Etiam quam magna, aliquam eget scelerisque eget, tempor dictum leo. Aliquam pretium nec mauris at hendrerit. Curabitur nec nulla id erat mattis lacinia. Aenean in convallis ex, ac malesuada nibh. Phasellus dapibus in orci vitae blandit. Donec purus libero, vehicula vel efficitur vitae, luctus non mi. Ut quis quam sit amet mauris sagittis efficitur.</p>
             </div>
           </div>
         </section>
         <section id="pricing" class="pricing gradient">
-          <h2>Tarifs</h2>
+          <h2>Pricing</h2>
           <div class="row">
             <p>Tous les tarifs comprennent: équipement, gilet de sauvetage, bateau et pilote. Si vous avez besoin d'équipement, pensez à arriver an avance pour récupérer le matériel et vous préparer.</p>
             <div class="col">
@@ -395,7 +347,7 @@
           </div>
         </section>
         <section id="hours" class="hours">
-          <h2>Horaires</h2>
+          <h2>Opening hours</h2>
           <div class="row">
             <div class="col m--u-1/2">
               <p>Voici les horaires auxquels une prise de rendez-vous à la session est possible. Des locations privées sont possible en dehors de ces horaires.</p>
@@ -417,58 +369,66 @@
           </div>
         </section>
         <section id="gallery" class="gallery gradient">
-          <h2>Galerie</h2>
+          <h2>Gallery</h2>
           <div class="tagembed-container">
             <div class="tagembed-socialwall" data-wall-id="86312" view-url="https://widget.tagembed.com/86312"></div>
           </div>
         </section>
         <section id="reach-us" class="reach-us">
-          <h2><strong>Comment</strong> nous joindre ?</h2>
+          <h2><strong>How</strong> to join us?</h2>
           <div class="row">
             <div class="col m--u-1/2 phone">
               <div class="row">
                 <div class="col u-1/3 m--u-1/2 text-center">
-                  <a href="javascript:document.getElementById('phone-contact').showModal()" title="Par téléphone" class="button-icon">
-                    <svg class="icon">
-                      <title>Téléphone, SMS ou Whatsapp</title>
+                  <a href="javascript:document.getElementById('phone-contact').showModal()" title="Contact us by phone" class="button-icon"><svg class="icon">
                       <use xlink:href="#call_24dp"></use>
-                    </svg>
-                  </a>
+                    </svg></a>
                 </div>
                 <div class="col u-2/3 m--u-1/2">
-                  <p>Par téléphone:</p>
+                  <p>By phone:</p>
                   <p>
-                    <a href="javascript:document.getElementById('phone-contact').showModal()" title="Par téléphone" class="contact_tel"><strong>+41 79 210 29 68</strong></a><br />
-                    <small>Stewart Clark, président (Appel, SMS ou Whatsapp)</small>
+                    <a href="javascript:document.getElementById('phone-contact').showModal()" title="Contact us by phone" class="contact_tel"><strong>+1 (123) 456-7890</strong></a><br><small>Call, WhatsApp or SMS</small>
                   </p>
-
                 </div>
               </div>
             </div>
             <div class="col m--u-1/2 email">
               <div class="row">
                 <div class="col u-1/3 m--u-1/2 text-center">
-                  <a href="mailto:admin@sncl.ch" title="mailto:admin@sncl.ch" class="button-icon">
-                    <svg class="icon">
-                      <title>Email</title>
+                  <a href="#" title="Contact us by email" class="button-icon"><svg class="icon">
                       <use xlink:href="#email_24dp"></use>
-                    </svg>
-                  </a>
+                    </svg></a>
                 </div>
                 <div class="col u-2/3 m--u-1/2">
-                  <p>Par email:</p>
-                  <p>
-                    <a href="mailto:admin@sncl.ch" title="mailto:admin@sncl.ch" class="contact_mailto"><strong>admin@sncl.ch</strong></a>
-                  </p>
+                  <p>By email:</p>
+                  <p><a href="#" title="Contact us by email" class="contact_mailto"><strong>name@example.com</strong></a></p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col text-center">
+              <a href="#" class="button primary contact_download_vCard">
+                <svg class="icon">
+                  <use xlink:href="#download_24dp"></use>
+                </svg> Save the contact
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <a href="#" class="button secondary">
+                <svg class="icon">
+                  <use xlink:href="#calendar_clock_24dp"></use>
+                </svg> Take an appointment
+              </a>
+            </div>
+          </div>
           <div>
-            <h3 class="display-inline">Suivez-nous</h3>
+            <h3 class="display-inline">Follow us</h3>
             <ul class="social_links">
               <li>
-                <a href="//www.facebook.com/SNCL.Lausanne">
+                <a href="#">
                   <svg class="icon">
                     <title>Facebook</title>
                     <use xlink:href="#facebook_24dp"></use>
@@ -476,7 +436,7 @@
                 </a>
               </li>
               <li>
-                <a href="//www.instagram.com/sncl_club_lausanne/">
+                <a href="#">
                   <svg class="icon">
                     <title>Instagram</title>
                     <use xlink:href="#instagram_24dp"></use>
@@ -487,14 +447,14 @@
           </div>
         </section>
         <section id="find-us" class="find-us gradient">
-          <h2><strong>Où</strong> nous trouver ?</h2>
+          <h2><strong>Where</strong> to find us?</h2>
           <div class="row">
             <div class="col m--u-1/2">
-              <h3>Tour haldimand, 1006 Lausanne</h3>
+              <h3>Here's our address</h3>
               <p>
-                Le Ski Nautique Club Lausanne vous accueille dans un endroit magnifique pour pratiquer les sports nautiques.<br />
-                Le plan d’eau qui nous est réservé se situe sur le lac Léman, le long des quais d’Ouchy, en face du Musée Olympique.<br />
-                Tous les départs se font depuis le ponton situé à la Tour Haldimand.
+                Proin ullamcorper ut eros ac euismod.<br />
+                Suspendisse urna massa, vulputate et varius eget, vulputate eget elit. Vestibulum placerat maximus nisl, vel rhoncus augue interdum eget.<br />
+                Nam vel sodales tortor. Donec nec pellentesque turpis, nec porttitor tellus. Duis pharetra vehicula leo, ac interdum.
               </p>
             </div>
             <div class="col m--u-1/2 text-center">
@@ -511,7 +471,7 @@
             <title>SNCL - Ski Nautique Club Lausanne</title>
             <use xlink:href="#sncl_200dp"></use>
           </svg>
-          <small>&copy; 2025 · Hosted on <a href="//github.com/sncl-ch/sncl.ch">GitHub</a></small>
+          <small>&copy; 2025 · Hosted on <a href="//github.com/ElManouche/Personal-PWA">GitHub</a></small>
         </p>
       </footer>
     </div>
